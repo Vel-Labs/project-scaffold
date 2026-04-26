@@ -17,7 +17,7 @@ This folder is meant to be copied into future projects. It is not a product impl
 7. Keep the shared local quality gate in `tests/`.
 8. Fill in `docs/hackathon/` if the project is a hackathon build.
 9. Assign work through `AGENTS.md` and `docs/governance/worktree-governance.md`.
-10. Keep `docs/decisions/DECISIONS.md`, `CHANGELOG.md`, and audit docs current.
+10. Keep `DECISIONS.md`, `CHANGELOG.md`, and audit docs current.
 
 ## Local quality gate
 

@@ -49,8 +49,9 @@ Adapters, demos, provider integrations, auth, deployment, UI work, and product-s
 - `docs/architecture/README.md`
 - `docs/architecture/REPO_BOUNDARIES.md`
 - `docs/decisions/README.md`
+- `docs/decisions/2026-04-26.md`
 - `docs/governance/AI_USAGE.md`
-- `docs/roadmaps/ROADMAP.md`
+- `ROADMAP.md`
 - `docs/roadmaps/README.md`
 - `docs/README.md`
 - `docs/agents/START_HERE.md`
@@ -75,7 +76,7 @@ Adapters, demos, provider integrations, auth, deployment, UI work, and product-s
 - `skills/phase-closeout-audit/templates/closeout-audit.md`
 - `skills/project-personalize/SKILL.md`
 - `skills/project-personalize/templates/personalization-checklist.md`
-- `docs/decisions/DECISIONS.md`
+- `DECISIONS.md`
 - `CHANGELOG.md`
 
 ## Commands Run

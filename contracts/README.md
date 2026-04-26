@@ -26,5 +26,5 @@ Any contract change must update:
 - relevant valid and invalid examples
 - contract validation tests
 - current-state or roadmap routing
-- `docs/decisions/DECISIONS.md` when the change affects architecture or authority
+- `DECISIONS.md` when the change affects architecture or authority
 - `CHANGELOG.md`

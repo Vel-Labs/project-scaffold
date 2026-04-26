@@ -10,8 +10,10 @@
       "AGENTS.md",
       "CHANGELOG.md",
       "CONTRIBUTING.md",
+      "DECISIONS.md",
       "REPO_PROFILE.json",
       "README.md",
+      "ROADMAP.md",
       "contracts/",
       "docs/",
       "package.json",
@@ -26,7 +28,9 @@
     ],
     "rootDocsAllowed": [
       "CHANGELOG.md",
-      "CONTRIBUTING.md"
+      "CONTRIBUTING.md",
+      "DECISIONS.md",
+      "ROADMAP.md"
     ],
     "note": "Root stays limited to entrypoints, conventional project files, and major implementation/doc directories. REPO_PROFILE.json is the machine-readable taxonomy."
   },
@@ -37,8 +41,10 @@
     "docs": "docs/",
     "architecture": "docs/architecture/ARCHITECTURE.md",
     "repoBoundaries": "docs/architecture/REPO_BOUNDARIES.md",
-    "roadmap": "docs/roadmaps/ROADMAP.md",
-    "decisions": "docs/decisions/DECISIONS.md",
+    "roadmapIndex": "ROADMAP.md",
+    "decisionsIndex": "DECISIONS.md",
+    "currentState": "docs/roadmaps/CURRENT_STATE_AND_NEXT.md",
+    "decisionLogs": "docs/decisions/",
     "aiUsage": "docs/governance/AI_USAGE.md",
     "agentStart": "docs/agents/START_HERE.md",
     "templateUsage": "docs/project/TEMPLATE_USAGE.md",
@@ -67,14 +73,14 @@
     "docs/architecture/REPO_BOUNDARIES.md",
     "packages/core/README.md",
     "tests/README.md",
-    "docs/roadmaps/ROADMAP.md",
+    "ROADMAP.md",
+    "DECISIONS.md",
     "docs/roadmaps/CURRENT_STATE_AND_NEXT.md"
   ],
   "governanceLocked": [
     "AGENTS.md",
     "docs/architecture/ARCHITECTURE.md",
     "docs/architecture/REPO_BOUNDARIES.md",
-    "docs/decisions/DECISIONS.md",
     "docs/governance/",
     "docs/repo-truth/",
     "REPO_PROFILE.json"

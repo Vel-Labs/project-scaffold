@@ -21,7 +21,7 @@ Project personalization turns this template into a project-specific repo without
 4. Update `contracts/` with the first project-specific canonical contract.
 5. Keep reusable enforcement in `packages/core/`.
 6. Run `npm run check`.
-7. Update `docs/decisions/DECISIONS.md`, `CHANGELOG.md`, and audit evidence if authority changed.
+7. Update `DECISIONS.md`, `CHANGELOG.md`, and audit evidence if authority changed.
 
 ## Boundaries
 

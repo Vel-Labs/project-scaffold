@@ -17,7 +17,7 @@
 - `docs/governance/AI_USAGE.md`
 - `CONTRIBUTING.md`
 - `CHANGELOG.md`
-- `docs/decisions/DECISIONS.md`
+- `DECISIONS.md`
 - `docs/hackathon/vendor-tracks.md`
 - `docs/hackathon/submission-checklist.md`
 

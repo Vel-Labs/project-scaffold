@@ -17,7 +17,7 @@
 
 ## Governance
 
-- [ ] `docs/decisions/DECISIONS.md` updated or not needed
+- [ ] `DECISIONS.md` updated or not needed
 - [ ] `CHANGELOG.md` updated
 - [ ] audit evidence updated or not needed
 - [ ] no adapters, demos, providers, deployment, or UI added unless explicitly in scope

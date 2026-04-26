@@ -13,7 +13,6 @@ docs/
   repo-truth/
   governance/
   hackathon/
-  architecture/
   roadmaps/
   templates/
   audits/
@@ -43,13 +42,17 @@ REPO_PROFILE.json machine-readable taxonomy and command index
 8. `../tests/README.md`
 9. `architecture/ARCHITECTURE.md`
 10. `architecture/REPO_BOUNDARIES.md`
-11. `repo-truth/THC_METHODOLOGY.md`
-12. `governance/code-quality-standards.md`
-13. `roadmaps/README.md`
+11. `../ROADMAP.md`
+12. `../DECISIONS.md`
+13. `roadmaps/CURRENT_STATE_AND_NEXT.md`
+14. `repo-truth/THC_METHODOLOGY.md`
+15. `governance/code-quality-standards.md`
+16. `roadmaps/README.md`
 
 ### Baseline verification
 
 ```bash
+npm run validate:scaffold
 npm run validate:contracts
 npm run test:focused
 npm test

@@ -13,5 +13,6 @@
 - [ ] Add focused tests under `tests/core/`.
 - [ ] Run `npm run check`.
 - [ ] Update roadmap/current-state routing.
-- [ ] Update `docs/decisions/DECISIONS.md` if authority changed.
+- [ ] Update `DECISIONS.md` if authority changed.
+- [ ] Update or create `docs/decisions/YYYY-MM-DD.md` if authority changed.
 - [ ] Update `CHANGELOG.md`.

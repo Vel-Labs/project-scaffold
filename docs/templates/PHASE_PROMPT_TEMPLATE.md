@@ -13,8 +13,9 @@ Read first:
 - `<absolute path to docs/README.md>`
 - `<absolute path to docs/architecture/ARCHITECTURE.md>`
 - `<absolute path to docs/architecture/REPO_BOUNDARIES.md>`
-- `<absolute path to docs/roadmaps/ROADMAP.md>`
-- `<absolute path to docs/decisions/DECISIONS.md>`
+- `<absolute path to ROADMAP.md>`
+- `<absolute path to DECISIONS.md>`
+- `<absolute path to docs/roadmaps/CURRENT_STATE_AND_NEXT.md>`
 - `<absolute path to docs/repo-truth/THC_METHODOLOGY.md>`
 - `<absolute path to docs/repo-truth/THC_IN_THIS_REPO.md>`
 - `<absolute path to docs/governance/multi-agent-workflow.md>`

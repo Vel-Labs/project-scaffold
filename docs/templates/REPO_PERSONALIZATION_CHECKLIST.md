@@ -26,8 +26,9 @@ Use this after copying the scaffold into a real project.
 ## Governance
 
 - [ ] Review `REPO_PROFILE.json`.
-- [ ] Update `docs/roadmaps/ROADMAP.md`.
+- [ ] Update `ROADMAP.md`.
 - [ ] Update `docs/roadmaps/CURRENT_STATE_AND_NEXT.md`.
-- [ ] Update `docs/decisions/DECISIONS.md` if authority changed.
+- [ ] Update `DECISIONS.md` if authority changed.
+- [ ] Update or create `docs/decisions/YYYY-MM-DD.md` if authority changed.
 - [ ] Update `CHANGELOG.md`.
 - [ ] Run `npm run check`.

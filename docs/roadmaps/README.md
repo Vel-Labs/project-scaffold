@@ -2,10 +2,14 @@
 
 Feature-level roadmaps should live here.
 
-Start with:
+Root `ROADMAP.md` is the high-level roadmap index. This folder owns operational routing and detailed roadmap plans.
 
-- `ROADMAP.md`
-- `CURRENT_STATE_AND_NEXT.md`
+## Structure
+
+- `ROADMAP.md`: root executive roadmap index.
+- `docs/roadmaps/CURRENT_STATE_AND_NEXT.md`: operational source of truth for the next agent.
+- `docs/roadmaps/features/`: detailed feature roadmap files.
+- `docs/audits/`: phase and closeout evidence.
 
 Suggested pattern:
 

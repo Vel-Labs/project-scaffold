@@ -11,8 +11,10 @@
 AGENTS.md
 CHANGELOG.md
 CONTRIBUTING.md
+DECISIONS.md
 README.md
 REPO_PROFILE.json
+ROADMAP.md
 contracts/README.md
 contracts/examples/invalid/missing-authority.json
 contracts/examples/valid/core-capability.json
@@ -28,7 +30,7 @@ docs/architecture/README.md
 docs/architecture/REPO_BOUNDARIES.md
 docs/audits/2026-04-26-contract-core-stability-baseline.md
 docs/audits/README.md
-docs/decisions/DECISIONS.md
+docs/decisions/2026-04-26.md
 docs/decisions/README.md
 docs/governance/AI_USAGE.md
 docs/governance/AUDIT_PHILOSOPHY.md
@@ -50,7 +52,6 @@ docs/repo-truth/THC_METHODOLOGY.md
 docs/repo-truth/TRUTH_BOUNDARIES.md
 docs/roadmaps/CURRENT_STATE_AND_NEXT.md
 docs/roadmaps/README.md
-docs/roadmaps/ROADMAP.md
 docs/roadmaps/features/feature-01-core-primitive.md
 docs/templates/AGENT_ASSIGNMENT_TEMPLATE.md
 docs/templates/CLOSEOUT_AUDIT_TEMPLATE.md

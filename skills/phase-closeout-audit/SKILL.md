@@ -10,8 +10,9 @@ Phase closeout is the evidence pass that turns completed work into inspectable p
 
 - `skills/phase-closeout-audit/templates/closeout-audit.md`
 - `docs/roadmaps/CURRENT_STATE_AND_NEXT.md`
-- `docs/roadmaps/ROADMAP.md`
-- `docs/decisions/DECISIONS.md`
+- `ROADMAP.md`
+- `DECISIONS.md`
+- `docs/decisions/`
 - `CHANGELOG.md`
 
 ## Workflow
@@ -20,9 +21,10 @@ Phase closeout is the evidence pass that turns completed work into inspectable p
 2. Run the broadest responsible verification, usually `npm run check`.
 3. Create or update the closeout audit note.
 4. Update roadmap/current-state routing.
-5. Update `docs/decisions/DECISIONS.md` if authority or architecture changed.
-6. Update `CHANGELOG.md`.
-7. State follow-up clearly and keep downstream work deferred unless explicitly authorized.
+5. Update `DECISIONS.md` if authority or architecture changed.
+6. Add detailed entries to the relevant dated file under `docs/decisions/` when authority or architecture changed.
+7. Update `CHANGELOG.md`.
+8. State follow-up clearly and keep downstream work deferred unless explicitly authorized.
 
 ## Required Evidence
 

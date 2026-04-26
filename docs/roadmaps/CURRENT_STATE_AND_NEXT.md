@@ -20,7 +20,18 @@ After copying into a real project, replace the generic contract example with the
 
 - Contract steward: customize `contracts/` schemas/examples for the copied project.
 - Core steward: extend `packages/core/` enforcement helpers against accepted project contracts.
-- Audit steward: keep `tests/`, `docs/decisions/DECISIONS.md`, `CHANGELOG.md`, roadmap routing, and audit evidence synchronized.
+- Audit steward: keep `tests/`, `DECISIONS.md`, `docs/decisions/YYYY-MM-DD.md`, `CHANGELOG.md`, roadmap routing, and audit evidence synchronized.
+
+## Validation before advancing
+
+```bash
+npm run validate:scaffold
+npm run validate:contracts
+npm run test:focused
+npm test
+npm run typecheck
+npm run check
+```
 
 ## Do not start yet
 

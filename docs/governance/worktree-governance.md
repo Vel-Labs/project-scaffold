@@ -22,7 +22,7 @@ Baseline workstreams should keep ownership clear:
 - contract workstream owns `contracts/**`
 - core workstream owns `packages/core/**`
 - quality-gate workstream owns `tests/**`
-- docs/audit workstream owns `docs/**`, `docs/decisions/DECISIONS.md`, `CHANGELOG.md`, and roadmap routing
+- docs/audit workstream owns `docs/**`, `DECISIONS.md`, `CHANGELOG.md`, and roadmap/decision routing
 
 ## File scope rule
 
@@ -33,7 +33,7 @@ Each worktree should declare:
 - forbidden files
 - expected integration points
 
-Shared routing files such as `docs/architecture/ARCHITECTURE.md`, `docs/roadmaps/ROADMAP.md`, `docs/decisions/DECISIONS.md`, and `CHANGELOG.md` should be updated carefully and reviewed before merge.
+Shared routing files such as `docs/architecture/ARCHITECTURE.md`, `ROADMAP.md`, `DECISIONS.md`, and `CHANGELOG.md` should be updated carefully and reviewed before merge.
 
 No worktree should add adapters, demos, or provider integrations during the contract/core baseline unless a human explicitly changes the roadmap.
 

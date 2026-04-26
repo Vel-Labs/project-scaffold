@@ -16,8 +16,9 @@ This repository is a reusable scaffold template. The job is to keep it clean, co
 6. `docs/architecture/REPO_BOUNDARIES.md`
 7. `packages/core/README.md`
 8. `tests/README.md`
-9. `docs/roadmaps/ROADMAP.md`
-10. `docs/roadmaps/CURRENT_STATE_AND_NEXT.md`
+9. `ROADMAP.md`
+10. `DECISIONS.md`
+11. `docs/roadmaps/CURRENT_STATE_AND_NEXT.md`
 
 ## Default Commands
 
@@ -40,7 +41,7 @@ These areas define operating law and should not be changed without explicit huma
 - `docs/governance/`
 - `docs/repo-truth/`
 - `docs/architecture/REPO_BOUNDARIES.md`
-- `docs/decisions/DECISIONS.md`
+- `DECISIONS.md`
 
 ## Allowed Template Work
 
@@ -67,6 +68,7 @@ Every meaningful scaffold change should update:
 
 - `REPO_PROFILE.json` when paths, commands, or taxonomy change
 - `docs/FILE_TREE.md`
-- `docs/decisions/DECISIONS.md` when authority or architecture changes
+- `DECISIONS.md` when authority or architecture changes
+- `docs/decisions/YYYY-MM-DD.md` when detailed decision entries are needed
 - `CHANGELOG.md`
 - an audit note when verification evidence matters

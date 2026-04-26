@@ -37,7 +37,8 @@ Commands:
 Closeout requirements:
 - Summarize files changed.
 - Record exact commands and results.
-- Update `docs/decisions/DECISIONS.md` if authority or architecture changed.
+- Update `DECISIONS.md` if authority or architecture changed.
+- Add or update `docs/decisions/YYYY-MM-DD.md` for detailed decision entries.
 - Update `CHANGELOG.md`.
 - Update audit evidence when verification matters.
 ```
