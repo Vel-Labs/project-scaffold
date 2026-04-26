@@ -32,4 +32,4 @@ Record what is new, what is reused, and what was generated or assisted by AI.
 
 ## AI usage
 
-Maintain `AI_USAGE.md`.
+Maintain `docs/governance/AI_USAGE.md`.

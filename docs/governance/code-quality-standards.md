@@ -71,6 +71,10 @@ Fail closed when authority is unclear.
 
 ## Tests
 
+Keep shared tests under `tests/` so the local quality gate is easy for humans and agents to run.
+
+Contract tests must consume `contracts/` directly. They should not redefine schemas, examples, lifecycle states, or fail-closed rules inline.
+
 Prefer deterministic tests for:
 
 - intent hash stability
@@ -81,3 +85,14 @@ Prefer deterministic tests for:
 - signer mismatch
 - <IDENTITY_INTEGRATION> resolution fallback
 - audit artifact shape
+
+Baseline commands:
+
+```bash
+npm run validate:scaffold
+npm run validate:contracts
+npm run test:focused
+npm test
+npm run typecheck
+npm run check
+```

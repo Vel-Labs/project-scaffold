@@ -2,6 +2,11 @@
 
 Feature-level roadmaps should live here.
 
+Start with:
+
+- `ROADMAP.md`
+- `CURRENT_STATE_AND_NEXT.md`
+
 Suggested pattern:
 
 ```text

@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://project-governance-scaffold.local/schemas/repo-profile.schema.json",
+  "title": "RepoProfile",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "templateName",
+    "purpose",
+    "rootPolicy",
+    "canonicalPaths",
+    "commands",
+    "readFirst",
+    "governanceLocked",
+    "downstreamScopes",
+    "forbiddenRootDirectoriesBeforeProjectAdoption",
+    "allowedTemplatePlaceholders",
+    "qualityGate"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "templateName": {
+      "type": "string",
+      "minLength": 3
+    },
+    "purpose": {
+      "type": "string",
+      "minLength": 12
+    },
+    "rootPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["keepAtRoot", "rootDocsAllowed", "note"],
+      "properties": {
+        "keepAtRoot": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "rootDocsAllowed": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "note": {
+          "type": "string"
+        }
+      }
+    },
+    "canonicalPaths": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "commands": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "readFirst": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "governanceLocked": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "downstreamScopes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "forbiddenRootDirectoriesBeforeProjectAdoption": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "allowedTemplatePlaceholders": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "qualityGate": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

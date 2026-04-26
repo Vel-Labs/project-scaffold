@@ -36,7 +36,10 @@ Do not touch:
 Dependencies:
 - policy schema from feature-01
 Verification:
-- npm test packages/ens-identity
+- npm run validate:contracts
+- npm run test:focused
+- npm test
+- npm run typecheck
 - docs audit note
 ```
 
@@ -46,10 +49,10 @@ Use waves instead of all-at-once parallel chaos.
 
 ### Wave 1: Foundation
 
-- core schema
-- docs
-- fixtures
-- architecture updates
+- `contracts/` lifecycle, schemas, examples, and fail-closed rules
+- `packages/core/` executable enforcement
+- `tests/` shared local quality gate
+- docs, decisions, changelog, and audit updates
 
 ### Wave 2: Adapters
 
@@ -57,6 +60,12 @@ Use waves instead of all-at-once parallel chaos.
 - <DATA_OR_COMPUTE_INTEGRATION>
 - signer
 - <EXECUTION_INTEGRATION>
+
+Do not start Wave 2 until Wave 1 passes:
+
+```bash
+npm run check
+```
 
 ### Wave 3: Example agent
 

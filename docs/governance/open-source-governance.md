@@ -13,11 +13,11 @@
 ## Required public docs
 
 - `README.md`
-- `ARCHITECTURE.md`
-- `AI_USAGE.md`
+- `docs/architecture/ARCHITECTURE.md`
+- `docs/governance/AI_USAGE.md`
 - `CONTRIBUTING.md`
 - `CHANGELOG.md`
-- `DECISIONS.md`
+- `docs/decisions/DECISIONS.md`
 - `docs/hackathon/vendor-tracks.md`
 - `docs/hackathon/submission-checklist.md`
 

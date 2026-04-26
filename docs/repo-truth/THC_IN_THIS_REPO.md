@@ -9,8 +9,8 @@ Map Truth, Hardening, and Clarity onto this project.
 Truth lives in explicit artifacts:
 
 - docs
-- contracts or schemas
-- tests
+- canonical contracts or schemas in `contracts/`
+- tests that consume `contracts/`
 - configs
 - deployed addresses
 - receipts
@@ -22,11 +22,20 @@ Truth lives in explicit artifacts:
 Hardening lives in:
 
 - validation
-- tests
+- repo-local tests under `tests/`
 - audits
 - fail-closed behavior
 - integration checks
 - adversarial review
+
+The baseline local hardening gate is:
+
+```bash
+npm run validate:contracts
+npm run test:focused
+npm test
+npm run typecheck
+```
 
 ## Clarity
 
@@ -46,3 +55,5 @@ Every major feature should answer:
 1. What is true?
 2. How was it hardened?
 3. How can someone else inspect it?
+
+For this repo, the default answer starts with `contracts/`, `packages/core/`, `tests/`, and the relevant audit note.

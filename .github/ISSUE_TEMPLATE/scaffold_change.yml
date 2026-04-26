@@ -1,0 +1,28 @@
+name: Scaffold change
+description: Propose a governance, contract, test, docs, or agent-workflow scaffold change.
+title: "[scaffold]: "
+labels: ["scaffold"]
+body:
+  - type: textarea
+    id: objective
+    attributes:
+      label: Objective
+      description: What should change?
+    validations:
+      required: true
+  - type: textarea
+    id: boundaries
+    attributes:
+      label: Boundaries
+      description: What must stay out of scope?
+    validations:
+      required: true
+  - type: textarea
+    id: verification
+    attributes:
+      label: Verification
+      description: Which commands or checks should prove this?
+      value: |
+        - npm run check
+    validations:
+      required: true

@@ -1,0 +1,7 @@
+{
+  "PROJECT_NAME": "Project Governance Scaffold",
+  "PACKAGE_NAME": "project-governance-scaffold",
+  "STATE_PROJECT_GOAL": "provide a reusable governance scaffold for future projects",
+  "ONE_SENTENCE_THESIS": "Contract-first scaffolding reduces hidden trust for humans and agents.",
+  "OWNED_BOUNDARY": "template governance, contracts, core enforcement, local tests, and audit routing"
+}

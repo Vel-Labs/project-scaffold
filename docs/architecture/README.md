@@ -1,8 +1,13 @@
-# Architecture Docs
+# Architecture
 
-Add technical architecture references here.
+Architecture docs describe system shape, ownership boundaries, lifecycle, modules, and responsibility boundaries.
 
-Suggested files:
+Start with:
+
+- `ARCHITECTURE.md`
+- `REPO_BOUNDARIES.md`
+
+Optional future files:
 
 - `system-overview.md`
 - `module-boundaries.md`

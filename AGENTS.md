@@ -18,9 +18,9 @@ Build `<PROJECT_NAME>` in a way that is clear, auditable, readable, and safe to 
 ## Required reading before structural changes
 
 - `README.md`
-- `ARCHITECTURE.md`
-- `REPO_BOUNDARIES.md`
-- `ROADMAP.md`
+- `docs/architecture/ARCHITECTURE.md`
+- `docs/architecture/REPO_BOUNDARIES.md`
+- `docs/roadmaps/ROADMAP.md`
 - `docs/README.md`
 - `docs/repo-truth/THC_METHODOLOGY.md`
 - `docs/repo-truth/THC_IN_THIS_REPO.md`
@@ -37,7 +37,7 @@ Build `<PROJECT_NAME>` in a way that is clear, auditable, readable, and safe to 
 - Files above 500 lines require extraction or written justification.
 - Comments should feel human and explain why a boundary exists.
 - Update docs when behavior changes.
-- Record architectural decisions in `DECISIONS.md`.
+- Record architectural decisions in `docs/decisions/DECISIONS.md`.
 - Record notable changes in `CHANGELOG.md`.
 
 ## Multi-agent development rules

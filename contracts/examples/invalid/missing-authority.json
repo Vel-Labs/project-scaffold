@@ -1,0 +1,10 @@
+{
+  "schema": "project-capability",
+  "id": "missing-authority",
+  "lifecycle": "active",
+  "summary": "This artifact is invalid because it omits the authority boundary.",
+  "ownedBy": "packages/core/",
+  "failClosed": [
+    "Block when authority is missing."
+  ]
+}

@@ -17,6 +17,13 @@ git worktree add ../<project>-docs -b feature/docs-hardening
 
 One worktree owns one workstream. Cross-cutting changes require a decision note or a short coordination note in the relevant roadmap file.
 
+Baseline workstreams should keep ownership clear:
+
+- contract workstream owns `contracts/**`
+- core workstream owns `packages/core/**`
+- quality-gate workstream owns `tests/**`
+- docs/audit workstream owns `docs/**`, `docs/decisions/DECISIONS.md`, `CHANGELOG.md`, and roadmap routing
+
 ## File scope rule
 
 Each worktree should declare:
@@ -26,7 +33,9 @@ Each worktree should declare:
 - forbidden files
 - expected integration points
 
-Shared root files such as `ARCHITECTURE.md`, `ROADMAP.md`, `DECISIONS.md`, and `CHANGELOG.md` should be updated carefully and reviewed before merge.
+Shared routing files such as `docs/architecture/ARCHITECTURE.md`, `docs/roadmaps/ROADMAP.md`, `docs/decisions/DECISIONS.md`, and `CHANGELOG.md` should be updated carefully and reviewed before merge.
+
+No worktree should add adapters, demos, or provider integrations during the contract/core baseline unless a human explicitly changes the roadmap.
 
 ## Sync rule
 
@@ -43,6 +52,7 @@ Before merging:
 ```bash
 git status
 git diff --stat main...HEAD
+npm run check
 ```
 
 ## Conflict posture

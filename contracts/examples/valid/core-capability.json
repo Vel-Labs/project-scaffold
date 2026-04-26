@@ -1,0 +1,15 @@
+{
+  "schema": "project-capability",
+  "id": "core-contract-validation",
+  "lifecycle": "active",
+  "summary": "Validates canonical contracts and examples before feature implementation.",
+  "ownedBy": "packages/core/",
+  "authority": {
+    "canonicalSource": "contracts/",
+    "implementationBoundary": "packages/core/"
+  },
+  "failClosed": [
+    "Block when contract schemas are missing or invalid.",
+    "Block when valid examples fail or invalid examples pass."
+  ]
+}
