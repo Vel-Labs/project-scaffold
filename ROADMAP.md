@@ -16,7 +16,7 @@ Status: established and runnable.
 
 ## Immediate Next Action
 
-After copying into a real project, replace the generic contract example with the project's first canonical contract and expand `packages/core/` to enforce it.
+After copying into a real project, replace the generic contract example with the project's first canonical contract and expand `packages/core/` to enforce it. For LLM-backed projects, customize the provider contract before adding live adapter code.
 
 See `docs/roadmaps/CURRENT_STATE_AND_NEXT.md` for operational routing.
 
@@ -25,10 +25,11 @@ See `docs/roadmaps/CURRENT_STATE_AND_NEXT.md` for operational routing.
 1. Governance and scaffold baseline.
 2. Project-specific contract authority.
 3. Core enforcement against accepted contracts.
-4. First integration.
-5. Working example or demo.
-6. Hardening and polish.
-7. Stretch features.
+4. LLM provider contract and readiness checks when needed.
+5. First integration.
+6. Working example or demo.
+7. Hardening and polish.
+8. Stretch features.
 
 ## Roadmap Docs
 

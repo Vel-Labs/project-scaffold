@@ -8,6 +8,7 @@ Anything that defines project meaning, lifecycle state, schema shape, example sh
 
 - `lifecycle.md`: lifecycle states and allowed movement.
 - `fail-closed-rules.md`: conditions that must block promotion or execution.
+- `llm-provider-contract.md`: provider contract and readiness rules for LLM integrations.
 - `schemas/`: JSON Schemas for canonical project artifacts.
 - `examples/valid/`: examples that must pass contract validation.
 - `examples/invalid/`: examples that must fail contract validation.

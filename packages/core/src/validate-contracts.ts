@@ -3,7 +3,10 @@ import path from "node:path";
 import { readJsonFiles } from "./read-json-files.js";
 import type { ContractJsonFile, ContractValidationResult } from "./types.js";
 
-const schemaByName = new Map([["project-capability", "project-capability.schema.json"]]);
+const schemaByName = new Map([
+  ["project-capability", "project-capability.schema.json"],
+  ["llm-provider", "llm-provider.schema.json"]
+]);
 
 export async function validateContractCorpus(
   contractsDir: string

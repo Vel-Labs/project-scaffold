@@ -1,0 +1,53 @@
+{
+  "schema": "llm-provider",
+  "id": "minimax-m2-7",
+  "lifecycle": "proposed",
+  "provider": "MiniMax",
+  "mode": "anthropic-compatible",
+  "ownedBy": "packages/core/",
+  "authority": {
+    "canonicalSource": "contracts/",
+    "implementationBoundary": "packages/core/"
+  },
+  "environmentVariables": [
+    {
+      "name": "LLM_PROVIDER",
+      "required": true,
+      "secret": false,
+      "purpose": "Selects the active provider adapter."
+    },
+    {
+      "name": "MINIMAX_API_KEY",
+      "required": true,
+      "secret": true,
+      "purpose": "Authenticates requests to MiniMax."
+    },
+    {
+      "name": "MINIMAX_BASE_URL",
+      "required": true,
+      "secret": false,
+      "purpose": "Declares the provider endpoint root."
+    },
+    {
+      "name": "MINIMAX_MODEL",
+      "required": true,
+      "secret": false,
+      "purpose": "Declares the model id sent to the provider."
+    }
+  ],
+  "modelDefaults": {
+    "model": "MiniMax-M2.7",
+    "maxOutputTokens": 4000,
+    "contextWindowTokens": 204800
+  },
+  "safety": {
+    "fakeFallbackRequired": true,
+    "forbidSecretLogging": true,
+    "forbidAutonomousExternalActions": true
+  },
+  "manualGates": [
+    "Sending email requires explicit human approval.",
+    "Submitting applications requires explicit human approval.",
+    "Publishing generated artifacts requires explicit human approval."
+  ]
+}

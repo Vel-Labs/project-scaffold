@@ -10,6 +10,7 @@ Use decisions for durable architecture, product, governance, source-of-truth, an
 - `packages/core/` is the only reusable enforcement boundary in the template baseline.
 - `tests/` is the shared local quality gate and must consume `contracts/` instead of redefining truth.
 - `REPO_PROFILE.json` is the machine-readable taxonomy, command index, read-first map, and clean-root policy source.
+- LLM integrations start with provider contracts, environment-key declarations, fake fallback, readiness checks, and manual gates before live adapters.
 - Root `skills/` is the canonical repo-local skills location.
 - Root stays intentionally clean: root files are entrypoints, high-visibility indexes, conventional project files, package/config files, and major directories.
 - Root `ROADMAP.md` and `DECISIONS.md` are indexes; detailed roadmap and decision truth lives under `docs/`.
@@ -22,10 +23,12 @@ Use decisions for durable architecture, product, governance, source-of-truth, an
 - 2026-04-26: Root skills folder. See `docs/decisions/2026-04-26.md`.
 - 2026-04-26: Clean root documentation layout. See `docs/decisions/2026-04-26.md`.
 - 2026-04-26: Roadmap and decisions index/detail split. See `docs/decisions/2026-04-26.md`.
+- 2026-05-12: LLM provider contract/readiness baseline. See `docs/decisions/2026-05-12.md`.
 
 ## Decision Logs
 
 - `docs/decisions/2026-04-26.md`
+- `docs/decisions/2026-05-12.md`
 
 ## Active Unresolved Decision Questions
 

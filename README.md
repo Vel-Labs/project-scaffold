@@ -13,11 +13,12 @@ This folder is meant to be copied into future projects. It is not a product impl
 3. Fill in `docs/project/PROJECT_BRIEF.md`.
 4. Read `docs/project/TEMPLATE_USAGE.md`.
 5. Define canonical project truth in `contracts/` before implementation.
-6. Put reusable enforcement in `packages/core/`.
-7. Keep the shared local quality gate in `tests/`.
-8. Fill in `docs/hackathon/` if the project is a hackathon build.
-9. Assign work through `AGENTS.md` and `docs/governance/worktree-governance.md`.
-10. Keep `DECISIONS.md`, `CHANGELOG.md`, and audit docs current.
+6. For LLM-backed projects, start from `docs/integrations/LLM_PROVIDER_INTEGRATION.md`.
+7. Put reusable enforcement in `packages/core/`.
+8. Keep the shared local quality gate in `tests/`.
+9. Fill in `docs/hackathon/` if the project is a hackathon build.
+10. Assign work through `AGENTS.md` and `docs/governance/worktree-governance.md`.
+11. Keep `DECISIONS.md`, `CHANGELOG.md`, and audit docs current.
 
 ## Local quality gate
 
@@ -84,3 +85,5 @@ tests/
 Do not rely on hidden trust. Make system truth explicit, harden it, and turn it into clarity that other people can inspect.
 
 Adapters, demos, and provider integrations are downstream of this baseline and should not start until contract validation and core enforcement remain stable.
+
+LLM provider work starts with contracts, environment-key declarations, readiness checks, fake fallback, and manual gates. Live provider adapters belong to copied projects after those checks are in place.

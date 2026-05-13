@@ -16,8 +16,11 @@
 - vendor-specific behavior
 - authentication mechanics
 - raw diagnostics
+- live LLM SDK or HTTP adapter code
 
 Integrations are downstream of this baseline. Do not add adapter or provider code until `contracts/`, `packages/core/`, and `tests/` are stable.
+
+The scaffold may include LLM provider schemas, examples, and readiness helpers so copied projects can add providers quickly. It must not include real credentials or live provider calls.
 
 ## What user-facing surfaces own
 

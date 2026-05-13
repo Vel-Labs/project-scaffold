@@ -16,10 +16,14 @@ README.md
 REPO_PROFILE.json
 ROADMAP.md
 contracts/README.md
+contracts/examples/invalid/llm-provider-missing-secret-boundary.json
 contracts/examples/invalid/missing-authority.json
 contracts/examples/valid/core-capability.json
+contracts/examples/valid/minimax-llm-provider.json
 contracts/fail-closed-rules.md
 contracts/lifecycle.md
+contracts/llm-provider-contract.md
+contracts/schemas/llm-provider.schema.json
 contracts/schemas/project-capability.schema.json
 contracts/schemas/repo-profile.schema.json
 docs/FILE_TREE.md
@@ -29,8 +33,10 @@ docs/architecture/ARCHITECTURE.md
 docs/architecture/README.md
 docs/architecture/REPO_BOUNDARIES.md
 docs/audits/2026-04-26-contract-core-stability-baseline.md
+docs/audits/2026-05-12-llm-provider-scaffold-baseline.md
 docs/audits/README.md
 docs/decisions/2026-04-26.md
+docs/decisions/2026-05-12.md
 docs/decisions/README.md
 docs/governance/AI_USAGE.md
 docs/governance/AUDIT_PHILOSOPHY.md
@@ -44,6 +50,7 @@ docs/hackathon/README.md
 docs/hackathon/rules.md
 docs/hackathon/submission-checklist.md
 docs/hackathon/vendor-tracks.md
+docs/integrations/LLM_PROVIDER_INTEGRATION.md
 docs/project/PROJECT_BRIEF.md
 docs/project/TEMPLATE_USAGE.md
 docs/repo-truth/README.md
@@ -64,6 +71,7 @@ package-lock.json
 package.json
 packages/core/README.md
 packages/core/src/index.ts
+packages/core/src/llm-provider-readiness.ts
 packages/core/src/read-json-files.ts
 packages/core/src/types.ts
 packages/core/src/validate-contracts.ts

@@ -34,6 +34,8 @@ Owns vendor, protocol, service, or external-system adapters.
 
 Status: downstream. Do not start adapters or provider integrations before the contract/core quality gate is stable.
 
+LLM providers follow the same boundary. The scaffold may define provider contracts, environment keys, readiness checks, and manual gates; copied projects own live SDK or HTTP adapters after their local contract is accepted.
+
 ### 4. User or operator surface
 
 Owns presentation and user interaction.

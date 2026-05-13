@@ -2,6 +2,14 @@
 
 All notable repo changes should be logged here.
 
+## 2026-05-12
+
+- Added an LLM provider contract/readiness baseline with MiniMax M2.7 example, provider schema, core readiness helper, tests, and integration docs.
+
+## 2026-05-07
+
+- Updated `AGENTS.md` with scaffold stewardship, generated-repo `AGENTS.md` baseline, and context/output-discipline guidance for future coding repos.
+
 ## YYYY-MM-DD
 
 - Added initial governance scaffold.
