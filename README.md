@@ -58,6 +58,7 @@ They write ignored artifacts under `.agent-context/` and `.agent-runs/`.
 Routed memory keeps token use low: start from `AGENTS.md`, `REPO_PROFILE.json`, and `docs/agents/CONTEXT_ROUTING.md`, then load only the files relevant to the task.
 
 `REPO_PROFILE.json` is the machine-readable repo taxonomy and command index for humans and agents.
+`CLI_INDEX.md` is the human-readable command index.
 
 ## Repository map
 

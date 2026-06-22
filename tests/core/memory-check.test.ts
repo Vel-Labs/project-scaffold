@@ -23,6 +23,7 @@ describe("memory check", () => {
     await writeFile(path.join(repo, "skills", "known-skill", "SKILL.md"), "---\nname: known-skill\ndescription: test\nlicense: test\n---\n");
     await writeFile(path.join(repo, "package.json"), JSON.stringify({ scripts: { check: "echo ok" } }));
     await writeFile(path.join(repo, "REPO_PROFILE.json"), JSON.stringify({ readFirst: ["README.md"] }));
+    await writeFile(path.join(repo, "CLI_INDEX.md"), "`npm run check`\n");
     await writeFile(path.join(repo, "README.md"), "[missing](docs/missing.md)\n\n```bash\nnpm run gone\n```\n");
     await writeFile(path.join(repo, "docs", "agents", "ROUTING.md"), "`known-route`\n");
     await writeFile(
@@ -36,5 +37,22 @@ describe("memory check", () => {
     expect(result.errors.join("\n")).toContain("links to missing local path");
     expect(result.errors.join("\n")).toContain("references missing npm script: gone");
     expect(result.errors.join("\n")).toContain("governance references missing skill folder: missing-skill");
+  });
+
+  it("warns when CLI_INDEX omits package scripts", async () => {
+    const repo = await mkdtemp(path.join(os.tmpdir(), "project-scaffold-cli-index-"));
+    await mkdir(path.join(repo, "docs", "agents"), { recursive: true });
+    await mkdir(path.join(repo, "contracts", "agent-governance"), { recursive: true });
+    await writeFile(path.join(repo, "package.json"), JSON.stringify({ scripts: { check: "echo ok", lint: "echo lint" } }));
+    await writeFile(path.join(repo, "REPO_PROFILE.json"), JSON.stringify({ readFirst: ["README.md"] }));
+    await writeFile(path.join(repo, "README.md"), "npm run check\n");
+    await writeFile(path.join(repo, "CLI_INDEX.md"), "`npm run check`\n");
+    await writeFile(path.join(repo, "docs", "agents", "ROUTING.md"), "");
+    await writeFile(path.join(repo, "contracts", "agent-governance", "router.json"), JSON.stringify({ routes: [] }));
+
+    const result = await runMemoryCheck(repo);
+
+    expect(result.ok).toBe(true);
+    expect(result.warnings).toContain("CLI_INDEX.md does not document package script: lint");
   });
 });

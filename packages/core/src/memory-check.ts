@@ -48,6 +48,7 @@ export async function runMemoryCheck(repoRoot: string): Promise<MemoryCheckResul
   const packageJson = await readJson<PackageJson>(repoRoot, "package.json");
   const repoProfile = await readJson<RepoProfile>(repoRoot, "REPO_PROFILE.json");
   const router = await readJson<Router>(repoRoot, "contracts/agent-governance/router.json");
+  const cliIndex = await readFile(path.join(repoRoot, "CLI_INDEX.md"), "utf8");
   const scripts = packageJson.scripts ?? {};
   let links = 0;
   let commands = 0;
@@ -55,6 +56,13 @@ export async function runMemoryCheck(repoRoot: string): Promise<MemoryCheckResul
   for (const file of repoProfile.readFirst) {
     if (!files.includes(file.replace(/\/$/, "")) && !files.some((candidate) => candidate.startsWith(file))) {
       errors.push(`REPO_PROFILE readFirst points to missing path: ${file}`);
+    }
+  }
+
+  for (const scriptName of Object.keys(scripts)) {
+    const command = scriptName === "test" ? "npm test" : `npm run ${scriptName}`;
+    if (!cliIndex.includes(`\`${command}\``)) {
+      warnings.push(`CLI_INDEX.md does not document package script: ${scriptName}`);
     }
   }
 

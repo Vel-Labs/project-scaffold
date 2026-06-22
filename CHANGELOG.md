@@ -12,6 +12,7 @@ All notable repo changes should be logged here.
 - Added beginner-friendly role routing with docs, content, research, and QA personas plus matching repo-local skills and role catalog.
 - Added `desloppify-review` and `human-copy-review` skills, plus a quality-review route for creating `DESLOPPIFY.md` cleanup backlogs before fixes start.
 - Added routed-memory and drift-check improvements: `LOG.md`, `CONTEXT_ROUTING.md`, artifact timeline convention, scaffold drift guidance, compatibility boundaries, `scaffold:memory-check`, pattern capture, and worktree shipping checklist skills.
+- Added `CLI_INDEX.md` as the human-readable command reference with evergreen, agent-runtime, adoption, and flag sections.
 
 ## 2026-05-12
 

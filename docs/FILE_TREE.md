@@ -10,6 +10,7 @@
 .gitignore
 AGENTS.md
 CHANGELOG.md
+CLI_INDEX.md
 CONTRIBUTING.md
 DECISIONS.md
 LOG.md

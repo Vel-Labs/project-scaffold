@@ -9,6 +9,7 @@
       ".gitignore",
       "AGENTS.md",
       "CHANGELOG.md",
+      "CLI_INDEX.md",
       "CONTRIBUTING.md",
       "DECISIONS.md",
       "LOG.md",
@@ -29,6 +30,7 @@
     ],
     "rootDocsAllowed": [
       "CHANGELOG.md",
+      "CLI_INDEX.md",
       "CONTRIBUTING.md",
       "DECISIONS.md",
       "LOG.md",
@@ -46,6 +48,7 @@
     "roadmapIndex": "ROADMAP.md",
     "decisionsIndex": "DECISIONS.md",
     "workLog": "LOG.md",
+    "cliIndex": "CLI_INDEX.md",
     "currentState": "docs/roadmaps/CURRENT_STATE_AND_NEXT.md",
     "compatibility": "docs/architecture/COMPATIBILITY.md",
     "decisionLogs": "docs/decisions/",
@@ -95,6 +98,7 @@
   "readFirst": [
     "AGENTS.md",
     "REPO_PROFILE.json",
+    "CLI_INDEX.md",
     "docs/agents/START_HERE.md",
     "docs/project/TEMPLATE_USAGE.md",
     "docs/project/NEW_PROJECT_CHECKLIST.md",
