@@ -2,9 +2,11 @@ import { execFileSync } from "node:child_process";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { sha256Text } from "./file-utils.js";
+import { validateReceiptObject } from "./receipt-schema.js";
 
 export type ManualLoopOptions = {
   manifestPath: string;
+  receiptPath: string;
   verifyCommand: string;
   maxIterations?: number;
 };
@@ -40,6 +42,12 @@ export async function runManualLoop(
       return { ok: false, errors: [`manifest missing ${required}`] };
     }
   }
+  const receiptFile = path.resolve(repoRoot, options.receiptPath);
+  const receipt = JSON.parse(await readFile(receiptFile, "utf8")) as unknown;
+  const receiptValidation = await validateReceiptObject(repoRoot, receipt);
+  if (!receiptValidation.ok) {
+    return { ok: false, errors: receiptValidation.errors };
+  }
 
   const changedFilesBefore = gitLines(repoRoot, ["diff", "--name-only"]).length;
   const maxChangedFiles = limits?.maxChangedFiles ?? 40;
@@ -69,6 +77,8 @@ export async function runManualLoop(
     runId,
     loopId: loop.id,
     stoppedAt: new Date().toISOString(),
+    manifestPath: path.relative(repoRoot, path.resolve(repoRoot, options.manifestPath)),
+    receiptPath: path.relative(repoRoot, receiptFile),
     iterations,
     objectiveVerifier: options.verifyCommand,
     exitCode,

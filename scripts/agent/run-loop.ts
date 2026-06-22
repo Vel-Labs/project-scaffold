@@ -1,13 +1,14 @@
 import { runManualLoop } from "../../packages/core/src/index.js";
 
 const args = parseArgs(process.argv.slice(2));
-if (!args.manifest || !args.verify_command) {
-  console.error("Usage: npm run agent:run-loop -- --manifest .agent-runs/<run-id>/manifest.json --verify-command \"npm run test:focused\"");
+if (!args.manifest || !args.receipt || !args.verify_command) {
+  console.error("Usage: npm run agent:run-loop -- --manifest .agent-runs/<run-id>/manifest.json --receipt .agent-runs/<run-id>/receipt-draft.json --verify-command \"npm run test:focused\"");
   process.exit(1);
 }
 
 const result = await runManualLoop(process.cwd(), {
   manifestPath: args.manifest,
+  receiptPath: args.receipt,
   verifyCommand: args.verify_command,
   maxIterations: args.max_iterations ? Number(args.max_iterations) : undefined
 });

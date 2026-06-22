@@ -136,9 +136,15 @@ describe("runtime evidence helpers", () => {
     });
     expect(run.ok).toBe(true);
     if (!run.ok) return;
+    const draft = await draftAgentReceipt(repo, { manifestPath: run.manifestFile });
+    expect(draft.ok).toBe(true);
+    if (!draft.ok) return;
+    const receiptFile = path.join(repo, ".agent-runs", "loop-test", "receipt-draft.json");
+    await writeFile(receiptFile, JSON.stringify(draft.receipt));
 
     const result = await runManualLoop(repo, {
       manifestPath: run.manifestFile,
+      receiptPath: receiptFile,
       verifyCommand: "node -e \"process.exit(0)\"",
       maxIterations: 1
     });

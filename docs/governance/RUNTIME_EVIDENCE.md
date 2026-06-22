@@ -41,7 +41,7 @@ npm run agent:check-context -- .agent-runs/<run-id>/manifest.json
 npm run agent:receipt -- --draft --manifest .agent-runs/<run-id>/manifest.json
 npm run agent:write-receipt -- path/to/receipt.json
 npm run agent:receipt -- --input path/to/receipt.json --promote --audit-reason "reviewed audit evidence"
-npm run agent:run-loop -- --manifest .agent-runs/<run-id>/manifest.json --verify-command "npm run test:focused"
+npm run agent:run-loop -- --manifest .agent-runs/<run-id>/manifest.json --receipt .agent-runs/<run-id>/receipt-draft.json --verify-command "npm run test:focused"
 ```
 
 These helpers are local-only. They do not call external services, merge, release, deploy, or schedule work. Hooks remain opt-in and disabled by default.
@@ -55,7 +55,7 @@ These helpers are local-only. They do not call external services, merge, release
 
 The manifest links assignment, context pack, route, branch, git revision, and source hashes. `agent:check-context` compares that manifest with current repository state and fails if the evidence is stale.
 
-`agent:receipt --draft` creates a schema-valid draft from the run manifest and current git state. Promotion to `docs/audits/` requires an explicit audit reason and writes a small promotion sidecar next to the promoted receipt.
+`agent:receipt --draft` creates a schema-valid draft from the run manifest and current git state. The manual loop runner requires an assignment/context manifest and a schema-valid receipt before it can execute a verifier command. Promotion to `docs/audits/` requires an explicit audit reason and writes a small promotion sidecar next to the promoted receipt.
 
 Generated files are ignored:
 
