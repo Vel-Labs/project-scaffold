@@ -9,16 +9,18 @@ This scaffold template now has a contract/core stability baseline:
 - `tests/` is the shared local quality gate and reads from `contracts/`.
 - `REPO_PROFILE.json` owns the machine-readable repo taxonomy and command index.
 - `contracts/schemas/llm-provider.schema.json` and `packages/core/src/llm-provider-readiness.ts` provide the baseline LLM provider contract/readiness layer without adding live adapter code.
-- `contracts/agent-governance/`, `contracts/schemas/agent-*.schema.json`, `packages/core/src/validate-governance.ts`, `scripts/agent/validate-governance.ts`, and `scripts/agent/validate-assignment.ts` provide agent governance, assignment, context-profile, and receipt-policy validation without adding runtime automation.
-- `scripts/agent/build-context-pack.ts` and `scripts/agent/write-receipt.ts` provide local-only runtime evidence helpers that write ignored `.agent-context/` and `.agent-runs/` artifacts.
-- `scripts/agent/generate-assignment.ts` creates route-aligned local assignments from the canonical router and assignment template.
+- `contracts/agent-governance/`, `contracts/schemas/agent-*.schema.json`, `packages/core/src/validate-governance.ts`, `scripts/agent/validate-governance.ts`, and `scripts/agent/validate-assignment.ts` provide agent governance, assignment, context-profile, receipt-policy, hook, loop, and learning validation.
+- `scripts/agent/generate-assignment.ts` creates task-type-aware, route-aligned local assignments from the canonical router and assignment template.
+- `scripts/agent/run-init.ts`, `scripts/agent/build-context-pack.ts`, `scripts/agent/check-context.ts`, `scripts/agent/receipt.ts`, and `scripts/agent/write-receipt.ts` provide local-only runtime evidence helpers that write ignored `.agent-context/` and `.agent-runs/` artifacts.
+- `scripts/agent/preflight.ts`, `scripts/agent/stop-verify.ts`, and `scripts/agent/run-loop.ts` provide opt-in local checks and a manual-only bounded loop runner.
+- `docs/governance/LEARNINGS.md` and `contracts/agent-governance/learnings/` provide advisory learning distillation without overriding canonical contracts.
 - `docs/agents/START_HERE.md` and root `skills/` reduce fresh-agent orientation cost.
 - `.github/` provides minimal issue, PR, and CI quality-gate hygiene.
 - `docs/audits/2026-04-26-contract-core-stability-baseline.md` records closeout evidence.
 
 ## Immediate next action
 
-Run the full agent governance and assignment validation path, then keep those contracts as the boundary for scoped local changes. After copying into a real project, replace or extend the generic contract examples with the project's first canonical domain contract. If the project needs an LLM, customize the provider contract and pass readiness checks before adding live adapter code.
+Run the full scaffold check after each structural change, then keep local runtime artifacts ignored unless a receipt is explicitly promoted. After copying into a real project, use `docs/project/NEW_PROJECT_CHECKLIST.md`, customize governance contracts, and initialize the first scoped run with `agent:run-init`.
 
 ## Recommended parallelization
 
@@ -35,6 +37,7 @@ npm run validate:scaffold
 npm run validate:contracts
 npm run validate:agents
 npm run validate:assignment
+npm run scaffold:adoption-check
 npm run test:focused
 npm run test:governance
 npm run test:security
@@ -50,4 +53,4 @@ npm run check
 - provider integrations
 - browser/operator surfaces
 - deployment workflows
-- live agent hooks, scheduled loops, generated context packs, receipt writers, learning distillers, merge/release/deploy automation, and external-write connectors
+- live agent hooks, scheduled loops, merge/release/deploy automation, and external-write connectors

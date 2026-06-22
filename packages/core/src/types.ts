@@ -39,6 +39,7 @@ export type GovernanceValidationSuccess = {
     hooks: number;
     receipts: number;
     receiptPolicies: number;
+    learnings: number;
   };
 };
 

@@ -1,0 +1,16 @@
+{
+  "schema": "agent-learning",
+  "id": "context-staleness",
+  "lifecycle": "accepted",
+  "ownedBy": "docs/governance/LEARNINGS.md",
+  "summary": "Context packs must be refreshed when git revision or source hashes drift.",
+  "evidence": ["docs/governance/RUNTIME_EVIDENCE.md", "contracts/agent-governance/context-profiles/scoped-change.json"],
+  "guidance": {
+    "do": ["Run agent:check-context before using an older context pack as evidence."],
+    "doNot": ["Treat a stale context pack as current authority."]
+  },
+  "authority": {
+    "level": "advisory",
+    "mayOverrideContracts": false
+  }
+}

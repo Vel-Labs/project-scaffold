@@ -11,15 +11,22 @@
     "validate:contracts": "tsx scripts/validate-contracts.ts",
     "validate:agents": "tsx scripts/agent/validate-governance.ts",
     "validate:assignment": "tsx scripts/agent/validate-assignment.ts",
+    "scaffold:adoption-check": "tsx scripts/validate-adoption.ts",
     "agent:assign": "tsx scripts/agent/generate-assignment.ts",
+    "agent:run-init": "tsx scripts/agent/run-init.ts",
     "agent:build-context": "tsx scripts/agent/build-context-pack.ts",
+    "agent:check-context": "tsx scripts/agent/check-context.ts",
+    "agent:receipt": "tsx scripts/agent/receipt.ts",
     "agent:write-receipt": "tsx scripts/agent/write-receipt.ts",
+    "agent:preflight": "tsx scripts/agent/preflight.ts",
+    "agent:stop-verify": "tsx scripts/agent/stop-verify.ts",
+    "agent:run-loop": "tsx scripts/agent/run-loop.ts",
     "test:focused": "vitest run tests/contracts tests/core tests/governance tests/security",
     "test:governance": "vitest run tests/governance",
     "test:security": "vitest run tests/security",
     "test": "vitest run tests",
     "typecheck": "tsc --noEmit",
-    "check": "npm run validate:scaffold && npm run validate:contracts && npm run validate:agents && npm run validate:assignment && npm run test:focused && npm run test:governance && npm run test:security && npm run test && npm run typecheck"
+    "check": "npm run validate:scaffold && npm run validate:contracts && npm run validate:agents && npm run validate:assignment && npm run scaffold:adoption-check && npm run test:focused && npm run test:governance && npm run test:security && npm run test && npm run typecheck"
   },
   "devDependencies": {
     "@types/node": "^20.12.12",

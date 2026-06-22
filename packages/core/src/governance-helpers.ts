@@ -12,7 +12,8 @@ export const knownGovernanceSchemas = new Set([
   "agent-hook-policy",
   "agent-source-authority",
   "agent-receipt",
-  "agent-receipt-policy"
+  "agent-receipt-policy",
+  "agent-learning"
 ]);
 
 export const lifecycleStates = new Set([

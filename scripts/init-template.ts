@@ -94,7 +94,7 @@ async function readJson<T>(file: string): Promise<T> {
 }
 
 async function listEditableFiles(dir: string, prefix = ""): Promise<string[]> {
-  const ignored = new Set([".git", "node_modules"]);
+  const ignored = new Set([".git", "node_modules", ".agent-context", ".agent-runs", "gpt-pro-audit"]);
   const entries = await readdir(path.join(dir, prefix), { withFileTypes: true });
   const files: string[] = [];
 

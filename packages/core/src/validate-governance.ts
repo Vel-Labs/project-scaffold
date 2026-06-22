@@ -91,6 +91,7 @@ export function validateGovernanceArtifacts(
   validateSourceAuthority(bySchema.get("agent-source-authority") ?? [], errors);
   validateReceipts(bySchema.get("agent-receipt") ?? [], errors);
   validateReceiptPolicies(bySchema.get("agent-receipt-policy") ?? [], errors);
+  validateLearnings(bySchema.get("agent-learning") ?? [], errors);
 
   if (errors.length > 0) {
     return { ok: false, errors };
@@ -107,7 +108,8 @@ export function validateGovernanceArtifacts(
       loops: bySchema.get("agent-loop")?.length ?? 0,
       hooks: countArrayItems(bySchema.get("agent-hook-policy") ?? [], "hooks"),
       receipts: bySchema.get("agent-receipt")?.length ?? 0,
-      receiptPolicies: bySchema.get("agent-receipt-policy")?.length ?? 0
+      receiptPolicies: bySchema.get("agent-receipt-policy")?.length ?? 0,
+      learnings: bySchema.get("agent-learning")?.length ?? 0
     }
   };
 }
@@ -320,7 +322,7 @@ function validateHookPolicies(artifacts: ContractJsonFile[], errors: string[]): 
         command.startsWith("/") ||
         command.includes("://") ||
         command.startsWith("..") ||
-        (!command.startsWith("scripts/") && !command.startsWith("npm run "))
+        (!command.startsWith("scripts/") && command !== "npm" && !command.startsWith("npm run "))
       ) {
         errors.push(`${artifact.file}: hook "${id}" uses an unsafe command path "${command}"`);
       }
@@ -355,6 +357,20 @@ function validateReceipts(artifacts: ContractJsonFile[], errors: string[]): void
     }
     if (readArray(value, "verificationEvidence").length === 0) {
       errors.push(`${artifact.file}: receipt is missing verification evidence`);
+    }
+  }
+}
+
+function validateLearnings(artifacts: ContractJsonFile[], errors: string[]): void {
+  for (const artifact of artifacts) {
+    const value = asRecord(artifact.value);
+    const id = readString(value, "id") ?? "<missing>";
+    const authority = asRecord(value.authority);
+    if (authority.level !== "advisory") {
+      errors.push(`${artifact.file}: learning "${id}" must remain advisory`);
+    }
+    if (authority.mayOverrideContracts !== false) {
+      errors.push(`${artifact.file}: learning "${id}" cannot override contracts`);
     }
   }
 }

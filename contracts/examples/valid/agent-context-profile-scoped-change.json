@@ -21,6 +21,7 @@
   "output": {
     "directory": ".agent-context/",
     "maxInlineBytes": 200000,
+    "maxFiles": 80,
     "includeSha256": true
   },
   "staleness": {

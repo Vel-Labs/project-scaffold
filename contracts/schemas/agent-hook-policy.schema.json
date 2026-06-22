@@ -16,12 +16,13 @@
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["id", "event", "enabled", "blocking", "command", "args", "externalAction"],
+        "required": ["id", "event", "adapter", "enabled", "blocking", "command", "args", "externalAction"],
         "properties": {
           "id": { "$ref": "#/$defs/kebabId" },
           "event": {
-            "enum": ["session-start", "pre-tool", "post-write", "stop", "session-end"]
+            "enum": ["session-start", "preflight", "pre-tool", "post-write", "stop", "session-end"]
           },
+          "adapter": { "enum": ["manual", "codex", "claude-code", "generic-cli"] },
           "enabled": { "type": "boolean" },
           "blocking": { "type": "boolean" },
           "command": { "type": "string", "minLength": 3 },

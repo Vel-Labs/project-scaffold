@@ -82,6 +82,9 @@ export function validateContextProfiles(
     if (output.includeSha256 !== true) {
       errors.push(`${artifact.file}: context profile "${id}" must include source hashes`);
     }
+    if (typeof output.maxFiles !== "number" || output.maxFiles < 1) {
+      errors.push(`${artifact.file}: context profile "${id}" must define output.maxFiles`);
+    }
     const denied = readStringArray(value, "deniedPatterns");
     for (const required of [".env", "*.pem", "*.key", "node_modules", ".git"]) {
       if (!denied.some((pattern) => pattern.includes(required))) {

@@ -32,13 +32,15 @@ npm run init:template:dry-run
 ```
 
 4. Review `REPO_PROFILE.json` as the repo taxonomy and command index.
-5. Customize `contracts/` for the project domain.
-6. Keep reusable enforcement in `packages/core/`.
-7. Keep shared local quality checks in `tests/`.
-8. Run:
+5. Work through `docs/project/NEW_PROJECT_CHECKLIST.md`.
+6. Customize `contracts/` for the project domain.
+7. Keep reusable enforcement in `packages/core/`.
+8. Keep shared local quality checks in `tests/`.
+9. Run:
 
 ```bash
 npm run install:local
+npm run scaffold:adoption-check
 npm run check
 ```
 

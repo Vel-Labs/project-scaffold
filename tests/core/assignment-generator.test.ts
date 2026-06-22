@@ -15,7 +15,13 @@ describe("assignment generator", () => {
     const result = await generateAgentAssignment(repo, {
       id: "generated-assignment",
       summary: "Generated assignment for one local scaffold change.",
-      allowedPaths: ["contracts/**", "tests/**"]
+      taskType: "refactor",
+      owner: "test-owner",
+      reviewer: "test-reviewer",
+      allowedPaths: ["contracts/**", "tests/**"],
+      doNotTouchPaths: [".env*"],
+      dependencies: ["contract-schema"],
+      blockedBy: []
     });
 
     expect(result.ok).toBe(true);
@@ -29,8 +35,16 @@ describe("assignment generator", () => {
       makerPersonaId: "implementer",
       verifierPersonaId: "verifier",
       autonomyLevel: "A2",
+      taskType: "refactor",
+      owner: "test-owner",
+      reviewer: "test-reviewer",
+      doNotTouchPaths: [".env*"],
+      dependencies: ["contract-schema"],
       receiptRequired: true
     });
+    const markdown = await readFile(result.markdownFile, "utf8");
+    expect(markdown).toContain("# Assignment: generated-assignment");
+    expect(markdown).toContain("- Task type: refactor");
 
     const validation = await validateAgentAssignmentFile(repo, result.file);
     expect(validation.ok).toBe(true);

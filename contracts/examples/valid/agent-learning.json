@@ -1,0 +1,16 @@
+{
+  "schema": "agent-learning",
+  "id": "receipt-specificity",
+  "lifecycle": "accepted",
+  "ownedBy": "docs/governance/LEARNINGS.md",
+  "summary": "Receipts are more useful when they name exact files and commands.",
+  "evidence": ["docs/audits/example.receipt.json"],
+  "guidance": {
+    "do": ["Name exact commands and changed files in receipt evidence."],
+    "doNot": ["Use broad claims without file-backed evidence."]
+  },
+  "authority": {
+    "level": "advisory",
+    "mayOverrideContracts": false
+  }
+}

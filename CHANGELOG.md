@@ -8,6 +8,7 @@ All notable repo changes should be logged here.
 - Added assignment, context-profile, and receipt-policy contracts with validation, fixtures, tests, `validate:assignment`, docs, and quality-gate integration.
 - Added local-only context-pack and receipt-writer helpers that consume governance contracts and write ignored runtime evidence artifacts.
 - Added a local-only assignment generator that creates route-aligned assignments under ignored `.agent-runs/`.
+- Added run initialization, stale-context checks, receipt drafting/promotion guards, task-type assignment routing, adoption checks, opt-in hook scripts, manual loop stop receipts, and advisory learning contracts.
 
 ## 2026-05-12
 

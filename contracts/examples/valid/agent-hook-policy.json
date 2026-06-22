@@ -7,6 +7,7 @@
     {
       "id": "validate-governance-on-stop",
       "event": "stop",
+      "adapter": "manual",
       "enabled": false,
       "blocking": true,
       "command": "scripts/agent/validate-governance.ts",

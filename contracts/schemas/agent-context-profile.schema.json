@@ -37,10 +37,11 @@
     "output": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["directory", "maxInlineBytes", "includeSha256"],
+      "required": ["directory", "maxInlineBytes", "maxFiles", "includeSha256"],
       "properties": {
         "directory": { "type": "string", "minLength": 1 },
         "maxInlineBytes": { "type": "integer", "minimum": 1000 },
+        "maxFiles": { "type": "integer", "minimum": 1 },
         "includeSha256": { "const": true }
       }
     },

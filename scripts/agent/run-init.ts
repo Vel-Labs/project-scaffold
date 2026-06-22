@@ -1,21 +1,22 @@
-import { generateAgentAssignment, type GenerateAssignmentOptions } from "../../packages/core/src/index.js";
+import { initializeAgentRun, type RunInitOptions } from "../../packages/core/src/index.js";
 
-const options = parseArgs(process.argv.slice(2));
-const result = await generateAgentAssignment(process.cwd(), options);
+const result = await initializeAgentRun(process.cwd(), parseArgs(process.argv.slice(2)));
 
 if (!result.ok) {
-  console.error("Assignment generation failed:");
+  console.error("Run init failed:");
   for (const error of result.errors) {
     console.error(`- ${error}`);
   }
   process.exit(1);
 }
 
-console.log(`Assignment written: ${result.file}`);
-console.log(`Assignment markdown written: ${result.markdownFile}`);
+console.log(`Run initialized: ${result.runId}`);
+console.log(`Manifest: ${result.manifestFile}`);
+console.log(`Assignment: ${result.assignmentFile}`);
+console.log(`Context pack: ${result.contextPackFile}`);
 
-function parseArgs(args: string[]): GenerateAssignmentOptions {
-  const options: GenerateAssignmentOptions = {};
+function parseArgs(args: string[]): RunInitOptions {
+  const options: RunInitOptions = {};
   for (let index = 0; index < args.length; index += 1) {
     const arg = args[index];
     const next = args[index + 1];
@@ -25,11 +26,11 @@ function parseArgs(args: string[]): GenerateAssignmentOptions {
     } else if (arg === "--summary" && next) {
       options.summary = next;
       index += 1;
-} else if (arg === "--risk" && next) {
-      options.risk = next as GenerateAssignmentOptions["risk"];
-      index += 1;
     } else if (arg === "--type" && next) {
-      options.taskType = next as GenerateAssignmentOptions["taskType"];
+      options.taskType = next as RunInitOptions["taskType"];
+      index += 1;
+    } else if (arg === "--risk" && next) {
+      options.risk = next as RunInitOptions["risk"];
       index += 1;
     } else if (arg === "--risk-markers" && next) {
       options.riskMarkers = csv(next);
@@ -40,23 +41,11 @@ function parseArgs(args: string[]): GenerateAssignmentOptions {
     } else if (arg === "--reviewer" && next) {
       options.reviewer = next;
       index += 1;
-    } else if (arg === "--route" && next) {
-      options.routeId = next;
-      index += 1;
     } else if (arg === "--allowed-paths" && next) {
       options.allowedPaths = csv(next);
       index += 1;
     } else if (arg === "--do-not-touch" && next) {
       options.doNotTouchPaths = csv(next);
-      index += 1;
-    } else if (arg === "--dependencies" && next) {
-      options.dependencies = csv(next);
-      index += 1;
-    } else if (arg === "--blocked-by" && next) {
-      options.blockedBy = csv(next);
-      index += 1;
-    } else if (arg === "--output" && next) {
-      options.output = next;
       index += 1;
     }
   }

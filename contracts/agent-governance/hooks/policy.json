@@ -5,12 +5,23 @@
   "ownedBy": "contracts/agent-governance/",
   "hooks": [
     {
-      "id": "validate-governance-on-stop",
-      "event": "stop",
+      "id": "local-preflight",
+      "event": "preflight",
+      "adapter": "manual",
       "enabled": false,
       "blocking": true,
-      "command": "scripts/agent/validate-governance.ts",
-      "args": [],
+      "command": "npm",
+      "args": ["run", "agent:preflight"],
+      "externalAction": false
+    },
+    {
+      "id": "validate-governance-on-stop",
+      "event": "stop",
+      "adapter": "manual",
+      "enabled": false,
+      "blocking": true,
+      "command": "npm",
+      "args": ["run", "agent:stop-verify"],
       "externalAction": false
     }
   ],

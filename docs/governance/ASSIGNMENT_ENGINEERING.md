@@ -7,8 +7,12 @@ An assignment binds:
 - route
 - workflow
 - maker and verifier personas
+- task type
+- owner and reviewer
 - autonomy level
 - allowed and forbidden paths
+- do-not-touch paths
+- dependencies and blockers
 - requested actions
 - expected checks
 - human approval state
@@ -35,10 +39,18 @@ npm run validate:assignment -- path/to/assignment.json
 Generate a scoped assignment from the default router and assignment template with:
 
 ```bash
-npm run agent:assign -- --id my-task --summary "One scoped local change"
+npm run agent:assign -- --id my-task --type implementation --summary "One scoped local change"
 ```
 
-By default, generated assignments are written under `.agent-runs/<id>/assignment.json`, which is ignored local runtime state.
+By default, generated assignments are written under `.agent-runs/<id>/assignment.json`, with a matching `.agent-runs/<id>/assignment.md` for human review. Both are ignored local runtime state.
+
+Task types are `implementation`, `docs`, `test`, and `refactor`. Risk markers default to `local-write`; markers such as `deploy`, `release`, `external-write`, or `secret-access` fail closed against the default route.
+
+For a full local evidence bundle, prefer:
+
+```bash
+npm run agent:run-init -- --summary "One scoped local change"
+```
 
 ## Copy-Forward Rule
 

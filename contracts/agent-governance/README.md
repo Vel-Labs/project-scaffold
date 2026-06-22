@@ -2,7 +2,7 @@
 
 This directory is the canonical source for the scaffold's agent control-plane primitives.
 
-Phase 1 defines contracts and validation only. It does not add a runner, context-pack generator, receipt writer, live hook adapter, scheduled automation, external connector, merge automation, release automation, or deployment automation.
+The scaffold defines contracts, validation, and local-only runtime evidence helpers. It does not add a live hook adapter, scheduled automation, external connector, merge automation, release automation, or deployment automation.
 
 ## Primitive Boundaries
 
@@ -16,7 +16,7 @@ Phase 1 defines contracts and validation only. It does not add a runner, context
 - Hook policy defines event-time checks for adapters. Hooks are defense in depth, not the only security boundary.
 - Gate evaluates evidence.
 - Receipt records what happened and which evidence supports the final status.
-- Learning is deferred to Phase 3 and cannot override canonical contracts.
+- Learning records advisory patterns from repeated evidence and cannot override canonical contracts.
 
 ## Phase 1 Rule
 

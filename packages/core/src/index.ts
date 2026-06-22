@@ -8,6 +8,19 @@ export {
   buildContextPack
 } from "./context-pack.js";
 export {
+  initializeAgentRun
+} from "./run-init.js";
+export type {
+  RunInitOptions,
+  RunInitResult
+} from "./run-init.js";
+export {
+  checkContextStaleness
+} from "./context-staleness.js";
+export {
+  runManualLoop
+} from "./manual-loop-runner.js";
+export {
   generateAgentAssignment
 } from "./assignment-generator.js";
 export type {
@@ -17,6 +30,9 @@ export type {
 export {
   writeAgentReceipt
 } from "./receipt-writer.js";
+export {
+  draftAgentReceipt
+} from "./receipt-draft.js";
 export {
   validateAgentGovernance,
   validateAgentAssignmentFile,

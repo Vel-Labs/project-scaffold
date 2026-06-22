@@ -23,15 +23,16 @@ describe("agent governance validation", () => {
     expect(result).toEqual({
       ok: true,
       checked: {
-        artifacts: 15,
+        artifacts: 17,
         routes: 1,
         assignments: 1,
         contextProfiles: 1,
-        workflows: 1,
+        workflows: 2,
         loops: 1,
-        hooks: 1,
+        hooks: 2,
         receipts: 0,
-        receiptPolicies: 1
+        receiptPolicies: 1,
+        learnings: 1
       }
     });
   });
@@ -72,6 +73,14 @@ describe("agent governance validation", () => {
     ], skillIds);
 
     expect(errors(result)).toContain('contains unsafe path "/tmp/outside-repo"');
+  });
+
+  it("blocks learned guidance from overriding contracts", async () => {
+    const result = validateGovernanceArtifacts([
+      await fixture("agent-learning-overrides-contracts.json")
+    ], skillIds);
+
+    expect(errors(result)).toContain('learning "override-contracts" cannot override contracts');
   });
 });
 

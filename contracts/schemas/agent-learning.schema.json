@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://project-governance-scaffold.local/schemas/agent-learning.schema.json",
+  "title": "AgentLearning",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "id",
+    "lifecycle",
+    "ownedBy",
+    "summary",
+    "evidence",
+    "guidance",
+    "authority"
+  ],
+  "properties": {
+    "schema": { "const": "agent-learning" },
+    "id": { "$ref": "#/$defs/kebabId" },
+    "lifecycle": { "$ref": "#/$defs/lifecycle" },
+    "ownedBy": { "type": "string", "minLength": 3 },
+    "summary": { "type": "string", "minLength": 12 },
+    "evidence": { "$ref": "#/$defs/stringList" },
+    "guidance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["do", "doNot"],
+      "properties": {
+        "do": { "$ref": "#/$defs/stringList" },
+        "doNot": { "$ref": "#/$defs/stringList" }
+      }
+    },
+    "authority": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["level", "mayOverrideContracts"],
+      "properties": {
+        "level": { "const": "advisory" },
+        "mayOverrideContracts": { "const": false }
+      }
+    }
+  },
+  "$defs": {
+    "kebabId": { "type": "string", "pattern": "^[a-z][a-z0-9-]*$" },
+    "lifecycle": { "type": "string", "enum": ["draft", "proposed", "accepted", "active", "deprecated", "retired"] },
+    "stringList": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } }
+  }
+}

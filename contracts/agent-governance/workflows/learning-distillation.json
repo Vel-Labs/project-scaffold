@@ -1,0 +1,36 @@
+{
+  "schema": "agent-workflow",
+  "id": "learning-distillation",
+  "lifecycle": "accepted",
+  "ownedBy": "contracts/agent-governance/",
+  "summary": "Promote repeated audit and receipt findings into advisory learnings without changing canonical authority.",
+  "requiredInputs": ["receipts", "audit findings", "review notes"],
+  "requiredContext": ["docs/governance/LEARNINGS.md", "contracts/agent-governance/source-authority.json"],
+  "stages": [
+    {
+      "id": "collect-evidence",
+      "personaId": "orchestrator",
+      "skills": ["phase-closeout-audit"],
+      "allowedVerdicts": ["pass", "revise", "blocked"],
+      "outputs": ["evidence set"],
+      "critical": true
+    },
+    {
+      "id": "distill-pattern",
+      "personaId": "verifier",
+      "skills": ["core-enforcement"],
+      "allowedVerdicts": ["pass", "revise", "human_review_required"],
+      "outputs": ["advisory learning"],
+      "critical": true
+    }
+  ],
+  "transitions": [
+    { "from": "collect-evidence", "on": "pass", "to": "distill-pattern" },
+    { "from": "collect-evidence", "on": "revise", "to": "collect-evidence" },
+    { "from": "distill-pattern", "on": "revise", "to": "collect-evidence" },
+    { "from": "distill-pattern", "on": "pass", "terminal": true }
+  ],
+  "terminalVerdicts": ["pass", "blocked", "human_review_required"],
+  "criticalCompletionVerdicts": ["pass"],
+  "receiptRequired": true
+}

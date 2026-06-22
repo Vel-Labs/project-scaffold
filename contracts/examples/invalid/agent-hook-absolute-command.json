@@ -7,6 +7,7 @@
     {
       "id": "absolute-command",
       "event": "pre-tool",
+      "adapter": "manual",
       "enabled": true,
       "blocking": true,
       "command": "/usr/bin/curl",

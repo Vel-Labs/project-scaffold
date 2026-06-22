@@ -21,6 +21,7 @@ type ContextProfile = {
   output: {
     directory: string;
     maxInlineBytes: number;
+    maxFiles?: number;
     includeSha256: true;
   };
 };
@@ -47,7 +48,8 @@ export type ContextPack = {
 
 export async function buildContextPack(
   repoRoot: string,
-  profilePath = "contracts/agent-governance/context-profiles/scoped-change.json"
+  profilePath = "contracts/agent-governance/context-profiles/scoped-change.json",
+  outputFileOverride?: string
 ): Promise<ContextPackResult> {
   const errors: string[] = [];
   const profile = JSON.parse(await readFile(path.join(repoRoot, profilePath), "utf8")) as ContextProfile;
@@ -68,6 +70,10 @@ export async function buildContextPack(
     for (const file of files) {
       if (matchesDeniedPattern(file, profile.deniedPatterns)) {
         excluded.push({ path: file, reason: "denied by context profile" });
+        continue;
+      }
+      if (profile.output.maxFiles && sources.length >= profile.output.maxFiles) {
+        excluded.push({ path: file, reason: "max file count reached" });
         continue;
       }
       const absolute = path.join(repoRoot, file);
@@ -107,7 +113,10 @@ export async function buildContextPack(
   };
   const outputDir = path.join(repoRoot, profile.output.directory);
   await mkdir(outputDir, { recursive: true });
-  const outputFile = path.join(outputDir, `${profile.id}-context-pack.json`);
+  const outputFile = outputFileOverride
+    ? path.resolve(repoRoot, outputFileOverride)
+    : path.join(outputDir, `${profile.id}-context-pack.json`);
+  await mkdir(path.dirname(outputFile), { recursive: true });
   await writeFile(outputFile, `${JSON.stringify(pack, null, 2)}\n`);
 
   return { ok: true, file: outputFile, pack };
