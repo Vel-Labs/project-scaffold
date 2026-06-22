@@ -40,12 +40,14 @@ npm run check
 
 `contracts/` is the canonical source of truth. `packages/core/` is the reusable implementation boundary. `tests/` is the shared local gate and must consume `contracts/` directly instead of redefining contract truth.
 
-Agent governance starts as contract-to-validation layers. The scaffold defines policy, source authority, router, assignment, context profile, capability, personas, workflow, loop, hook policy, receipt schema, receipt policy, fixtures, core validation, tests, and docs. It does not enable scheduled execution, live hooks, receipt writing, context-pack generation, merge/release/deploy automation, or external writes.
+Agent governance starts as contract-to-validation layers with local-only runtime evidence helpers. The scaffold defines policy, source authority, router, assignment, context profile, capability, personas, role catalog, workflow, loop, hook policy, receipt schema, receipt policy, fixtures, core validation, tests, and docs. It does not enable scheduled execution, live hooks, merge/release/deploy automation, or external writes.
 
 Runtime evidence helpers are local-only and contract-driven:
 
 ```bash
-npm run agent:assign -- --id my-task --summary "One scoped local change"
+npm run agent:run-init -- --type implementation --summary "One scoped local change"
+npm run agent:check-context -- .agent-runs/<run-id>/manifest.json
+npm run agent:receipt -- --draft --manifest .agent-runs/<run-id>/manifest.json
 npm run agent:build-context
 npm run agent:write-receipt -- path/to/receipt.json
 ```

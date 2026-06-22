@@ -61,6 +61,24 @@ describe("assignment generator", () => {
       errors: ["unknown route: missing-route"]
     });
   });
+
+  it("selects specialized personas by task type", async () => {
+    const repo = await makeGovernedRepo();
+    const result = await generateAgentAssignment(repo, {
+      id: "content-assignment",
+      taskType: "content",
+      summary: "Write concise user-facing setup copy."
+    });
+
+    expect(result.ok).toBe(true);
+    if (!result.ok) return;
+    expect(result.assignment).toMatchObject({
+      routeId: "scoped-content-change",
+      makerPersonaId: "copywriter",
+      verifierPersonaId: "docs-steward",
+      autonomyLevel: "A2"
+    });
+  });
 });
 
 async function makeGovernedRepo(): Promise<string> {
@@ -74,7 +92,16 @@ async function makeGovernedRepo(): Promise<string> {
     path.join(repo, "contracts", "agent-governance")
   );
   await mkdir(path.join(repo, "skills"), { recursive: true });
-  for (const skill of ["agent-assignment-writer", "contract-steward", "core-enforcement", "phase-closeout-audit"]) {
+  for (const skill of [
+    "agent-assignment-writer",
+    "contract-steward",
+    "copywriter",
+    "core-enforcement",
+    "docs-steward",
+    "phase-closeout-audit",
+    "qa-reviewer",
+    "researcher"
+  ]) {
     await mkdir(path.join(repo, "skills", skill), { recursive: true });
   }
   await writeFile(path.join(repo, "README.md"), "test\n");

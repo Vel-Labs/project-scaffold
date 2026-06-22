@@ -180,7 +180,16 @@ async function makeGovernedRepo(): Promise<string> {
     path.join(repo, "contracts", "schemas")
   );
   await mkdir(path.join(repo, "skills"), { recursive: true });
-  for (const skill of ["agent-assignment-writer", "contract-steward", "core-enforcement", "phase-closeout-audit"]) {
+  for (const skill of [
+    "agent-assignment-writer",
+    "contract-steward",
+    "copywriter",
+    "core-enforcement",
+    "docs-steward",
+    "phase-closeout-audit",
+    "qa-reviewer",
+    "researcher"
+  ]) {
     await mkdir(path.join(repo, "skills", skill), { recursive: true });
   }
   await writeFile(path.join(repo, "AGENTS.md"), "# Agents\n");

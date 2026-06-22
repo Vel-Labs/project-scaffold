@@ -9,7 +9,7 @@
       "id": "scoped-local-change",
       "priority": 100,
       "matches": {
-        "taskTypes": ["implementation", "bugfix", "refactor", "test", "documentation", "contract"],
+        "taskTypes": ["implementation", "bugfix", "refactor", "contract"],
         "riskMarkers": ["local-write"],
         "forbiddenRiskMarkers": ["deploy", "release", "merge", "external-write", "secret-access"]
       },
@@ -20,6 +20,74 @@
       "contextProfile": "scoped-change",
       "autonomyCeiling": "A2",
       "humanGates": ["governance-locked-file-change", "external-write-request", "release-or-deploy-request"],
+      "requestedActions": ["local-write", "local-validation"]
+    },
+    {
+      "id": "scoped-docs-change",
+      "priority": 120,
+      "matches": {
+        "taskTypes": ["docs", "documentation"],
+        "riskMarkers": ["local-write"],
+        "forbiddenRiskMarkers": ["deploy", "release", "merge", "external-write", "secret-access"]
+      },
+      "workflowId": "scoped-change",
+      "makerPersonaId": "docs-steward",
+      "verifierPersonaId": "verifier",
+      "requiredSkills": ["agent-assignment-writer", "docs-steward", "phase-closeout-audit"],
+      "contextProfile": "scoped-change",
+      "autonomyCeiling": "A2",
+      "humanGates": ["governance-locked-file-change", "external-write-request", "release-or-deploy-request"],
+      "requestedActions": ["local-write", "local-validation"]
+    },
+    {
+      "id": "scoped-test-change",
+      "priority": 120,
+      "matches": {
+        "taskTypes": ["test"],
+        "riskMarkers": ["local-write"],
+        "forbiddenRiskMarkers": ["deploy", "release", "merge", "external-write", "secret-access"]
+      },
+      "workflowId": "scoped-change",
+      "makerPersonaId": "qa-reviewer",
+      "verifierPersonaId": "verifier",
+      "requiredSkills": ["agent-assignment-writer", "qa-reviewer", "phase-closeout-audit"],
+      "contextProfile": "scoped-change",
+      "autonomyCeiling": "A2",
+      "humanGates": ["governance-locked-file-change", "external-write-request", "release-or-deploy-request"],
+      "requestedActions": ["local-write", "local-validation"]
+    },
+    {
+      "id": "scoped-content-change",
+      "priority": 120,
+      "matches": {
+        "taskTypes": ["content"],
+        "riskMarkers": ["local-write"],
+        "forbiddenRiskMarkers": ["deploy", "release", "merge", "external-write", "secret-access"]
+      },
+      "workflowId": "scoped-change",
+      "makerPersonaId": "copywriter",
+      "verifierPersonaId": "docs-steward",
+      "requiredSkills": ["agent-assignment-writer", "copywriter", "docs-steward"],
+      "contextProfile": "scoped-change",
+      "autonomyCeiling": "A2",
+      "humanGates": ["brand-sensitive-copy", "governance-locked-file-change", "external-write-request"],
+      "requestedActions": ["local-write", "local-validation"]
+    },
+    {
+      "id": "scoped-research-change",
+      "priority": 120,
+      "matches": {
+        "taskTypes": ["research"],
+        "riskMarkers": ["local-write"],
+        "forbiddenRiskMarkers": ["deploy", "release", "merge", "external-write", "secret-access"]
+      },
+      "workflowId": "scoped-change",
+      "makerPersonaId": "researcher",
+      "verifierPersonaId": "verifier",
+      "requiredSkills": ["agent-assignment-writer", "researcher", "phase-closeout-audit"],
+      "contextProfile": "scoped-change",
+      "autonomyCeiling": "A1",
+      "humanGates": ["external-source-review", "governance-locked-file-change", "external-write-request"],
       "requestedActions": ["local-write", "local-validation"]
     }
   ],

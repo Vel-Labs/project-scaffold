@@ -44,7 +44,9 @@ npm run agent:assign -- --id my-task --type implementation --summary "One scoped
 
 By default, generated assignments are written under `.agent-runs/<id>/assignment.json`, with a matching `.agent-runs/<id>/assignment.md` for human review. Both are ignored local runtime state.
 
-Task types are `implementation`, `docs`, `test`, and `refactor`. Risk markers default to `local-write`; markers such as `deploy`, `release`, `external-write`, or `secret-access` fail closed against the default route.
+Task types are `implementation`, `docs`, `test`, `refactor`, `content`, and `research`. Risk markers default to `local-write`; markers such as `deploy`, `release`, `external-write`, or `secret-access` fail closed against the default route.
+
+Use `docs/agents/ROLE_CATALOG.md` when the user knows the kind of work but does not know the right persona.
 
 For a full local evidence bundle, prefer:
 

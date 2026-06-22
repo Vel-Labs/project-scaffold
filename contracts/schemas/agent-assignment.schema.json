@@ -34,7 +34,7 @@
     "id": { "$ref": "#/$defs/kebabId" },
     "lifecycle": { "$ref": "#/$defs/lifecycle" },
     "ownedBy": { "type": "string", "minLength": 3 },
-    "taskType": { "enum": ["implementation", "docs", "test", "refactor"] },
+    "taskType": { "enum": ["implementation", "docs", "test", "refactor", "content", "research"] },
     "owner": { "type": "string", "minLength": 3 },
     "reviewer": { "type": "string", "minLength": 3 },
     "summary": { "type": "string", "minLength": 12 },

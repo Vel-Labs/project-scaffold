@@ -9,6 +9,7 @@ All notable repo changes should be logged here.
 - Added local-only context-pack and receipt-writer helpers that consume governance contracts and write ignored runtime evidence artifacts.
 - Added a local-only assignment generator that creates route-aligned assignments under ignored `.agent-runs/`.
 - Added run initialization, stale-context checks, receipt drafting/promotion guards, task-type assignment routing, adoption checks, opt-in hook scripts, manual loop stop receipts, and advisory learning contracts.
+- Added beginner-friendly role routing with docs, content, research, and QA personas plus matching repo-local skills and role catalog.
 
 ## 2026-05-12
 

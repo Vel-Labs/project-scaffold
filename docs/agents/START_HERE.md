@@ -14,16 +14,17 @@ This repository is a reusable scaffold template. The job is to keep it clean, co
 4. `contracts/README.md`
 5. `contracts/agent-governance/README.md`
 6. `docs/governance/AGENT_OPERATING_MODEL.md`
-7. `docs/governance/ASSIGNMENT_ENGINEERING.md`
-8. `docs/governance/RUNTIME_EVIDENCE.md`
-9. `docs/agents/ROUTING.md`
-10. `docs/architecture/ARCHITECTURE.md`
-11. `docs/architecture/REPO_BOUNDARIES.md`
-12. `packages/core/README.md`
-13. `tests/README.md`
-14. `ROADMAP.md`
-15. `DECISIONS.md`
-16. `docs/roadmaps/CURRENT_STATE_AND_NEXT.md`
+7. `docs/agents/ROLE_CATALOG.md`
+8. `docs/governance/ASSIGNMENT_ENGINEERING.md`
+9. `docs/governance/RUNTIME_EVIDENCE.md`
+10. `docs/agents/ROUTING.md`
+11. `docs/architecture/ARCHITECTURE.md`
+12. `docs/architecture/REPO_BOUNDARIES.md`
+13. `packages/core/README.md`
+14. `tests/README.md`
+15. `ROADMAP.md`
+16. `DECISIONS.md`
+17. `docs/roadmaps/CURRENT_STATE_AND_NEXT.md`
 
 ## Default Commands
 

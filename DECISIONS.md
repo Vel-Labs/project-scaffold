@@ -12,6 +12,7 @@ Use decisions for durable architecture, product, governance, source-of-truth, an
 - `REPO_PROFILE.json` is the machine-readable taxonomy, command index, read-first map, and clean-root policy source.
 - LLM integrations start with provider contracts, environment-key declarations, fake fallback, readiness checks, and manual gates before live adapters.
 - Agent governance starts from contracts, then adds local-only run initialization, context packs, stale-context checks, receipt drafting, manual loop stop receipts, opt-in disabled hooks, and advisory learnings before any live automation.
+- Role-specific personas and skills may specialize behavior for code, docs, tests, copy, and research, but contracts still govern authority.
 - Root `skills/` is the canonical repo-local skills location.
 - Root stays intentionally clean: root files are entrypoints, high-visibility indexes, conventional project files, package/config files, and major directories.
 - Root `ROADMAP.md` and `DECISIONS.md` are indexes; detailed roadmap and decision truth lives under `docs/`.

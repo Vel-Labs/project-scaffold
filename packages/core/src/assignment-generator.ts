@@ -9,7 +9,7 @@ type AgentAssignment = {
   id: string;
   lifecycle: string;
   ownedBy: string;
-  taskType: "implementation" | "docs" | "test" | "refactor";
+  taskType: "implementation" | "docs" | "test" | "refactor" | "content" | "research";
   owner: string;
   reviewer: string;
   summary: string;

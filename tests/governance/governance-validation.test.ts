@@ -11,8 +11,12 @@ const repoRoot = process.cwd();
 const invalidDir = path.join(repoRoot, "contracts", "examples", "invalid");
 const skillIds = new Set([
   "agent-assignment-writer",
+  "copywriter",
   "contract-steward",
   "core-enforcement",
+  "docs-steward",
+  "qa-reviewer",
+  "researcher",
   "phase-closeout-audit"
 ]);
 
@@ -23,8 +27,8 @@ describe("agent governance validation", () => {
     expect(result).toEqual({
       ok: true,
       checked: {
-        artifacts: 17,
-        routes: 1,
+        artifacts: 21,
+        routes: 5,
         assignments: 1,
         contextProfiles: 1,
         workflows: 2,

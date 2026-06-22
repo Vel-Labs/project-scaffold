@@ -23,7 +23,7 @@ Integrations are downstream of this baseline. Do not add adapter or provider cod
 
 The scaffold may include LLM provider schemas, examples, and readiness helpers so copied projects can add providers quickly. It must not include real credentials or live provider calls.
 
-The scaffold may include agent-governance schemas, contracts, assignments, context profiles, receipt policy, fixtures, and validators. It must not include live hook adapters, unattended loop runners, external-write connectors, merge/release/deploy automation, context-pack generation, receipt writing, or generated run state in this layer.
+The scaffold may include agent-governance schemas, contracts, assignments, context profiles, role catalog, receipt policy, fixtures, validators, and local-only runtime evidence helpers. It must not include live hook adapters, unattended loop runners, external-write connectors, merge/release/deploy automation, or tracked generated run state in this layer.
 
 ## What user-facing surfaces own
 

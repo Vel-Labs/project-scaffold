@@ -14,7 +14,7 @@ describe("contract corpus", () => {
         schemas: 16,
         validExamples: 15,
         invalidExamples: 21,
-        contractArtifacts: 17
+        contractArtifacts: 21
       }
     });
   });

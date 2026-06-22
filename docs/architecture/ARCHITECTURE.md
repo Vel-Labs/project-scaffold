@@ -20,7 +20,7 @@ Current location: `contracts/`.
 
 This plane owns lifecycle, schemas, examples, and fail-closed rules. It is canonical over implementation packages and tests.
 
-Agent governance contracts live under `contracts/agent-governance/` and define policy, source authority, router, assignment, context profile, capability, personas, workflow, loop, hook policy, and receipt policy without enabling runtime automation.
+Agent governance contracts live under `contracts/agent-governance/` and define policy, source authority, router, assignment, context profile, capability, personas, role routing, workflow, loop, hook policy, receipt policy, and advisory learnings. Local runtime evidence helpers are allowed when they remain repo-local and contract-driven.
 
 ### 2. Core runtime plane
 

@@ -7,6 +7,7 @@ Use this checklist after copying the scaffold into a new repository.
 - Replace `<PROJECT_NAME>` and other registered placeholders.
 - Update `package.json` name and `REPO_PROFILE.json` purpose, traits, commands, and quality gate.
 - Keep generated repo `AGENTS.md` short and specific to the project.
+- Review `docs/agents/ROLE_CATALOG.md` so non-expert users can ask for code, docs, tests, copy, or research work by task type.
 
 ## Governance
 

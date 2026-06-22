@@ -39,19 +39,20 @@ REPO_PROFILE.json machine-readable taxonomy and command index
 5. `project/TEMPLATE_USAGE.md`
 6. `../contracts/README.md`
 7. `governance/AGENT_OPERATING_MODEL.md`
-8. `governance/ASSIGNMENT_ENGINEERING.md`
-9. `governance/RUNTIME_EVIDENCE.md`
-10. `agents/ROUTING.md`
-11. `../packages/core/README.md`
-12. `../tests/README.md`
-13. `architecture/ARCHITECTURE.md`
-14. `architecture/REPO_BOUNDARIES.md`
-15. `../ROADMAP.md`
-16. `../DECISIONS.md`
-17. `roadmaps/CURRENT_STATE_AND_NEXT.md`
-18. `repo-truth/THC_METHODOLOGY.md`
-19. `governance/code-quality-standards.md`
-20. `roadmaps/README.md`
+8. `agents/ROLE_CATALOG.md`
+9. `governance/ASSIGNMENT_ENGINEERING.md`
+10. `governance/RUNTIME_EVIDENCE.md`
+11. `agents/ROUTING.md`
+12. `../packages/core/README.md`
+13. `../tests/README.md`
+14. `architecture/ARCHITECTURE.md`
+15. `architecture/REPO_BOUNDARIES.md`
+16. `../ROADMAP.md`
+17. `../DECISIONS.md`
+18. `roadmaps/CURRENT_STATE_AND_NEXT.md`
+19. `repo-truth/THC_METHODOLOGY.md`
+20. `governance/code-quality-standards.md`
+21. `roadmaps/README.md`
 
 ### Baseline verification
 

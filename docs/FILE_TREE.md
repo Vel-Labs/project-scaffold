@@ -23,9 +23,13 @@ contracts/agent-governance/context-profiles/scoped-change.json
 contracts/agent-governance/hooks/policy.json
 contracts/agent-governance/learnings/context-staleness.json
 contracts/agent-governance/loops/change-hardening.json
+contracts/agent-governance/personas/copywriter.json
+contracts/agent-governance/personas/docs-steward.json
 contracts/agent-governance/personas/implementer.json
 contracts/agent-governance/personas/orchestrator.json
+contracts/agent-governance/personas/qa-reviewer.json
 contracts/agent-governance/personas/release-steward.json
+contracts/agent-governance/personas/researcher.json
 contracts/agent-governance/personas/security-reviewer.json
 contracts/agent-governance/personas/verifier.json
 contracts/agent-governance/policy.json
@@ -92,6 +96,7 @@ contracts/schemas/repo-profile.schema.json
 docs/.DS_Store
 docs/FILE_TREE.md
 docs/README.md
+docs/agents/ROLE_CATALOG.md
 docs/agents/ROUTING.md
 docs/agents/START_HERE.md
 docs/architecture/ARCHITECTURE.md
@@ -184,11 +189,15 @@ skills/agent-assignment-writer/SKILL.md
 skills/agent-assignment-writer/templates/agent-assignment.md
 skills/agent-assignment-writer/templates/fresh-agent-handoff.md
 skills/contract-steward/SKILL.md
+skills/copywriter/SKILL.md
 skills/core-enforcement/SKILL.md
+skills/docs-steward/SKILL.md
 skills/phase-closeout-audit/SKILL.md
 skills/phase-closeout-audit/templates/closeout-audit.md
 skills/project-personalize/SKILL.md
 skills/project-personalize/templates/personalization-checklist.md
+skills/qa-reviewer/SKILL.md
+skills/researcher/SKILL.md
 template.vars.json
 tests/README.md
 tests/contracts/contract-corpus.test.ts
