@@ -11,6 +11,8 @@
     "validate:contracts": "tsx scripts/validate-contracts.ts",
     "validate:agents": "tsx scripts/agent/validate-governance.ts",
     "validate:assignment": "tsx scripts/agent/validate-assignment.ts",
+    "agent:build-context": "tsx scripts/agent/build-context-pack.ts",
+    "agent:write-receipt": "tsx scripts/agent/write-receipt.ts",
     "test:focused": "vitest run tests/contracts tests/core tests/governance tests/security",
     "test:governance": "vitest run tests/governance",
     "test:security": "vitest run tests/security",

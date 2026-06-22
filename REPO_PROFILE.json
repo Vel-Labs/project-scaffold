@@ -64,6 +64,8 @@
     "validateContracts": "npm run validate:contracts",
     "validateAgents": "npm run validate:agents",
     "validateAssignment": "npm run validate:assignment",
+    "buildContextPack": "npm run agent:build-context",
+    "writeReceipt": "npm run agent:write-receipt",
     "focusedTests": "npm run test:focused",
     "governanceTests": "npm run test:governance",
     "securityTests": "npm run test:security",

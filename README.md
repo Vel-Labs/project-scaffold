@@ -42,6 +42,15 @@ npm run check
 
 Agent governance starts as contract-to-validation layers. The scaffold defines policy, source authority, router, assignment, context profile, capability, personas, workflow, loop, hook policy, receipt schema, receipt policy, fixtures, core validation, tests, and docs. It does not enable scheduled execution, live hooks, receipt writing, context-pack generation, merge/release/deploy automation, or external writes.
 
+Runtime evidence helpers are local-only and contract-driven:
+
+```bash
+npm run agent:build-context
+npm run agent:write-receipt -- path/to/receipt.json
+```
+
+They write ignored artifacts under `.agent-context/` and `.agent-runs/`.
+
 `REPO_PROFILE.json` is the machine-readable repo taxonomy and command index for humans and agents.
 
 ## Repository map

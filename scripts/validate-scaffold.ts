@@ -16,7 +16,14 @@ type RepoProfile = {
 
 const repoRoot = process.cwd();
 const errors: string[] = [];
-const ignoredRootEntries = new Set([".git", "node_modules", "gpt-pro-audit", ".DS_Store"]);
+const ignoredRootEntries = new Set([
+  ".git",
+  "node_modules",
+  "gpt-pro-audit",
+  ".agent-context",
+  ".agent-runs",
+  ".DS_Store"
+]);
 const profile = await readJson<RepoProfile>("REPO_PROFILE.json");
 const packageJson = await readJson<{ scripts?: Record<string, string> }>("package.json");
 

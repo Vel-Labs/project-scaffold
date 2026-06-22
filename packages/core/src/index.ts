@@ -5,6 +5,12 @@ export {
   checkLlmProviderReadiness
 } from "./llm-provider-readiness.js";
 export {
+  buildContextPack
+} from "./context-pack.js";
+export {
+  writeAgentReceipt
+} from "./receipt-writer.js";
+export {
   validateAgentGovernance,
   validateAgentAssignmentFile,
   validateGovernanceArtifacts

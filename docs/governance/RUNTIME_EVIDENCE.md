@@ -31,4 +31,16 @@ Required controls:
 
 ## Deferred Runtime Work
 
-This scaffold does not yet generate context packs or write receipts. Later scripts must consume these contracts rather than creating their own policy.
+## Local Helpers
+
+```bash
+npm run agent:build-context
+npm run agent:write-receipt -- path/to/receipt.json
+```
+
+These helpers are local-only. They do not call external services, run hooks, start loops, merge, release, deploy, or schedule work.
+
+Generated files are ignored:
+
+- `.agent-context/`
+- `.agent-runs/`

@@ -135,4 +135,16 @@ Follow-on local layer:
 - Added `scripts/agent/validate-assignment.ts`.
 - Added fixtures and tests for assignment escalation, unsafe assignment paths, transient context sources, missing sensitive deny patterns, and unsafe receipt policy storage/privacy.
 
-Runtime generation and writing are still deferred. `.agent-context/` and `.agent-runs/` are named as policy-controlled transient destinations only; this change does not create them.
+At this contract step, runtime generation and writing were still deferred. `.agent-context/` and `.agent-runs/` were named as policy-controlled transient destinations only.
+
+## Runtime Evidence Helper Update
+
+Added local-only helpers:
+
+- `scripts/agent/build-context-pack.ts`
+- `scripts/agent/write-receipt.ts`
+- `packages/core/src/context-pack.ts`
+- `packages/core/src/receipt-writer.ts`
+- `packages/core/src/file-utils.ts`
+
+These helpers consume existing governance contracts and write ignored local artifacts. They do not enable hooks, loops, scheduled execution, external writes, merge, release, or deploy automation.

@@ -5,3 +5,5 @@ coverage/
 .env
 .env.*
 gpt-pro-audit/
+.agent-context/
+.agent-runs/
