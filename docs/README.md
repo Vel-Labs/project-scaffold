@@ -27,6 +27,7 @@ tests/          shared local quality gate
 skills/         repo-local skills with SKILL.md and optional templates
 REPO_PROFILE.json machine-readable taxonomy and command index
 CLI_INDEX.md   human-readable command reference
+SKILLS_INDEX.md human-readable repo-local skill reference
 ```
 
 ## Reading paths
@@ -37,26 +38,27 @@ CLI_INDEX.md   human-readable command reference
 2. `../AGENTS.md`
 3. `../REPO_PROFILE.json`
 4. `../CLI_INDEX.md`
-5. `agents/START_HERE.md`
-6. `project/TEMPLATE_USAGE.md`
-7. `../contracts/README.md`
-8. `governance/AGENT_OPERATING_MODEL.md`
-9. `agents/ROLE_CATALOG.md`
-10. `agents/CONTEXT_ROUTING.md`
-11. `governance/ASSIGNMENT_ENGINEERING.md`
-12. `governance/RUNTIME_EVIDENCE.md`
-13. `agents/ROUTING.md`
-14. `../packages/core/README.md`
-15. `../tests/README.md`
-16. `architecture/ARCHITECTURE.md`
-17. `architecture/REPO_BOUNDARIES.md`
-18. `architecture/COMPATIBILITY.md`
-19. `../ROADMAP.md`
-20. `../DECISIONS.md`
-21. `roadmaps/CURRENT_STATE_AND_NEXT.md`
-22. `repo-truth/THC_METHODOLOGY.md`
-23. `governance/code-quality-standards.md`
-24. `roadmaps/README.md`
+5. `../SKILLS_INDEX.md`
+6. `agents/START_HERE.md`
+7. `project/TEMPLATE_USAGE.md`
+8. `../contracts/README.md`
+9. `governance/AGENT_OPERATING_MODEL.md`
+10. `agents/ROLE_CATALOG.md`
+11. `agents/CONTEXT_ROUTING.md`
+12. `governance/ASSIGNMENT_ENGINEERING.md`
+13. `governance/RUNTIME_EVIDENCE.md`
+14. `agents/ROUTING.md`
+15. `../packages/core/README.md`
+16. `../tests/README.md`
+17. `architecture/ARCHITECTURE.md`
+18. `architecture/REPO_BOUNDARIES.md`
+19. `architecture/COMPATIBILITY.md`
+20. `../ROADMAP.md`
+21. `../DECISIONS.md`
+22. `roadmaps/CURRENT_STATE_AND_NEXT.md`
+23. `repo-truth/THC_METHODOLOGY.md`
+24. `governance/code-quality-standards.md`
+25. `roadmaps/README.md`
 
 ### Baseline verification
 

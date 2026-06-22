@@ -62,6 +62,7 @@ export async function runMemoryCheck(repoRoot: string): Promise<MemoryCheckResul
   const repoProfile = await readJson<RepoProfile>(repoRoot, "REPO_PROFILE.json");
   const router = await readJson<Router>(repoRoot, "contracts/agent-governance/router.json");
   const cliIndex = await readFile(path.join(repoRoot, "CLI_INDEX.md"), "utf8");
+  const skillsIndex = await readFile(path.join(repoRoot, "SKILLS_INDEX.md"), "utf8");
   const scripts = packageJson.scripts ?? {};
   const dependencies = {
     ...packageJson.dependencies,
@@ -173,6 +174,11 @@ export async function runMemoryCheck(repoRoot: string): Promise<MemoryCheckResul
   }
 
   const requiredSkills = new Set<string>();
+  const repoSkills = new Set(
+    files
+      .filter((file) => file.startsWith("skills/") && file.endsWith("/SKILL.md"))
+      .map((file) => file.split("/")[1])
+  );
   for (const route of router.routes) {
     for (const skill of route.requiredSkills ?? []) {
       requiredSkills.add(skill);
@@ -195,6 +201,16 @@ export async function runMemoryCheck(repoRoot: string): Promise<MemoryCheckResul
       });
     }
   }
+  for (const skill of repoSkills) {
+    if (!skillsIndex.includes(`\`${skill}\``)) {
+      issues.push({
+        severity: "warning",
+        code: "undocumented-skill",
+        file: "SKILLS_INDEX.md",
+        message: `SKILLS_INDEX.md does not document repo-local skill: ${skill}`
+      });
+    }
+  }
   const errors = issues.filter((issue) => issue.severity === "error").map((issue) => issue.message);
   const warnings = issues.filter((issue) => issue.severity === "warning").map((issue) => issue.message);
   const score = calculateScore(issues);
@@ -211,7 +227,7 @@ export async function runMemoryCheck(repoRoot: string): Promise<MemoryCheckResul
       commands,
       dependencies: dependencyClaims,
       routes: router.routes.length,
-      skills: requiredSkills.size,
+      skills: repoSkills.size,
       staleFiles
     }
   };

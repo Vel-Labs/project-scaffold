@@ -16,6 +16,7 @@ This scaffold template now has a contract/core stability baseline:
 - `scripts/validate-memory.ts` provides scored `npm run scaffold:memory-check` drift checks across links, commands, dependencies, staleness, routes, and skills, with `--json` for tooling.
 - `scripts/sync-plan.ts` provides `npm run scaffold:sync-plan`, which prints a targeted prompt and does not run an agent.
 - `CLI_INDEX.md` is the human-readable command reference and is checked against package scripts.
+- `SKILLS_INDEX.md` is the human-readable repo-local skill reference and is checked against `skills/*/SKILL.md`.
 - `skills/desloppify-review/` creates `DESLOPPIFY.md` cleanup backlogs without starting fixes until the user selects a task.
 - `scripts/agent/run-init.ts`, `scripts/agent/build-context-pack.ts`, `scripts/agent/check-context.ts`, `scripts/agent/receipt.ts`, and `scripts/agent/write-receipt.ts` provide local-only runtime evidence helpers that write ignored `.agent-context/` and `.agent-runs/` artifacts.
 - `scripts/agent/preflight.ts`, `scripts/agent/stop-verify.ts`, and `scripts/agent/run-loop.ts` provide opt-in local checks and a manual-only bounded loop runner.

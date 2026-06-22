@@ -16,6 +16,7 @@ Use decisions for durable architecture, product, governance, source-of-truth, an
 - Desloppify scans are review-only quality tasks that create a cleanup backlog before any fix work is selected.
 - Routed memory, deterministic drift checks, compact work logs, and earned pattern capture keep the scaffold useful without turning every session into a full-context reread.
 - `CLI_INDEX.md` is the human-readable command reference; `package.json` remains executable truth and memory checks warn when scripts are missing from the index.
+- `SKILLS_INDEX.md` is the human-readable repo-local skill reference; `skills/*/SKILL.md` remains executable skill truth and memory checks warn when skills are missing from the index.
 - Drift checks may produce targeted sync prompts, but sync execution remains user-directed and non-autonomous.
 - Root `skills/` is the canonical repo-local skills location.
 - Root stays intentionally clean: root files are entrypoints, high-visibility indexes, conventional project files, package/config files, and major directories.
@@ -31,6 +32,7 @@ Use decisions for durable architecture, product, governance, source-of-truth, an
 - 2026-04-26: Roadmap and decisions index/detail split. See `docs/decisions/2026-04-26.md`.
 - 2026-05-12: LLM provider contract/readiness baseline. See `docs/decisions/2026-05-12.md`.
 - 2026-06-22: Agent governance foundation. See `docs/decisions/2026-06-22.md`.
+- 2026-06-22: Skills index. See `docs/decisions/2026-06-22.md`.
 
 ## Decision Logs
 

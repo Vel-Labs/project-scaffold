@@ -14,6 +14,7 @@ All notable repo changes should be logged here.
 - Added routed-memory and drift-check improvements: `LOG.md`, `CONTEXT_ROUTING.md`, artifact timeline convention, scaffold drift guidance, compatibility boundaries, `scaffold:memory-check`, pattern capture, and worktree shipping checklist skills.
 - Added `CLI_INDEX.md` as the human-readable command reference with evergreen, agent-runtime, adoption, and flag sections.
 - Expanded memory drift checks with scoring, JSON output, git staleness, dependency claim warnings, and print-only `scaffold:sync-plan`.
+- Added `SKILLS_INDEX.md` as the human-readable repo-local skill reference and made memory checks warn when skills are missing from it.
 
 ## 2026-05-12
 

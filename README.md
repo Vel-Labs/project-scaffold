@@ -60,14 +60,18 @@ Routed memory keeps token use low: start from `AGENTS.md`, `REPO_PROFILE.json`, 
 
 `REPO_PROFILE.json` is the machine-readable repo taxonomy and command index for humans and agents.
 `CLI_INDEX.md` is the human-readable command index.
+`SKILLS_INDEX.md` is the human-readable repo-local skill index.
 
 ## Repository map
 
 ```text
 AGENTS.md
 CHANGELOG.md
+CLI_INDEX.md
 CONTRIBUTING.md
+DECISIONS.md
 REPO_PROFILE.json
+SKILLS_INDEX.md
 .claude/
 .github/
 docs/

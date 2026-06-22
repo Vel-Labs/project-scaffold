@@ -17,6 +17,7 @@ LOG.md
 README.md
 REPO_PROFILE.json
 ROADMAP.md
+SKILLS_INDEX.md
 contracts/README.md
 contracts/agent-governance/README.md
 contracts/agent-governance/assignments/scoped-change.json

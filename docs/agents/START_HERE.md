@@ -11,22 +11,23 @@ This repository is a reusable scaffold template. The job is to keep it clean, co
 1. `AGENTS.md`
 2. `REPO_PROFILE.json`
 3. `CLI_INDEX.md`
-4. `docs/project/TEMPLATE_USAGE.md`
-5. `contracts/README.md`
-6. `contracts/agent-governance/README.md`
-7. `docs/governance/AGENT_OPERATING_MODEL.md`
-8. `docs/agents/ROLE_CATALOG.md`
-9. `docs/agents/CONTEXT_ROUTING.md`
-10. `docs/governance/ASSIGNMENT_ENGINEERING.md`
-11. `docs/governance/RUNTIME_EVIDENCE.md`
-12. `docs/agents/ROUTING.md`
-13. `docs/architecture/ARCHITECTURE.md`
-14. `docs/architecture/REPO_BOUNDARIES.md`
-15. `packages/core/README.md`
-16. `tests/README.md`
-17. `ROADMAP.md`
-18. `DECISIONS.md`
-19. `docs/roadmaps/CURRENT_STATE_AND_NEXT.md`
+4. `SKILLS_INDEX.md`
+5. `docs/project/TEMPLATE_USAGE.md`
+6. `contracts/README.md`
+7. `contracts/agent-governance/README.md`
+8. `docs/governance/AGENT_OPERATING_MODEL.md`
+9. `docs/agents/ROLE_CATALOG.md`
+10. `docs/agents/CONTEXT_ROUTING.md`
+11. `docs/governance/ASSIGNMENT_ENGINEERING.md`
+12. `docs/governance/RUNTIME_EVIDENCE.md`
+13. `docs/agents/ROUTING.md`
+14. `docs/architecture/ARCHITECTURE.md`
+15. `docs/architecture/REPO_BOUNDARIES.md`
+16. `packages/core/README.md`
+17. `tests/README.md`
+18. `ROADMAP.md`
+19. `DECISIONS.md`
+20. `docs/roadmaps/CURRENT_STATE_AND_NEXT.md`
 
 ## Default Commands
 
@@ -80,6 +81,7 @@ Stop and ask before:
 Every meaningful scaffold change should update:
 
 - `REPO_PROFILE.json` when paths, commands, or taxonomy change
+- `SKILLS_INDEX.md` when repo-local skills are added, removed, or renamed
 - `docs/FILE_TREE.md`
 - `DECISIONS.md` when authority or architecture changes
 - `docs/decisions/YYYY-MM-DD.md` when detailed decision entries are needed

@@ -18,6 +18,9 @@ Build `<PROJECT_NAME>` in a way that is clear, auditable, readable, and safe to 
 ## Required reading before structural changes
 
 - `README.md`
+- `REPO_PROFILE.json`
+- `CLI_INDEX.md`
+- `SKILLS_INDEX.md`
 - `docs/architecture/ARCHITECTURE.md`
 - `docs/architecture/REPO_BOUNDARIES.md`
 - `ROADMAP.md`

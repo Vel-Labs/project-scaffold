@@ -23,6 +23,8 @@ These skills are scaffold assets. To activate one in an agent runtime, copy or s
 
 The purpose is to reduce token use by giving agents narrow, reusable instructions for common scaffold tasks.
 
+For a compact scannable catalog, use `../SKILLS_INDEX.md`.
+
 ## Default Role Skills
 
 - `agent-assignment-writer`: scope and hand off work.

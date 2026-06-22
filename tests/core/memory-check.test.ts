@@ -25,6 +25,7 @@ describe("memory check", () => {
     await writeFile(path.join(repo, "package.json"), JSON.stringify({ scripts: { check: "echo ok" } }));
     await writeFile(path.join(repo, "REPO_PROFILE.json"), JSON.stringify({ readFirst: ["README.md"] }));
     await writeFile(path.join(repo, "CLI_INDEX.md"), "`npm run check`\n");
+    await writeFile(path.join(repo, "SKILLS_INDEX.md"), "`known-skill`\n");
     await writeFile(path.join(repo, "README.md"), "[missing](docs/missing.md)\n\n```bash\nnpm run gone\n```\n");
     await writeFile(path.join(repo, "docs", "agents", "ROUTING.md"), "`known-route`\n");
     await writeFile(
@@ -49,6 +50,7 @@ describe("memory check", () => {
     await writeFile(path.join(repo, "REPO_PROFILE.json"), JSON.stringify({ readFirst: ["README.md"] }));
     await writeFile(path.join(repo, "README.md"), "npm run check\n");
     await writeFile(path.join(repo, "CLI_INDEX.md"), "`npm run check`\n");
+    await writeFile(path.join(repo, "SKILLS_INDEX.md"), "");
     await writeFile(path.join(repo, "docs", "agents", "ROUTING.md"), "");
     await writeFile(path.join(repo, "contracts", "agent-governance", "router.json"), JSON.stringify({ routes: [] }));
 
@@ -57,5 +59,29 @@ describe("memory check", () => {
     expect(result.ok).toBe(true);
     expect(result.score).toBe(97);
     expect(result.warnings).toContain("CLI_INDEX.md does not document package script: lint");
+  });
+
+  it("warns when SKILLS_INDEX omits repo-local skills", async () => {
+    const repo = await mkdtemp(path.join(os.tmpdir(), "project-scaffold-skills-index-"));
+    await mkdir(path.join(repo, "docs", "agents"), { recursive: true });
+    await mkdir(path.join(repo, "contracts", "agent-governance"), { recursive: true });
+    await mkdir(path.join(repo, "skills", "indexed-skill"), { recursive: true });
+    await mkdir(path.join(repo, "skills", "missing-index-skill"), { recursive: true });
+    await writeFile(path.join(repo, "skills", "indexed-skill", "SKILL.md"), "---\nname: indexed-skill\ndescription: test\nlicense: test\n---\n");
+    await writeFile(path.join(repo, "skills", "missing-index-skill", "SKILL.md"), "---\nname: missing-index-skill\ndescription: test\nlicense: test\n---\n");
+    await writeFile(path.join(repo, "package.json"), JSON.stringify({ scripts: {} }));
+    await writeFile(path.join(repo, "REPO_PROFILE.json"), JSON.stringify({ readFirst: ["README.md"] }));
+    await writeFile(path.join(repo, "README.md"), "");
+    await writeFile(path.join(repo, "CLI_INDEX.md"), "");
+    await writeFile(path.join(repo, "SKILLS_INDEX.md"), "`indexed-skill`\n");
+    await writeFile(path.join(repo, "docs", "agents", "ROUTING.md"), "");
+    await writeFile(path.join(repo, "contracts", "agent-governance", "router.json"), JSON.stringify({ routes: [] }));
+
+    const result = await runMemoryCheck(repo);
+
+    expect(result.ok).toBe(true);
+    expect(result.score).toBe(97);
+    expect(result.checked.skills).toBe(2);
+    expect(result.warnings).toContain("SKILLS_INDEX.md does not document repo-local skill: missing-index-skill");
   });
 });
