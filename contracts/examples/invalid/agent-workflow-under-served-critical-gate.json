@@ -1,0 +1,34 @@
+{
+  "schema": "agent-workflow",
+  "id": "under-served-critical-workflow",
+  "lifecycle": "accepted",
+  "ownedBy": "contracts/agent-governance/",
+  "summary": "Invalid workflow that lets under served satisfy a critical final gate.",
+  "requiredInputs": ["assignment"],
+  "requiredContext": ["AGENTS.md"],
+  "stages": [
+    {
+      "id": "verify",
+      "personaId": "verifier",
+      "skills": ["phase-closeout-audit"],
+      "allowedVerdicts": ["pass", "under_served", "blocked"],
+      "outputs": ["gate-results"],
+      "critical": true
+    },
+    {
+      "id": "closeout",
+      "personaId": "orchestrator",
+      "skills": ["phase-closeout-audit"],
+      "allowedVerdicts": ["pass", "blocked"],
+      "outputs": ["receipt-summary"],
+      "critical": true
+    }
+  ],
+  "transitions": [
+    { "from": "verify", "on": "under_served", "to": "closeout" },
+    { "from": "closeout", "on": "pass", "terminal": true }
+  ],
+  "terminalVerdicts": ["pass", "blocked"],
+  "criticalCompletionVerdicts": ["pass", "under_served"],
+  "receiptRequired": true
+}

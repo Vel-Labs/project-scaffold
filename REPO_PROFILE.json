@@ -47,6 +47,10 @@
     "decisionLogs": "docs/decisions/",
     "aiUsage": "docs/governance/AI_USAGE.md",
     "agentStart": "docs/agents/START_HERE.md",
+    "agentRouting": "docs/agents/ROUTING.md",
+    "agentGovernance": "contracts/agent-governance/",
+    "assignmentEngineering": "docs/governance/ASSIGNMENT_ENGINEERING.md",
+    "runtimeEvidence": "docs/governance/RUNTIME_EVIDENCE.md",
     "templateUsage": "docs/project/TEMPLATE_USAGE.md",
     "skills": "skills/",
     "audits": "docs/audits/",
@@ -58,7 +62,11 @@
     "dryRunTemplateInitializer": "npm run init:template:dry-run",
     "validateScaffold": "npm run validate:scaffold",
     "validateContracts": "npm run validate:contracts",
+    "validateAgents": "npm run validate:agents",
+    "validateAssignment": "npm run validate:assignment",
     "focusedTests": "npm run test:focused",
+    "governanceTests": "npm run test:governance",
+    "securityTests": "npm run test:security",
     "allTests": "npm test",
     "typecheck": "npm run typecheck",
     "fullCheck": "npm run check"
@@ -69,6 +77,11 @@
     "docs/agents/START_HERE.md",
     "docs/project/TEMPLATE_USAGE.md",
     "contracts/README.md",
+    "contracts/agent-governance/README.md",
+    "docs/governance/AGENT_OPERATING_MODEL.md",
+    "docs/governance/ASSIGNMENT_ENGINEERING.md",
+    "docs/governance/RUNTIME_EVIDENCE.md",
+    "docs/agents/ROUTING.md",
     "docs/architecture/ARCHITECTURE.md",
     "docs/architecture/REPO_BOUNDARIES.md",
     "packages/core/README.md",
@@ -82,9 +95,31 @@
     "docs/architecture/ARCHITECTURE.md",
     "docs/architecture/REPO_BOUNDARIES.md",
     "docs/governance/",
+    "contracts/agent-governance/",
     "docs/repo-truth/",
     "REPO_PROFILE.json"
   ],
+  "projectTraits": [
+    "node",
+    "github-actions",
+    "agentic"
+  ],
+  "riskProfile": "standard",
+  "agentGovernance": {
+    "policy": "contracts/agent-governance/policy.json",
+    "sourceAuthority": "contracts/agent-governance/source-authority.json",
+    "router": "contracts/agent-governance/router.json",
+    "defaultAssignment": "contracts/agent-governance/assignments/scoped-change.json",
+    "defaultContextProfile": "contracts/agent-governance/context-profiles/scoped-change.json",
+    "receiptPolicy": "contracts/agent-governance/receipt-policy.json",
+    "defaultAutonomyLevel": "A1",
+    "qualityProfiles": [
+      "baseline",
+      "node",
+      "agentic"
+    ],
+    "runtimeAdapters": []
+  },
   "downstreamScopes": [
     "adapters",
     "demos",
@@ -154,7 +189,11 @@
   "qualityGate": [
     "npm run validate:scaffold",
     "npm run validate:contracts",
+    "npm run validate:agents",
+    "npm run validate:assignment",
     "npm run test:focused",
+    "npm run test:governance",
+    "npm run test:security",
     "npm test",
     "npm run typecheck"
   ]

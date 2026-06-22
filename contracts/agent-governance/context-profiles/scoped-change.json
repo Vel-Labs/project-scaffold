@@ -1,0 +1,46 @@
+{
+  "schema": "agent-context-profile",
+  "id": "scoped-change",
+  "lifecycle": "accepted",
+  "ownedBy": "contracts/agent-governance/",
+  "routeId": "scoped-local-change",
+  "purpose": "Bounded context profile for one scoped local repository change.",
+  "requiredSources": [
+    {
+      "path": "AGENTS.md",
+      "authority": "canonical"
+    },
+    {
+      "path": "REPO_PROFILE.json",
+      "authority": "canonical"
+    },
+    {
+      "path": "contracts/agent-governance/",
+      "authority": "canonical"
+    },
+    {
+      "path": "docs/governance/AGENT_OPERATING_MODEL.md",
+      "authority": "learned"
+    }
+  ],
+  "optionalSources": [
+    {
+      "path": "docs/audits/",
+      "authority": "supporting"
+    },
+    {
+      "path": "docs/decisions/",
+      "authority": "supporting"
+    }
+  ],
+  "deniedPatterns": [".env*", "**/*.pem", "**/*.key", "**/*secret*", "**/*token*", "node_modules/**", ".git/**"],
+  "output": {
+    "directory": ".agent-context/",
+    "maxInlineBytes": 200000,
+    "includeSha256": true
+  },
+  "staleness": {
+    "requireGitRevision": true,
+    "requireSourceHashes": true
+  }
+}

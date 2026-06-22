@@ -1,0 +1,42 @@
+{
+  "schema": "agent-loop",
+  "id": "no-objective-verifier-loop",
+  "lifecycle": "accepted",
+  "ownedBy": "contracts/agent-governance/",
+  "executionMode": "manual",
+  "workflowId": "scoped-change",
+  "makerPersonaId": "implementer",
+  "verifierPersonaId": "verifier",
+  "riskCeiling": "high",
+  "goal": "Invalid loop without an objective verifier gate.",
+  "eligibility": {
+    "repeatable": true,
+    "objectiveVerifier": true,
+    "agentCanCompleteEndToEnd": true,
+    "objectiveDoneCondition": true
+  },
+  "steps": ["plan", "execute", "verify"],
+  "gates": [
+    {
+      "id": "advisory",
+      "command": "npm run test:focused",
+      "requiredAtStop": true,
+      "objectiveVerifier": false
+    }
+  ],
+  "limits": {
+    "maxIterations": 6,
+    "maxConsecutiveNoProgress": 2,
+    "maxChangedFiles": 20,
+    "maxWallClockMinutes": 60
+  },
+  "state": {
+    "compactStateIntent": "Keep bounded state only.",
+    "maxSummaryBytes": 12000
+  },
+  "stop": {
+    "success": "required gates pass",
+    "failure": ["iteration limit reached"]
+  },
+  "receiptRequired": true
+}

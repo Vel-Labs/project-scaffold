@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://project-governance-scaffold.local/schemas/agent-workflow.schema.json",
+  "title": "AgentWorkflow",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "id",
+    "lifecycle",
+    "ownedBy",
+    "summary",
+    "requiredInputs",
+    "requiredContext",
+    "stages",
+    "transitions",
+    "terminalVerdicts",
+    "criticalCompletionVerdicts",
+    "receiptRequired"
+  ],
+  "properties": {
+    "schema": { "const": "agent-workflow" },
+    "id": { "$ref": "#/$defs/kebabId" },
+    "lifecycle": { "$ref": "#/$defs/lifecycle" },
+    "ownedBy": { "type": "string", "minLength": 3 },
+    "summary": { "type": "string", "minLength": 12 },
+    "requiredInputs": { "$ref": "#/$defs/stringList" },
+    "requiredContext": { "$ref": "#/$defs/stringList" },
+    "stages": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "personaId", "skills", "allowedVerdicts", "outputs", "critical"],
+        "properties": {
+          "id": { "$ref": "#/$defs/kebabId" },
+          "personaId": { "$ref": "#/$defs/kebabId" },
+          "skills": { "$ref": "#/$defs/stringList" },
+          "allowedVerdicts": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "$ref": "#/$defs/verdict" }
+          },
+          "outputs": { "$ref": "#/$defs/stringList" },
+          "critical": { "type": "boolean" }
+        }
+      }
+    },
+    "transitions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["from", "on"],
+        "properties": {
+          "from": { "$ref": "#/$defs/kebabId" },
+          "on": { "$ref": "#/$defs/verdict" },
+          "to": { "$ref": "#/$defs/kebabId" },
+          "terminal": { "type": "boolean" }
+        }
+      }
+    },
+    "terminalVerdicts": { "type": "array", "items": { "$ref": "#/$defs/verdict" } },
+    "criticalCompletionVerdicts": { "type": "array", "items": { "$ref": "#/$defs/verdict" } },
+    "receiptRequired": { "const": true }
+  },
+  "$defs": {
+    "kebabId": { "type": "string", "pattern": "^[a-z][a-z0-9-]*$" },
+    "lifecycle": { "type": "string", "enum": ["draft", "proposed", "accepted", "active", "deprecated", "retired"] },
+    "stringList": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+    "verdict": {
+      "type": "string",
+      "enum": ["pass", "revise", "under_served", "human_review_required", "blocked"]
+    }
+  }
+}

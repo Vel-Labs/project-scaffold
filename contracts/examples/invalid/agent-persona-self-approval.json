@@ -1,0 +1,24 @@
+{
+  "schema": "agent-persona",
+  "id": "self-approver",
+  "lifecycle": "accepted",
+  "ownedBy": "contracts/agent-governance/",
+  "purpose": "Invalid persona that authors and approves medium risk work.",
+  "capabilityId": "default-local-capability",
+  "riskCeiling": "high",
+  "authority": {
+    "mayAuthor": true,
+    "mayVerify": true,
+    "mayApprove": true,
+    "mayMerge": false,
+    "mayRelease": false,
+    "mayDeploy": false
+  },
+  "approval": {
+    "selfApproval": "deny-medium-high",
+    "approvalRiskCeiling": "medium"
+  },
+  "requiredSkills": ["core-enforcement"],
+  "handoffTargets": ["verifier"],
+  "escalationConditions": ["none"]
+}

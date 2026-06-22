@@ -1,0 +1,63 @@
+{
+  "schema": "agent-workflow",
+  "id": "scoped-change",
+  "lifecycle": "accepted",
+  "ownedBy": "contracts/agent-governance/",
+  "summary": "Plan, implement, independently verify, and close out one scoped local repository change.",
+  "requiredInputs": ["assignment", "repoProfile", "currentGitState"],
+  "requiredContext": ["AGENTS.md", "REPO_PROFILE.json", "relevant contracts", "relevant architecture"],
+  "stages": [
+    {
+      "id": "scope-and-plan",
+      "personaId": "orchestrator",
+      "skills": ["agent-assignment-writer"],
+      "allowedVerdicts": ["pass", "under_served", "human_review_required", "blocked"],
+      "outputs": ["scoped-plan", "allowed-paths", "verification-plan"],
+      "critical": true
+    },
+    {
+      "id": "implement",
+      "personaId": "implementer",
+      "skills": ["core-enforcement", "contract-steward"],
+      "allowedVerdicts": ["pass", "revise", "under_served", "blocked"],
+      "outputs": ["changed-files", "focused-evidence"],
+      "critical": true
+    },
+    {
+      "id": "verify",
+      "personaId": "verifier",
+      "skills": ["phase-closeout-audit"],
+      "allowedVerdicts": ["pass", "revise", "human_review_required", "blocked"],
+      "outputs": ["gate-results", "findings"],
+      "critical": true
+    },
+    {
+      "id": "closeout",
+      "personaId": "orchestrator",
+      "skills": ["phase-closeout-audit"],
+      "allowedVerdicts": ["pass", "human_review_required", "blocked"],
+      "outputs": ["receipt-summary", "handoff"],
+      "critical": true
+    }
+  ],
+  "transitions": [
+    { "from": "scope-and-plan", "on": "pass", "to": "implement" },
+    { "from": "scope-and-plan", "on": "under_served", "to": "implement" },
+    { "from": "scope-and-plan", "on": "human_review_required", "terminal": true },
+    { "from": "scope-and-plan", "on": "blocked", "terminal": true },
+    { "from": "implement", "on": "pass", "to": "verify" },
+    { "from": "implement", "on": "revise", "to": "implement" },
+    { "from": "implement", "on": "under_served", "to": "verify" },
+    { "from": "implement", "on": "blocked", "terminal": true },
+    { "from": "verify", "on": "revise", "to": "implement" },
+    { "from": "verify", "on": "pass", "to": "closeout" },
+    { "from": "verify", "on": "human_review_required", "terminal": true },
+    { "from": "verify", "on": "blocked", "terminal": true },
+    { "from": "closeout", "on": "pass", "terminal": true },
+    { "from": "closeout", "on": "human_review_required", "terminal": true },
+    { "from": "closeout", "on": "blocked", "terminal": true }
+  ],
+  "terminalVerdicts": ["pass", "human_review_required", "blocked"],
+  "criticalCompletionVerdicts": ["pass"],
+  "receiptRequired": true
+}

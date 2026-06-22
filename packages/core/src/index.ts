@@ -4,11 +4,19 @@ export {
 export {
   checkLlmProviderReadiness
 } from "./llm-provider-readiness.js";
+export {
+  validateAgentGovernance,
+  validateAgentAssignmentFile,
+  validateGovernanceArtifacts
+} from "./validate-governance.js";
 export type {
   ContractJsonFile,
   ContractValidationFailure,
   ContractValidationResult,
   ContractValidationSuccess,
+  GovernanceValidationFailure,
+  GovernanceValidationResult,
+  GovernanceValidationSuccess,
   LlmProviderContract,
   LlmProviderMode,
   LlmProviderReadinessFailure,

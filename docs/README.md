@@ -38,23 +38,31 @@ REPO_PROFILE.json machine-readable taxonomy and command index
 4. `agents/START_HERE.md`
 5. `project/TEMPLATE_USAGE.md`
 6. `../contracts/README.md`
-7. `../packages/core/README.md`
-8. `../tests/README.md`
-9. `architecture/ARCHITECTURE.md`
-10. `architecture/REPO_BOUNDARIES.md`
-11. `../ROADMAP.md`
-12. `../DECISIONS.md`
-13. `roadmaps/CURRENT_STATE_AND_NEXT.md`
-14. `repo-truth/THC_METHODOLOGY.md`
-15. `governance/code-quality-standards.md`
-16. `roadmaps/README.md`
+7. `governance/AGENT_OPERATING_MODEL.md`
+8. `governance/ASSIGNMENT_ENGINEERING.md`
+9. `governance/RUNTIME_EVIDENCE.md`
+10. `agents/ROUTING.md`
+11. `../packages/core/README.md`
+12. `../tests/README.md`
+13. `architecture/ARCHITECTURE.md`
+14. `architecture/REPO_BOUNDARIES.md`
+15. `../ROADMAP.md`
+16. `../DECISIONS.md`
+17. `roadmaps/CURRENT_STATE_AND_NEXT.md`
+18. `repo-truth/THC_METHODOLOGY.md`
+19. `governance/code-quality-standards.md`
+20. `roadmaps/README.md`
 
 ### Baseline verification
 
 ```bash
 npm run validate:scaffold
 npm run validate:contracts
+npm run validate:agents
+npm run validate:assignment
 npm run test:focused
+npm run test:governance
+npm run test:security
 npm test
 npm run typecheck
 ```

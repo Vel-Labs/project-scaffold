@@ -1,0 +1,25 @@
+{
+  "schema": "agent-context-profile",
+  "id": "bad-context-profile",
+  "lifecycle": "accepted",
+  "ownedBy": "contracts/agent-governance/",
+  "routeId": "scoped-local-change",
+  "purpose": "Invalid context profile that includes transient state.",
+  "requiredSources": [
+    {
+      "path": ".agent-runs/",
+      "authority": "transient"
+    }
+  ],
+  "optionalSources": [],
+  "deniedPatterns": [".env*", "**/*.pem", "**/*.key", "node_modules/**", ".git/**"],
+  "output": {
+    "directory": ".agent-context/",
+    "maxInlineBytes": 200000,
+    "includeSha256": true
+  },
+  "staleness": {
+    "requireGitRevision": true,
+    "requireSourceHashes": true
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "schema": "agent-receipt-policy",
+  "id": "default-receipt-policy",
+  "lifecycle": "accepted",
+  "ownedBy": "contracts/agent-governance/",
+  "storage": {
+    "transientDirectory": ".agent-runs/",
+    "promotedDirectory": "docs/audits/",
+    "maxReceiptBytes": 50000
+  },
+  "privacy": {
+    "forbidSecrets": true,
+    "forbidFullTranscripts": true,
+    "forbidEnvironmentDumps": true,
+    "redactPatterns": ["api[_-]?key", "secret", "password", "token", "sk-[A-Za-z0-9_-]+"]
+  },
+  "requiredFields": [
+    "request",
+    "assignment",
+    "route",
+    "authoritySources",
+    "personas",
+    "stageVerdicts",
+    "commands",
+    "verificationEvidence",
+    "changes",
+    "final"
+  ],
+  "promotion": {
+    "requiresHumanReview": true,
+    "requiresAuditReason": true
+  }
+}

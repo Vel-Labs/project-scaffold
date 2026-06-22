@@ -13,12 +13,13 @@ This folder is meant to be copied into future projects. It is not a product impl
 3. Fill in `docs/project/PROJECT_BRIEF.md`.
 4. Read `docs/project/TEMPLATE_USAGE.md`.
 5. Define canonical project truth in `contracts/` before implementation.
-6. For LLM-backed projects, start from `docs/integrations/LLM_PROVIDER_INTEGRATION.md`.
-7. Put reusable enforcement in `packages/core/`.
-8. Keep the shared local quality gate in `tests/`.
-9. Fill in `docs/hackathon/` if the project is a hackathon build.
-10. Assign work through `AGENTS.md` and `docs/governance/worktree-governance.md`.
-11. Keep `DECISIONS.md`, `CHANGELOG.md`, and audit docs current.
+6. For agent-governed work, start from `contracts/agent-governance/`, `docs/governance/AGENT_OPERATING_MODEL.md`, and `docs/agents/ROUTING.md`.
+7. For LLM-backed projects, start from `docs/integrations/LLM_PROVIDER_INTEGRATION.md`.
+8. Put reusable enforcement in `packages/core/`.
+9. Keep the shared local quality gate in `tests/`.
+10. Fill in `docs/hackathon/` if the project is a hackathon build.
+11. Assign work through `AGENTS.md` and `docs/governance/worktree-governance.md`.
+12. Keep `DECISIONS.md`, `CHANGELOG.md`, and audit docs current.
 
 ## Local quality gate
 
@@ -27,13 +28,19 @@ npm run install:local
 npm run init:template
 npm run validate:scaffold
 npm run validate:contracts
+npm run validate:agents
+npm run validate:assignment
 npm run test:focused
+npm run test:governance
+npm run test:security
 npm test
 npm run typecheck
 npm run check
 ```
 
-`contracts/` is the canonical source of truth. `packages/core/` is the only reusable implementation boundary in this baseline. `tests/` is the shared local gate and must consume `contracts/` directly instead of redefining contract truth.
+`contracts/` is the canonical source of truth. `packages/core/` is the reusable implementation boundary. `tests/` is the shared local gate and must consume `contracts/` directly instead of redefining contract truth.
+
+Agent governance starts as contract-to-validation layers. The scaffold defines policy, source authority, router, assignment, context profile, capability, personas, workflow, loop, hook policy, receipt schema, receipt policy, fixtures, core validation, tests, and docs. It does not enable scheduled execution, live hooks, receipt writing, context-pack generation, merge/release/deploy automation, or external writes.
 
 `REPO_PROFILE.json` is the machine-readable repo taxonomy and command index for humans and agents.
 
@@ -70,6 +77,7 @@ contracts/
   fail-closed-rules.md
   schemas/
   examples/
+  agent-governance/
 packages/
   core/
 scripts/

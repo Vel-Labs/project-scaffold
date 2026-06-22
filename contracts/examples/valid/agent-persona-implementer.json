@@ -1,0 +1,24 @@
+{
+  "schema": "agent-persona",
+  "id": "implementer",
+  "lifecycle": "accepted",
+  "ownedBy": "contracts/agent-governance/",
+  "purpose": "Make scoped local changes without approving the result.",
+  "capabilityId": "default-local-capability",
+  "riskCeiling": "medium",
+  "authority": {
+    "mayAuthor": true,
+    "mayVerify": false,
+    "mayApprove": false,
+    "mayMerge": false,
+    "mayRelease": false,
+    "mayDeploy": false
+  },
+  "approval": {
+    "selfApproval": "deny-medium-high",
+    "approvalRiskCeiling": "low"
+  },
+  "requiredSkills": ["core-enforcement"],
+  "handoffTargets": ["verifier"],
+  "escalationConditions": ["secret access is needed"]
+}

@@ -1,0 +1,33 @@
+{
+  "schema": "agent-router",
+  "id": "default-agent-router",
+  "lifecycle": "accepted",
+  "ownedBy": "contracts/agent-governance/",
+  "defaultDecision": "human_review_required",
+  "routes": [
+    {
+      "id": "scoped-local-change",
+      "priority": 100,
+      "matches": {
+        "taskTypes": ["implementation", "bugfix", "refactor", "test", "documentation", "contract"],
+        "riskMarkers": ["local-write"],
+        "forbiddenRiskMarkers": ["deploy", "release", "merge", "external-write", "secret-access"]
+      },
+      "workflowId": "scoped-change",
+      "makerPersonaId": "implementer",
+      "verifierPersonaId": "verifier",
+      "requiredSkills": ["agent-assignment-writer", "core-enforcement", "phase-closeout-audit"],
+      "contextProfile": "scoped-change",
+      "autonomyCeiling": "A2",
+      "humanGates": ["governance-locked-file-change", "external-write-request", "release-or-deploy-request"],
+      "requestedActions": ["local-write", "local-validation"]
+    }
+  ],
+  "failClosed": [
+    "unknown task type",
+    "conflicting routes with equal priority",
+    "unresolved high risk marker",
+    "unknown workflow, persona, or skill reference",
+    "route requests authority denied by policy"
+  ]
+}

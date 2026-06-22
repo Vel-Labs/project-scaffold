@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://project-governance-scaffold.local/schemas/agent-loop.schema.json",
+  "title": "AgentLoop",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "id",
+    "lifecycle",
+    "ownedBy",
+    "executionMode",
+    "workflowId",
+    "makerPersonaId",
+    "verifierPersonaId",
+    "riskCeiling",
+    "goal",
+    "eligibility",
+    "steps",
+    "gates",
+    "limits",
+    "state",
+    "stop",
+    "receiptRequired"
+  ],
+  "properties": {
+    "schema": { "const": "agent-loop" },
+    "id": { "$ref": "#/$defs/kebabId" },
+    "lifecycle": { "$ref": "#/$defs/lifecycle" },
+    "ownedBy": { "type": "string", "minLength": 3 },
+    "executionMode": { "enum": ["manual", "interactive-disabled"] },
+    "workflowId": { "$ref": "#/$defs/kebabId" },
+    "makerPersonaId": { "$ref": "#/$defs/kebabId" },
+    "verifierPersonaId": { "$ref": "#/$defs/kebabId" },
+    "riskCeiling": { "$ref": "#/$defs/risk" },
+    "goal": { "type": "string", "minLength": 12 },
+    "eligibility": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["repeatable", "objectiveVerifier", "agentCanCompleteEndToEnd", "objectiveDoneCondition"],
+      "properties": {
+        "repeatable": { "type": "boolean" },
+        "objectiveVerifier": { "const": true },
+        "agentCanCompleteEndToEnd": { "type": "boolean" },
+        "objectiveDoneCondition": { "const": true }
+      }
+    },
+    "steps": { "$ref": "#/$defs/stringList" },
+    "gates": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "command", "requiredAtStop", "objectiveVerifier"],
+        "properties": {
+          "id": { "$ref": "#/$defs/kebabId" },
+          "command": { "type": "string", "minLength": 3 },
+          "requiredAtStop": { "type": "boolean" },
+          "objectiveVerifier": { "type": "boolean" }
+        }
+      }
+    },
+    "limits": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["maxIterations", "maxConsecutiveNoProgress", "maxChangedFiles", "maxWallClockMinutes"],
+      "properties": {
+        "maxIterations": { "type": "integer", "minimum": 1 },
+        "maxConsecutiveNoProgress": { "type": "integer", "minimum": 1 },
+        "maxChangedFiles": { "type": "integer", "minimum": 1 },
+        "maxWallClockMinutes": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "state": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["compactStateIntent", "maxSummaryBytes"],
+      "properties": {
+        "compactStateIntent": { "type": "string", "minLength": 12 },
+        "maxSummaryBytes": { "type": "integer", "minimum": 1000 }
+      }
+    },
+    "stop": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["success", "failure"],
+      "properties": {
+        "success": { "type": "string", "minLength": 8 },
+        "failure": { "$ref": "#/$defs/stringList" }
+      }
+    },
+    "receiptRequired": { "const": true }
+  },
+  "$defs": {
+    "kebabId": { "type": "string", "pattern": "^[a-z][a-z0-9-]*$" },
+    "lifecycle": { "type": "string", "enum": ["draft", "proposed", "accepted", "active", "deprecated", "retired"] },
+    "risk": { "type": "string", "enum": ["low", "medium", "high", "critical"] },
+    "stringList": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } }
+  }
+}

@@ -20,6 +20,8 @@ Current location: `contracts/`.
 
 This plane owns lifecycle, schemas, examples, and fail-closed rules. It is canonical over implementation packages and tests.
 
+Agent governance contracts live under `contracts/agent-governance/` and define policy, source authority, router, assignment, context profile, capability, personas, workflow, loop, hook policy, and receipt policy without enabling runtime automation.
+
 ### 2. Core runtime plane
 
 Owns reusable business logic.
@@ -27,6 +29,8 @@ Owns reusable business logic.
 Current location: `packages/core/`.
 
 This plane consumes `contracts/` and exposes executable enforcement helpers. It must not redefine canonical truth.
+
+Agent governance enforcement validates schema references, assignment-route alignment, context-profile safety, authority composition, workflow transitions, loop limits, source precedence, hook safety, receipt policy, and receipt rules.
 
 ### 3. Integration plane
 

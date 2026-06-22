@@ -1,0 +1,19 @@
+{
+  "schema": "agent-assignment",
+  "id": "bad-assignment-escalation",
+  "lifecycle": "accepted",
+  "ownedBy": "contracts/agent-governance/",
+  "summary": "Invalid assignment that requests deploy authority.",
+  "risk": "high",
+  "routeId": "scoped-local-change",
+  "workflowId": "scoped-change",
+  "makerPersonaId": "implementer",
+  "verifierPersonaId": "verifier",
+  "autonomyLevel": "A4",
+  "allowedPaths": ["contracts/**"],
+  "forbiddenPaths": [".env*"],
+  "requestedActions": ["deploy"],
+  "expectedChecks": ["npm run check"],
+  "humanApprovals": [],
+  "receiptRequired": true
+}

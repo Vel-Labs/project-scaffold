@@ -1,0 +1,22 @@
+{
+  "schema": "agent-capability",
+  "id": "default-local-capability",
+  "lifecycle": "accepted",
+  "ownedBy": "contracts/agent-governance/",
+  "riskCeiling": "high",
+  "grants": {
+    "readPaths": ["repo"],
+    "writePaths": ["assignment-scoped-local-files"],
+    "commands": ["deterministic-local-validation"],
+    "network": "deny",
+    "secrets": "deny",
+    "externalWrites": "human-approval"
+  },
+  "denials": [
+    "merge without human approval",
+    "release without human approval",
+    "deploy without human approval",
+    "secret access by default",
+    "scheduled execution"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "schema": "agent-router",
+  "id": "escalating-router",
+  "lifecycle": "accepted",
+  "ownedBy": "contracts/agent-governance/",
+  "defaultDecision": "human_review_required",
+  "routes": [
+    {
+      "id": "deploy-route",
+      "priority": 100,
+      "matches": {
+        "taskTypes": ["implementation"],
+        "riskMarkers": ["local-write"],
+        "forbiddenRiskMarkers": []
+      },
+      "workflowId": "scoped-change",
+      "makerPersonaId": "implementer",
+      "verifierPersonaId": "verifier",
+      "requiredSkills": ["core-enforcement"],
+      "contextProfile": "scoped-change",
+      "autonomyCeiling": "A2",
+      "humanGates": [],
+      "requestedActions": ["deploy"]
+    }
+  ],
+  "failClosed": ["route requests denied authority"]
+}

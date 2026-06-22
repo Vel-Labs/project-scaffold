@@ -1,0 +1,51 @@
+{
+  "schema": "agent-source-authority",
+  "id": "default-source-authority",
+  "lifecycle": "accepted",
+  "ownedBy": "contracts/agent-governance/",
+  "precedence": ["canonical", "learned", "supporting", "reference", "generated", "transient"],
+  "sources": [
+    {
+      "path": "contracts/",
+      "authority": "canonical",
+      "mayOverride": ["learned", "supporting", "reference", "generated", "transient"],
+      "promotionRequired": false
+    },
+    {
+      "path": "AGENTS.md",
+      "authority": "canonical",
+      "mayOverride": ["learned", "supporting", "reference", "generated", "transient"],
+      "promotionRequired": false
+    },
+    {
+      "path": "docs/governance/",
+      "authority": "learned",
+      "mayOverride": ["supporting", "reference", "generated", "transient"],
+      "promotionRequired": true
+    },
+    {
+      "path": "docs/audits/",
+      "authority": "supporting",
+      "mayOverride": ["reference", "generated", "transient"],
+      "promotionRequired": true
+    },
+    {
+      "path": "gpt-pro-audit/",
+      "authority": "reference",
+      "mayOverride": [],
+      "promotionRequired": true
+    },
+    {
+      "path": "generated-runtime-state",
+      "authority": "transient",
+      "mayOverride": [],
+      "promotionRequired": true
+    }
+  ],
+  "failClosed": [
+    "unknown authority class",
+    "reference material overriding canonical truth",
+    "learned or generated material overriding canonical contracts",
+    "transient run state treated as source truth"
+  ]
+}

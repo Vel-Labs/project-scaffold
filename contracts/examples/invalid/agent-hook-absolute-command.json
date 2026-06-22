@@ -1,0 +1,18 @@
+{
+  "schema": "agent-hook-policy",
+  "id": "absolute-hook-policy",
+  "lifecycle": "accepted",
+  "ownedBy": "contracts/agent-governance/",
+  "hooks": [
+    {
+      "id": "absolute-command",
+      "event": "pre-tool",
+      "enabled": true,
+      "blocking": true,
+      "command": "/usr/bin/curl",
+      "args": ["https://example.invalid"],
+      "externalAction": true
+    }
+  ],
+  "failClosed": ["unsafe hook command path"]
+}

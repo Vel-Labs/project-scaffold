@@ -8,6 +8,14 @@ Governance files are operating law for the scaffold. Do not change them without 
 
 ```text
 AUDIT_PHILOSOPHY.md          audit doctrine
+AGENT_OPERATING_MODEL.md     agent control-plane primitive map
+ASSIGNMENT_ENGINEERING.md    assignment scope and validation rules
+AUTONOMY_LEVELS.md           authority ceilings
+RUNTIME_EVIDENCE.md          context and receipt evidence boundaries
+WORKFLOW_ENGINEERING.md      finite workflows and verdicts
+LOOP_ENGINEERING.md          objective loops and hard stops
+AGENT_SECURITY.md            fail-closed agent security invariants
+SOURCE_AUTHORITY.md          source precedence and promotion rules
 multi-agent-workflow.md      how multiple humans/agents coordinate
 worktree-governance.md       branch and worktree rules
 code-quality-standards.md    readability, line count, comment, and module rules

@@ -16,6 +16,7 @@ type RepoProfile = {
 
 const repoRoot = process.cwd();
 const errors: string[] = [];
+const ignoredRootEntries = new Set([".git", "node_modules", "gpt-pro-audit", ".DS_Store"]);
 const profile = await readJson<RepoProfile>("REPO_PROFILE.json");
 const packageJson = await readJson<{ scripts?: Record<string, string> }>("package.json");
 
@@ -53,11 +54,10 @@ async function assertPathsExist(paths: string[]): Promise<void> {
 
 async function assertRootIsClean(allowedRootEntries: string[]): Promise<void> {
   const allowed = new Set(allowedRootEntries.map((entry) => entry.replace(/\/$/, "")));
-  const ignored = new Set([".git", "node_modules"]);
   const entries = await readdir(repoRoot, { withFileTypes: true });
 
   for (const entry of entries) {
-    if (ignored.has(entry.name)) {
+    if (ignoredRootEntries.has(entry.name)) {
       continue;
     }
     if (!allowed.has(entry.name)) {
@@ -145,12 +145,11 @@ async function assertOnlyAllowedPlaceholders(allowed: string[]): Promise<void> {
 }
 
 async function listRepoFiles(dir = repoRoot, prefix = ""): Promise<string[]> {
-  const ignored = new Set([".git", "node_modules"]);
   const entries = await readdir(path.join(dir, prefix), { withFileTypes: true });
   const files: string[] = [];
 
   for (const entry of entries) {
-    if (ignored.has(entry.name)) {
+    if (prefix === "" && ignoredRootEntries.has(entry.name)) {
       continue;
     }
     const relative = path.join(prefix, entry.name);

@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://project-governance-scaffold.local/schemas/agent-persona.schema.json",
+  "title": "AgentPersona",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "id",
+    "lifecycle",
+    "ownedBy",
+    "purpose",
+    "capabilityId",
+    "riskCeiling",
+    "authority",
+    "approval",
+    "requiredSkills",
+    "handoffTargets",
+    "escalationConditions"
+  ],
+  "properties": {
+    "schema": { "const": "agent-persona" },
+    "id": { "$ref": "#/$defs/kebabId" },
+    "lifecycle": { "$ref": "#/$defs/lifecycle" },
+    "ownedBy": { "type": "string", "minLength": 3 },
+    "purpose": { "type": "string", "minLength": 12 },
+    "capabilityId": { "$ref": "#/$defs/kebabId" },
+    "riskCeiling": { "$ref": "#/$defs/risk" },
+    "authority": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mayAuthor", "mayVerify", "mayApprove", "mayMerge", "mayRelease", "mayDeploy"],
+      "properties": {
+        "mayAuthor": { "type": "boolean" },
+        "mayVerify": { "type": "boolean" },
+        "mayApprove": { "type": "boolean" },
+        "mayMerge": { "type": "boolean" },
+        "mayRelease": { "type": "boolean" },
+        "mayDeploy": { "type": "boolean" }
+      }
+    },
+    "approval": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["selfApproval", "approvalRiskCeiling"],
+      "properties": {
+        "selfApproval": { "const": "deny-medium-high" },
+        "approvalRiskCeiling": { "$ref": "#/$defs/risk" }
+      }
+    },
+    "requiredSkills": { "$ref": "#/$defs/stringList" },
+    "handoffTargets": { "$ref": "#/$defs/stringList" },
+    "escalationConditions": { "$ref": "#/$defs/stringList" }
+  },
+  "$defs": {
+    "kebabId": { "type": "string", "pattern": "^[a-z][a-z0-9-]*$" },
+    "lifecycle": { "type": "string", "enum": ["draft", "proposed", "accepted", "active", "deprecated", "retired"] },
+    "risk": { "type": "string", "enum": ["low", "medium", "high", "critical"] },
+    "stringList": { "type": "array", "items": { "type": "string", "minLength": 1 } }
+  }
+}

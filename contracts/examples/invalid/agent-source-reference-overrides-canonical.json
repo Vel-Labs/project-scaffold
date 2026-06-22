@@ -1,0 +1,16 @@
+{
+  "schema": "agent-source-authority",
+  "id": "bad-source-authority",
+  "lifecycle": "accepted",
+  "ownedBy": "contracts/agent-governance/",
+  "precedence": ["canonical", "learned", "supporting", "reference", "generated", "transient"],
+  "sources": [
+    {
+      "path": "docs/references/imported-guide.md",
+      "authority": "reference",
+      "mayOverride": ["canonical"],
+      "promotionRequired": true
+    }
+  ],
+  "failClosed": ["reference overriding canonical"]
+}

@@ -1,0 +1,28 @@
+{
+  "schema": "agent-persona",
+  "id": "verifier",
+  "lifecycle": "accepted",
+  "ownedBy": "contracts/agent-governance/",
+  "purpose": "Inspect evidence and run deterministic checks without editing implementation under review.",
+  "capabilityId": "default-local-capability",
+  "riskCeiling": "high",
+  "authority": {
+    "mayAuthor": false,
+    "mayVerify": true,
+    "mayApprove": true,
+    "mayMerge": false,
+    "mayRelease": false,
+    "mayDeploy": false
+  },
+  "approval": {
+    "selfApproval": "deny-medium-high",
+    "approvalRiskCeiling": "high"
+  },
+  "requiredSkills": ["phase-closeout-audit"],
+  "handoffTargets": ["implementer", "orchestrator", "security-reviewer"],
+  "escalationConditions": [
+    "verification evidence is missing or stale",
+    "medium or high risk maker equals verifier",
+    "critical gate has under_served verdict"
+  ]
+}

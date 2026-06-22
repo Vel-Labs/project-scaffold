@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://project-governance-scaffold.local/schemas/agent-policy.schema.json",
+  "title": "AgentPolicy",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "id", "lifecycle", "ownedBy", "precedence", "autonomyLevels", "riskRules", "failClosed"],
+  "properties": {
+    "schema": { "const": "agent-policy" },
+    "id": { "$ref": "#/$defs/kebabId" },
+    "lifecycle": { "$ref": "#/$defs/lifecycle" },
+    "ownedBy": { "type": "string", "minLength": 3 },
+    "precedence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["denyOverridesPermit", "effectiveAuthority"],
+      "properties": {
+        "denyOverridesPermit": { "const": true },
+        "effectiveAuthority": { "const": "intersection" }
+      }
+    },
+    "autonomyLevels": {
+      "type": "array",
+      "minItems": 5,
+      "items": { "$ref": "#/$defs/autonomy" }
+    },
+    "riskRules": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "unknownAuthority",
+        "mediumHighSelfApproval",
+        "externalWrites",
+        "underServedCriticalGate",
+        "modelSelfScoring"
+      ],
+      "properties": {
+        "unknownAuthority": { "const": "deny" },
+        "mediumHighSelfApproval": { "const": "deny" },
+        "externalWrites": { "const": "human-approval" },
+        "underServedCriticalGate": { "const": "deny" },
+        "modelSelfScoring": { "const": "advisory-only" }
+      }
+    },
+    "failClosed": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 8 }
+    }
+  },
+  "$defs": {
+    "autonomy": { "type": "string", "enum": ["A0", "A1", "A2", "A3", "A4"] },
+    "kebabId": { "type": "string", "pattern": "^[a-z][a-z0-9-]*$" },
+    "lifecycle": { "type": "string", "enum": ["draft", "proposed", "accepted", "active", "deprecated", "retired"] }
+  }
+}

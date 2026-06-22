@@ -1,0 +1,42 @@
+{
+  "schema": "agent-loop",
+  "id": "no-hard-stop-loop",
+  "lifecycle": "accepted",
+  "ownedBy": "contracts/agent-governance/",
+  "executionMode": "manual",
+  "workflowId": "scoped-change",
+  "makerPersonaId": "implementer",
+  "verifierPersonaId": "verifier",
+  "riskCeiling": "high",
+  "goal": "Invalid loop without complete hard stop controls.",
+  "eligibility": {
+    "repeatable": true,
+    "objectiveVerifier": true,
+    "agentCanCompleteEndToEnd": true,
+    "objectiveDoneCondition": true
+  },
+  "steps": ["plan", "execute", "verify"],
+  "gates": [
+    {
+      "id": "focused",
+      "command": "npm run test:focused",
+      "requiredAtStop": false,
+      "objectiveVerifier": true
+    }
+  ],
+  "limits": {
+    "maxIterations": 0,
+    "maxConsecutiveNoProgress": 0,
+    "maxChangedFiles": 0,
+    "maxWallClockMinutes": 0
+  },
+  "state": {
+    "compactStateIntent": "Keep bounded state only.",
+    "maxSummaryBytes": 12000
+  },
+  "stop": {
+    "success": "required gates pass",
+    "failure": ["iteration limit reached"]
+  },
+  "receiptRequired": true
+}

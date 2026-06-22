@@ -1,0 +1,22 @@
+{
+  "schema": "agent-source-authority",
+  "id": "default-source-authority",
+  "lifecycle": "accepted",
+  "ownedBy": "contracts/agent-governance/",
+  "precedence": ["canonical", "learned", "supporting", "reference", "generated", "transient"],
+  "sources": [
+    {
+      "path": "contracts/",
+      "authority": "canonical",
+      "mayOverride": ["learned", "supporting", "reference", "generated", "transient"],
+      "promotionRequired": false
+    },
+    {
+      "path": "docs/audits/",
+      "authority": "supporting",
+      "mayOverride": ["reference", "generated", "transient"],
+      "promotionRequired": true
+    }
+  ],
+  "failClosed": ["reference overriding canonical"]
+}

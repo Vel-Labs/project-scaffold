@@ -1,0 +1,54 @@
+{
+  "schema": "agent-loop",
+  "id": "change-hardening",
+  "lifecycle": "accepted",
+  "ownedBy": "contracts/agent-governance/",
+  "executionMode": "manual",
+  "workflowId": "scoped-change",
+  "makerPersonaId": "implementer",
+  "verifierPersonaId": "verifier",
+  "riskCeiling": "high",
+  "goal": "Deliver one scoped local change with objective evidence and no unresolved critical findings.",
+  "eligibility": {
+    "repeatable": true,
+    "objectiveVerifier": true,
+    "agentCanCompleteEndToEnd": true,
+    "objectiveDoneCondition": true
+  },
+  "steps": ["discover", "plan", "execute", "verify", "iterate"],
+  "gates": [
+    {
+      "id": "focused",
+      "command": "npm run test:focused",
+      "requiredAtStop": false,
+      "objectiveVerifier": true
+    },
+    {
+      "id": "full-check",
+      "command": "npm run check",
+      "requiredAtStop": true,
+      "objectiveVerifier": true
+    }
+  ],
+  "limits": {
+    "maxIterations": 6,
+    "maxConsecutiveNoProgress": 2,
+    "maxChangedFiles": 40,
+    "maxWallClockMinutes": 120
+  },
+  "state": {
+    "compactStateIntent": "Record decisions, changed files, failing gates, next action, and evidence pointers only.",
+    "maxSummaryBytes": 12000
+  },
+  "stop": {
+    "success": "all required gates pass and independent verifier accepts",
+    "failure": [
+      "iteration limit reached",
+      "no progress limit reached",
+      "scope violation",
+      "budget exceeded",
+      "human approval required"
+    ]
+  },
+  "receiptRequired": true
+}

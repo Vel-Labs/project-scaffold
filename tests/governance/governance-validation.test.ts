@@ -1,0 +1,86 @@
+import { readFile } from "node:fs/promises";
+import path from "node:path";
+import { describe, expect, it } from "vitest";
+import {
+  validateAgentGovernance,
+  validateGovernanceArtifacts
+} from "../../packages/core/src/index.js";
+import type { ContractJsonFile } from "../../packages/core/src/index.js";
+
+const repoRoot = process.cwd();
+const invalidDir = path.join(repoRoot, "contracts", "examples", "invalid");
+const skillIds = new Set([
+  "agent-assignment-writer",
+  "contract-steward",
+  "core-enforcement",
+  "phase-closeout-audit"
+]);
+
+describe("agent governance validation", () => {
+  it("validates the canonical governance control-plane contracts", async () => {
+    const result = await validateAgentGovernance(repoRoot);
+
+    expect(result).toEqual({
+      ok: true,
+      checked: {
+        artifacts: 15,
+        routes: 1,
+        assignments: 1,
+        contextProfiles: 1,
+        workflows: 1,
+        loops: 1,
+        hooks: 1,
+        receipts: 0,
+        receiptPolicies: 1
+      }
+    });
+  });
+
+  it("fails closed for unknown governance schemas and references", async () => {
+    const unknownSchema = validateGovernanceArtifacts([
+      await fixture("agent-unknown-schema.json")
+    ], skillIds);
+    const unknownRefs = validateGovernanceArtifacts([
+      await fixture("agent-router-unknown-reference.json")
+    ], skillIds);
+
+    expect(errors(unknownSchema)).toContain('unknown governance schema "agent-unknown"');
+    expect(errors(unknownRefs)).toContain('workflow references unknown id "missing-workflow"');
+    expect(errors(unknownRefs)).toContain('maker persona references unknown id "missing-persona"');
+    expect(errors(unknownRefs)).toContain('references unknown skill "missing-skill"');
+  });
+
+  it("blocks route authority escalation beyond phase-one policy", async () => {
+    const result = validateGovernanceArtifacts([
+      await fixture("agent-router-authority-escalation.json")
+    ], skillIds);
+
+    expect(errors(result)).toContain('requests denied phase-one action "deploy"');
+  });
+
+  it("blocks assignment escalation beyond the selected route", async () => {
+    const result = validateGovernanceArtifacts([
+      await fixture("agent-assignment-authority-escalation.json")
+    ], skillIds);
+
+    expect(errors(result)).toContain('requests denied action "deploy"');
+  });
+
+  it("blocks unsafe assignment paths", async () => {
+    const result = validateGovernanceArtifacts([
+      await fixture("agent-assignment-unsafe-path.json")
+    ], skillIds);
+
+    expect(errors(result)).toContain('contains unsafe path "/tmp/outside-repo"');
+  });
+});
+
+async function fixture(fileName: string): Promise<ContractJsonFile> {
+  const file = path.join(invalidDir, fileName);
+  return { file, value: JSON.parse(await readFile(file, "utf8")) as unknown };
+}
+
+function errors(result: ReturnType<typeof validateGovernanceArtifacts>): string {
+  expect(result.ok).toBe(false);
+  return result.ok ? "" : result.errors.join("\n");
+}

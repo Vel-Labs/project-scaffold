@@ -1,0 +1,33 @@
+{
+  "schema": "agent-workflow",
+  "id": "undeclared-verdict-workflow",
+  "lifecycle": "accepted",
+  "ownedBy": "contracts/agent-governance/",
+  "summary": "Invalid workflow with a transition that uses an undeclared verdict.",
+  "requiredInputs": ["assignment"],
+  "requiredContext": ["AGENTS.md"],
+  "stages": [
+    {
+      "id": "implement",
+      "personaId": "implementer",
+      "skills": ["core-enforcement"],
+      "allowedVerdicts": ["pass", "blocked"],
+      "outputs": ["changed-files"],
+      "critical": true
+    },
+    {
+      "id": "verify",
+      "personaId": "verifier",
+      "skills": ["phase-closeout-audit"],
+      "allowedVerdicts": ["pass", "blocked"],
+      "outputs": ["gate-results"],
+      "critical": true
+    }
+  ],
+  "transitions": [
+    { "from": "implement", "on": "revise", "to": "verify" }
+  ],
+  "terminalVerdicts": ["pass", "blocked"],
+  "criticalCompletionVerdicts": ["pass"],
+  "receiptRequired": true
+}

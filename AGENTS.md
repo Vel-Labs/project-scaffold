@@ -27,6 +27,8 @@ Build `<PROJECT_NAME>` in a way that is clear, auditable, readable, and safe to 
 - `docs/governance/multi-agent-workflow.md`
 - `docs/governance/worktree-governance.md`
 - `docs/governance/code-quality-standards.md`
+- `docs/governance/AGENT_OPERATING_MODEL.md`
+- `docs/agents/ROUTING.md`
 
 ## Working rules
 
@@ -51,6 +53,7 @@ This repository is the core project scaffold. Treat changes here as changes to t
 - Put reusable enforcement in scripts, schemas, contracts, tests, or repo-local skills rather than prose-only expectations when practical.
 - When changing scaffold behavior, update the matching docs, templates, validation scripts, and tests together.
 - After scaffold changes, run the narrowest relevant validation, usually `npm run validate:scaffold` first, then broader checks if scripts, contracts, or tests changed.
+- Agent-control-plane changes must keep `contracts/agent-governance/`, schemas, fixtures, `packages/core` validation, tests, docs, decisions, changelog, and file tree synchronized.
 
 ## Generated repo AGENTS.md baseline
 
@@ -98,6 +101,25 @@ Each agent must declare:
 - validation plan
 - docs to update
 
+## Agent governance model
+
+The repo-local governance contracts live in `contracts/agent-governance/`.
+
+- A router selects a workflow, personas, skills, context profile, autonomy ceiling, and human gates.
+- An assignment scopes the current task, expected checks, approvals, and receipt requirement but cannot grant more authority than policy or persona allow.
+- A persona defines authority.
+- A skill defines procedure and never grants authority.
+- A workflow is finite and declares stage verdict transitions.
+- A loop repeats only under objective gates and hard limits.
+- A hook is adapter-facing defense in depth, not the sole security boundary.
+- A gate evaluates evidence.
+- A receipt records what happened.
+- A context profile selects bounded source context and denied sensitive paths.
+- A receipt policy controls transient receipt storage, promotion, and privacy.
+- Learning is deferred guidance and cannot override canonical contracts.
+
+Effective permission is the intersection of policy, persona, assignment, runtime capability, and risk profile. Any denial wins. Unknown authority fails closed.
+
 ## Definition of done
 
 A change is not done unless:
@@ -116,4 +138,3 @@ A change is not done unless:
 - Use wiki chunks, Markdown section headings, or selected text ranges as the primary human feedback unit. Feedback may also target a full document, source note, raw source, or relationship edge.
 - Positive feedback, negative feedback, and human notes should trigger AI re-review by default. Distill repeated feedback into durable `LEARNINGS.md` guidance with Do/Don't patterns and references to example artifacts.
 - Conversation and project work are valid source material when captured into visible workspace artifacts. Do not let chat-only conclusions become canonical knowledge without a traceable report, note, decision record, or cited synthesis artifact.
-

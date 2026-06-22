@@ -17,3 +17,23 @@ export async function readJsonFiles(dir: string): Promise<ContractJsonFile[]> {
     })
   );
 }
+
+export async function readJsonFilesRecursive(dir: string): Promise<ContractJsonFile[]> {
+  const entries = await readdir(dir, { withFileTypes: true });
+  const files: ContractJsonFile[] = [];
+
+  for (const entry of entries) {
+    const target = path.join(dir, entry.name);
+    if (entry.isDirectory()) {
+      files.push(...(await readJsonFilesRecursive(target)));
+      continue;
+    }
+    if (!entry.isFile() || !entry.name.endsWith(".json")) {
+      continue;
+    }
+    const raw = await readFile(target, "utf8");
+    files.push({ file: target, value: JSON.parse(raw) as unknown });
+  }
+
+  return files.sort((left, right) => left.file.localeCompare(right.file));
+}

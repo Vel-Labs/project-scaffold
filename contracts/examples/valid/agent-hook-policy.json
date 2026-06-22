@@ -1,0 +1,18 @@
+{
+  "schema": "agent-hook-policy",
+  "id": "default-hook-policy",
+  "lifecycle": "accepted",
+  "ownedBy": "contracts/agent-governance/",
+  "hooks": [
+    {
+      "id": "validate-governance-on-stop",
+      "event": "stop",
+      "enabled": false,
+      "blocking": true,
+      "command": "scripts/agent/validate-governance.ts",
+      "args": [],
+      "externalAction": false
+    }
+  ],
+  "failClosed": ["unsafe hook command path"]
+}

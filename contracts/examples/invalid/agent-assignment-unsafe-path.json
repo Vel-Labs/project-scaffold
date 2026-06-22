@@ -1,0 +1,19 @@
+{
+  "schema": "agent-assignment",
+  "id": "bad-assignment-path",
+  "lifecycle": "accepted",
+  "ownedBy": "contracts/agent-governance/",
+  "summary": "Invalid assignment with an absolute path.",
+  "risk": "medium",
+  "routeId": "scoped-local-change",
+  "workflowId": "scoped-change",
+  "makerPersonaId": "implementer",
+  "verifierPersonaId": "verifier",
+  "autonomyLevel": "A2",
+  "allowedPaths": ["/tmp/outside-repo"],
+  "forbiddenPaths": [".env*"],
+  "requestedActions": ["local-write"],
+  "expectedChecks": ["npm run validate:agents"],
+  "humanApprovals": [],
+  "receiptRequired": true
+}

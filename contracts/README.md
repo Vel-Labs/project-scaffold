@@ -9,6 +9,7 @@ Anything that defines project meaning, lifecycle state, schema shape, example sh
 - `lifecycle.md`: lifecycle states and allowed movement.
 - `fail-closed-rules.md`: conditions that must block promotion or execution.
 - `llm-provider-contract.md`: provider contract and readiness rules for LLM integrations.
+- `agent-governance/`: policy, source authority, router, assignment, context profile, capability, persona, workflow, loop, hook-policy, and receipt-policy contracts.
 - `schemas/`: JSON Schemas for canonical project artifacts.
 - `examples/valid/`: examples that must pass contract validation.
 - `examples/invalid/`: examples that must fail contract validation.
@@ -26,6 +27,7 @@ Any contract change must update:
 
 - relevant valid and invalid examples
 - contract validation tests
+- governance validation tests when agent-control-plane references or invariants change
 - current-state or roadmap routing
 - `DECISIONS.md` when the change affects architecture or authority
 - `CHANGELOG.md`

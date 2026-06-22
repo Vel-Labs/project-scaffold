@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://project-governance-scaffold.local/schemas/agent-receipt-policy.schema.json",
+  "title": "AgentReceiptPolicy",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "id",
+    "lifecycle",
+    "ownedBy",
+    "storage",
+    "privacy",
+    "requiredFields",
+    "promotion"
+  ],
+  "properties": {
+    "schema": { "const": "agent-receipt-policy" },
+    "id": { "$ref": "#/$defs/kebabId" },
+    "lifecycle": { "$ref": "#/$defs/lifecycle" },
+    "ownedBy": { "type": "string", "minLength": 3 },
+    "storage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["transientDirectory", "promotedDirectory", "maxReceiptBytes"],
+      "properties": {
+        "transientDirectory": { "type": "string", "minLength": 1 },
+        "promotedDirectory": { "type": "string", "minLength": 1 },
+        "maxReceiptBytes": { "type": "integer", "minimum": 1000 }
+      }
+    },
+    "privacy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["forbidSecrets", "forbidFullTranscripts", "forbidEnvironmentDumps", "redactPatterns"],
+      "properties": {
+        "forbidSecrets": { "const": true },
+        "forbidFullTranscripts": { "const": true },
+        "forbidEnvironmentDumps": { "const": true },
+        "redactPatterns": { "$ref": "#/$defs/stringList" }
+      }
+    },
+    "requiredFields": { "$ref": "#/$defs/stringList" },
+    "promotion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["requiresHumanReview", "requiresAuditReason"],
+      "properties": {
+        "requiresHumanReview": { "const": true },
+        "requiresAuditReason": { "const": true }
+      }
+    }
+  },
+  "$defs": {
+    "kebabId": { "type": "string", "pattern": "^[a-z][a-z0-9-]*$" },
+    "lifecycle": { "type": "string", "enum": ["draft", "proposed", "accepted", "active", "deprecated", "retired"] },
+    "stringList": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } }
+  }
+}

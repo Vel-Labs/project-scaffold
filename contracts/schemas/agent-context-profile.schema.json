@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://project-governance-scaffold.local/schemas/agent-context-profile.schema.json",
+  "title": "AgentContextProfile",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "id",
+    "lifecycle",
+    "ownedBy",
+    "routeId",
+    "purpose",
+    "requiredSources",
+    "optionalSources",
+    "deniedPatterns",
+    "output",
+    "staleness"
+  ],
+  "properties": {
+    "schema": { "const": "agent-context-profile" },
+    "id": { "$ref": "#/$defs/kebabId" },
+    "lifecycle": { "$ref": "#/$defs/lifecycle" },
+    "ownedBy": { "type": "string", "minLength": 3 },
+    "routeId": { "$ref": "#/$defs/kebabId" },
+    "purpose": { "type": "string", "minLength": 12 },
+    "requiredSources": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/source" }
+    },
+    "optionalSources": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/source" }
+    },
+    "deniedPatterns": { "$ref": "#/$defs/stringList" },
+    "output": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["directory", "maxInlineBytes", "includeSha256"],
+      "properties": {
+        "directory": { "type": "string", "minLength": 1 },
+        "maxInlineBytes": { "type": "integer", "minimum": 1000 },
+        "includeSha256": { "const": true }
+      }
+    },
+    "staleness": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["requireGitRevision", "requireSourceHashes"],
+      "properties": {
+        "requireGitRevision": { "const": true },
+        "requireSourceHashes": { "const": true }
+      }
+    }
+  },
+  "$defs": {
+    "authority": {
+      "type": "string",
+      "enum": ["canonical", "learned", "supporting", "reference", "generated", "transient"]
+    },
+    "kebabId": { "type": "string", "pattern": "^[a-z][a-z0-9-]*$" },
+    "lifecycle": { "type": "string", "enum": ["draft", "proposed", "accepted", "active", "deprecated", "retired"] },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "authority"],
+      "properties": {
+        "path": { "type": "string", "minLength": 1 },
+        "authority": { "$ref": "#/$defs/authority" }
+      }
+    },
+    "stringList": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } }
+  }
+}

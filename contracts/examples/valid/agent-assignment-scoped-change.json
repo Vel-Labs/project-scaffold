@@ -1,0 +1,25 @@
+{
+  "schema": "agent-assignment",
+  "id": "scoped-change-assignment",
+  "lifecycle": "accepted",
+  "ownedBy": "contracts/agent-governance/",
+  "summary": "Template assignment for one scoped local repository change.",
+  "risk": "medium",
+  "routeId": "scoped-local-change",
+  "workflowId": "scoped-change",
+  "makerPersonaId": "implementer",
+  "verifierPersonaId": "verifier",
+  "autonomyLevel": "A2",
+  "allowedPaths": ["contracts/**", "packages/core/**", "tests/**", "docs/**"],
+  "forbiddenPaths": [".env*", "**/*.pem", "**/*.key", ".git/**"],
+  "requestedActions": ["local-write", "local-validation"],
+  "expectedChecks": ["npm run validate:agents", "npm run test:focused"],
+  "humanApprovals": [
+    {
+      "action": "external-write",
+      "required": true,
+      "status": "required-not-granted"
+    }
+  ],
+  "receiptRequired": true
+}

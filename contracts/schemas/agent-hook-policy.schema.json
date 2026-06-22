@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://project-governance-scaffold.local/schemas/agent-hook-policy.schema.json",
+  "title": "AgentHookPolicy",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "id", "lifecycle", "ownedBy", "hooks", "failClosed"],
+  "properties": {
+    "schema": { "const": "agent-hook-policy" },
+    "id": { "$ref": "#/$defs/kebabId" },
+    "lifecycle": { "$ref": "#/$defs/lifecycle" },
+    "ownedBy": { "type": "string", "minLength": 3 },
+    "hooks": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "event", "enabled", "blocking", "command", "args", "externalAction"],
+        "properties": {
+          "id": { "$ref": "#/$defs/kebabId" },
+          "event": {
+            "enum": ["session-start", "pre-tool", "post-write", "stop", "session-end"]
+          },
+          "enabled": { "type": "boolean" },
+          "blocking": { "type": "boolean" },
+          "command": { "type": "string", "minLength": 3 },
+          "args": { "type": "array", "items": { "type": "string" } },
+          "externalAction": { "type": "boolean" }
+        }
+      }
+    },
+    "failClosed": { "$ref": "#/$defs/stringList" }
+  },
+  "$defs": {
+    "kebabId": { "type": "string", "pattern": "^[a-z][a-z0-9-]*$" },
+    "lifecycle": { "type": "string", "enum": ["draft", "proposed", "accepted", "active", "deprecated", "retired"] },
+    "stringList": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } }
+  }
+}

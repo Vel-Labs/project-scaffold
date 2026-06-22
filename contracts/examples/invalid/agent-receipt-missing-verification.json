@@ -1,0 +1,51 @@
+{
+  "schema": "agent-receipt",
+  "receiptId": "run-missing-verification",
+  "lifecycle": "active",
+  "request": {
+    "summary": "Invalid receipt missing verification evidence",
+    "risk": "medium"
+  },
+  "assignment": {
+    "id": "assignment-example",
+    "allowedPaths": ["contracts/**"],
+    "autonomyLevel": "A2"
+  },
+  "route": {
+    "routerId": "default-agent-router",
+    "routeId": "scoped-local-change",
+    "workflowId": "scoped-change"
+  },
+  "authoritySources": [
+    {
+      "path": "AGENTS.md",
+      "authority": "canonical",
+      "sha256": "example-not-a-real-hash"
+    }
+  ],
+  "personas": {
+    "maker": "implementer",
+    "verifier": "verifier"
+  },
+  "stageVerdicts": [
+    {
+      "stageId": "verify",
+      "verdict": "pass",
+      "evidence": ["claimed pass without command evidence"]
+    }
+  ],
+  "commands": [],
+  "verificationEvidence": [],
+  "changes": {
+    "files": ["contracts/example.json"],
+    "scopeViolations": []
+  },
+  "humanReview": {
+    "required": false,
+    "approvals": []
+  },
+  "final": {
+    "status": "pass",
+    "unresolvedRisks": []
+  }
+}

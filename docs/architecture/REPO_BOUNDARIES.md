@@ -4,6 +4,7 @@
 
 - machine-readable scaffold taxonomy in `REPO_PROFILE.json`
 - canonical project contracts in `contracts/`
+- runtime-neutral agent governance contracts in `contracts/agent-governance/`
 - docs and governance
 - core contracts or schemas
 - reusable enforcement modules in `packages/core/`
@@ -21,6 +22,8 @@
 Integrations are downstream of this baseline. Do not add adapter or provider code until `contracts/`, `packages/core/`, and `tests/` are stable.
 
 The scaffold may include LLM provider schemas, examples, and readiness helpers so copied projects can add providers quickly. It must not include real credentials or live provider calls.
+
+The scaffold may include agent-governance schemas, contracts, assignments, context profiles, receipt policy, fixtures, and validators. It must not include live hook adapters, unattended loop runners, external-write connectors, merge/release/deploy automation, context-pack generation, receipt writing, or generated run state in this layer.
 
 ## What user-facing surfaces own
 

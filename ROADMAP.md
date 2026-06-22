@@ -12,11 +12,11 @@ Provide a reusable governance scaffold that future projects can copy to start wi
 
 Phase 0: Template governance and scaffold baseline.
 
-Status: established and runnable.
+Status: established and runnable, with agent governance plus assignment/runtime-evidence boundary contracts and validation added.
 
 ## Immediate Next Action
 
-After copying into a real project, replace the generic contract example with the project's first canonical contract and expand `packages/core/` to enforce it. For LLM-backed projects, customize the provider contract before adding live adapter code.
+Validate the agent governance and assignment foundations, then use them as the contract-first boundary for scoped local changes. After copying into a real project, replace or extend the generic contracts for the project's first canonical domain contract. For LLM-backed projects, customize the provider contract before adding live adapter code.
 
 See `docs/roadmaps/CURRENT_STATE_AND_NEXT.md` for operational routing.
 
@@ -26,10 +26,11 @@ See `docs/roadmaps/CURRENT_STATE_AND_NEXT.md` for operational routing.
 2. Project-specific contract authority.
 3. Core enforcement against accepted contracts.
 4. LLM provider contract and readiness checks when needed.
-5. First integration.
-6. Working example or demo.
-7. Hardening and polish.
-8. Stretch features.
+5. Agent governance contracts, routing, assignments, context profiles, workflow, loop, hook-policy, receipt policy, and receipt validation.
+6. First integration.
+7. Working example or demo.
+8. Hardening and polish.
+9. Stretch features.
 
 ## Roadmap Docs
 
@@ -46,3 +47,4 @@ See `docs/roadmaps/CURRENT_STATE_AND_NEXT.md` for operational routing.
 - browser/operator surfaces
 - deployment workflows
 - project-specific features before copying the scaffold
+- live agent hook adapters, scheduled loops, generated context packs, receipt writers, or learning distillation before their later phase is accepted

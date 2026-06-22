@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://project-governance-scaffold.local/schemas/agent-source-authority.schema.json",
+  "title": "AgentSourceAuthority",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "id", "lifecycle", "ownedBy", "precedence", "sources", "failClosed"],
+  "properties": {
+    "schema": { "const": "agent-source-authority" },
+    "id": { "$ref": "#/$defs/kebabId" },
+    "lifecycle": { "$ref": "#/$defs/lifecycle" },
+    "ownedBy": { "type": "string", "minLength": 3 },
+    "precedence": {
+      "type": "array",
+      "prefixItems": [
+        { "const": "canonical" },
+        { "const": "learned" },
+        { "const": "supporting" },
+        { "const": "reference" },
+        { "const": "generated" },
+        { "const": "transient" }
+      ],
+      "items": false,
+      "minItems": 6
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["path", "authority", "mayOverride", "promotionRequired"],
+        "properties": {
+          "path": { "type": "string", "minLength": 1 },
+          "authority": { "$ref": "#/$defs/authority" },
+          "mayOverride": { "type": "array", "items": { "$ref": "#/$defs/authority" } },
+          "promotionRequired": { "type": "boolean" }
+        }
+      }
+    },
+    "failClosed": { "$ref": "#/$defs/stringList" }
+  },
+  "$defs": {
+    "authority": {
+      "type": "string",
+      "enum": ["canonical", "learned", "supporting", "reference", "generated", "transient"]
+    },
+    "kebabId": { "type": "string", "pattern": "^[a-z][a-z0-9-]*$" },
+    "lifecycle": { "type": "string", "enum": ["draft", "proposed", "accepted", "active", "deprecated", "retired"] },
+    "stringList": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "schema": "agent-receipt-policy",
+  "id": "bad-receipt-policy",
+  "lifecycle": "accepted",
+  "ownedBy": "contracts/agent-governance/",
+  "storage": {
+    "transientDirectory": "docs/audits/",
+    "promotedDirectory": ".agent-runs/",
+    "maxReceiptBytes": 50000
+  },
+  "privacy": {
+    "forbidSecrets": false,
+    "forbidFullTranscripts": false,
+    "forbidEnvironmentDumps": false,
+    "redactPatterns": ["secret"]
+  },
+  "requiredFields": ["request", "assignment"],
+  "promotion": {
+    "requiresHumanReview": false,
+    "requiresAuditReason": false
+  }
+}

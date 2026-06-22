@@ -2,6 +2,11 @@
 
 All notable repo changes should be logged here.
 
+## 2026-06-22
+
+- Added the Phase 1 agent governance foundation with canonical contracts, strict schemas, valid/invalid fixtures, reusable core validation, `validate:agents`, governance/security tests, docs, profile routing, and audit evidence.
+- Added assignment, context-profile, and receipt-policy contracts with validation, fixtures, tests, `validate:assignment`, docs, and quality-gate integration.
+
 ## 2026-05-12
 
 - Added an LLM provider contract/readiness baseline with MiniMax M2.7 example, provider schema, core readiness helper, tests, and integration docs.

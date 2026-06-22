@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://project-governance-scaffold.local/schemas/agent-capability.schema.json",
+  "title": "AgentCapability",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "id", "lifecycle", "ownedBy", "riskCeiling", "grants", "denials"],
+  "properties": {
+    "schema": { "const": "agent-capability" },
+    "id": { "$ref": "#/$defs/kebabId" },
+    "lifecycle": { "$ref": "#/$defs/lifecycle" },
+    "ownedBy": { "type": "string", "minLength": 3 },
+    "riskCeiling": { "$ref": "#/$defs/risk" },
+    "grants": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["readPaths", "writePaths", "commands", "network", "secrets", "externalWrites"],
+      "properties": {
+        "readPaths": { "$ref": "#/$defs/stringList" },
+        "writePaths": { "$ref": "#/$defs/stringList" },
+        "commands": { "$ref": "#/$defs/stringList" },
+        "network": { "$ref": "#/$defs/permission" },
+        "secrets": { "$ref": "#/$defs/permission" },
+        "externalWrites": { "$ref": "#/$defs/permission" }
+      }
+    },
+    "denials": { "$ref": "#/$defs/stringList" }
+  },
+  "$defs": {
+    "kebabId": { "type": "string", "pattern": "^[a-z][a-z0-9-]*$" },
+    "lifecycle": { "type": "string", "enum": ["draft", "proposed", "accepted", "active", "deprecated", "retired"] },
+    "permission": { "type": "string", "enum": ["allow", "deny", "human-approval"] },
+    "risk": { "type": "string", "enum": ["low", "medium", "high", "critical"] },
+    "stringList": { "type": "array", "items": { "type": "string", "minLength": 1 } }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "schema": "agent-policy",
+  "id": "default-agent-policy",
+  "lifecycle": "accepted",
+  "ownedBy": "contracts/agent-governance/",
+  "precedence": {
+    "denyOverridesPermit": true,
+    "effectiveAuthority": "intersection"
+  },
+  "autonomyLevels": ["A0", "A1", "A2", "A3", "A4"],
+  "riskRules": {
+    "unknownAuthority": "deny",
+    "mediumHighSelfApproval": "deny",
+    "externalWrites": "human-approval",
+    "underServedCriticalGate": "deny",
+    "modelSelfScoring": "advisory-only"
+  },
+  "failClosed": ["unknown authority fails closed"]
+}

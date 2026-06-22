@@ -12,13 +12,18 @@ This repository is a reusable scaffold template. The job is to keep it clean, co
 2. `REPO_PROFILE.json`
 3. `docs/project/TEMPLATE_USAGE.md`
 4. `contracts/README.md`
-5. `docs/architecture/ARCHITECTURE.md`
-6. `docs/architecture/REPO_BOUNDARIES.md`
-7. `packages/core/README.md`
-8. `tests/README.md`
-9. `ROADMAP.md`
-10. `DECISIONS.md`
-11. `docs/roadmaps/CURRENT_STATE_AND_NEXT.md`
+5. `contracts/agent-governance/README.md`
+6. `docs/governance/AGENT_OPERATING_MODEL.md`
+7. `docs/governance/ASSIGNMENT_ENGINEERING.md`
+8. `docs/governance/RUNTIME_EVIDENCE.md`
+9. `docs/agents/ROUTING.md`
+10. `docs/architecture/ARCHITECTURE.md`
+11. `docs/architecture/REPO_BOUNDARIES.md`
+12. `packages/core/README.md`
+13. `tests/README.md`
+14. `ROADMAP.md`
+15. `DECISIONS.md`
+16. `docs/roadmaps/CURRENT_STATE_AND_NEXT.md`
 
 ## Default Commands
 
@@ -26,7 +31,11 @@ This repository is a reusable scaffold template. The job is to keep it clean, co
 npm run install:local
 npm run validate:scaffold
 npm run validate:contracts
+npm run validate:agents
+npm run validate:assignment
 npm run test:focused
+npm run test:governance
+npm run test:security
 npm test
 npm run typecheck
 npm run check

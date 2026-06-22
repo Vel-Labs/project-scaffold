@@ -1,0 +1,25 @@
+{
+  "schema": "agent-context-profile",
+  "id": "bad-context-deny",
+  "lifecycle": "accepted",
+  "ownedBy": "contracts/agent-governance/",
+  "routeId": "scoped-local-change",
+  "purpose": "Invalid context profile missing sensitive denied paths.",
+  "requiredSources": [
+    {
+      "path": "AGENTS.md",
+      "authority": "canonical"
+    }
+  ],
+  "optionalSources": [],
+  "deniedPatterns": ["node_modules/**"],
+  "output": {
+    "directory": ".agent-context/",
+    "maxInlineBytes": 200000,
+    "includeSha256": true
+  },
+  "staleness": {
+    "requireGitRevision": true,
+    "requireSourceHashes": true
+  }
+}

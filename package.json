@@ -9,10 +9,14 @@
     "init:template:dry-run": "tsx scripts/init-template.ts --yes --dry-run",
     "validate:scaffold": "tsx scripts/validate-scaffold.ts",
     "validate:contracts": "tsx scripts/validate-contracts.ts",
-    "test:focused": "vitest run tests/contracts tests/core",
+    "validate:agents": "tsx scripts/agent/validate-governance.ts",
+    "validate:assignment": "tsx scripts/agent/validate-assignment.ts",
+    "test:focused": "vitest run tests/contracts tests/core tests/governance tests/security",
+    "test:governance": "vitest run tests/governance",
+    "test:security": "vitest run tests/security",
     "test": "vitest run tests",
     "typecheck": "tsc --noEmit",
-    "check": "npm run validate:scaffold && npm run validate:contracts && npm run test:focused && npm run test && npm run typecheck"
+    "check": "npm run validate:scaffold && npm run validate:contracts && npm run validate:agents && npm run validate:assignment && npm run test:focused && npm run test:governance && npm run test:security && npm run test && npm run typecheck"
   },
   "devDependencies": {
     "@types/node": "^20.12.12",

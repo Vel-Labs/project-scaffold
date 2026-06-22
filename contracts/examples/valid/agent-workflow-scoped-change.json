@@ -1,0 +1,34 @@
+{
+  "schema": "agent-workflow",
+  "id": "scoped-change",
+  "lifecycle": "accepted",
+  "ownedBy": "contracts/agent-governance/",
+  "summary": "Plan, implement, verify, and close one scoped change.",
+  "requiredInputs": ["assignment"],
+  "requiredContext": ["AGENTS.md"],
+  "stages": [
+    {
+      "id": "implement",
+      "personaId": "implementer",
+      "skills": ["core-enforcement"],
+      "allowedVerdicts": ["pass", "revise", "blocked"],
+      "outputs": ["changed-files"],
+      "critical": true
+    },
+    {
+      "id": "verify",
+      "personaId": "verifier",
+      "skills": ["phase-closeout-audit"],
+      "allowedVerdicts": ["pass", "revise", "blocked"],
+      "outputs": ["gate-results"],
+      "critical": true
+    }
+  ],
+  "transitions": [
+    { "from": "implement", "on": "pass", "to": "verify" },
+    { "from": "verify", "on": "pass", "terminal": true }
+  ],
+  "terminalVerdicts": ["pass", "blocked"],
+  "criticalCompletionVerdicts": ["pass"],
+  "receiptRequired": true
+}

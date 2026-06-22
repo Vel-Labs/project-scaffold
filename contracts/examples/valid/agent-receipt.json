@@ -1,0 +1,57 @@
+{
+  "schema": "agent-receipt",
+  "receiptId": "run-example",
+  "lifecycle": "active",
+  "request": {
+    "summary": "Add one validated governance contract",
+    "risk": "medium"
+  },
+  "assignment": {
+    "id": "assignment-example",
+    "allowedPaths": ["contracts/**", "tests/**"],
+    "autonomyLevel": "A2"
+  },
+  "route": {
+    "routerId": "default-agent-router",
+    "routeId": "scoped-local-change",
+    "workflowId": "scoped-change"
+  },
+  "authoritySources": [
+    {
+      "path": "AGENTS.md",
+      "authority": "canonical",
+      "sha256": "example-not-a-real-hash"
+    }
+  ],
+  "personas": {
+    "maker": "implementer",
+    "verifier": "verifier"
+  },
+  "stageVerdicts": [
+    {
+      "stageId": "verify",
+      "verdict": "pass",
+      "evidence": ["npm run test:governance"]
+    }
+  ],
+  "commands": [
+    {
+      "command": "npm run test:governance",
+      "exitCode": 0,
+      "outputDigest": "sha256:example"
+    }
+  ],
+  "verificationEvidence": ["npm run test:governance passed"],
+  "changes": {
+    "files": ["contracts/example.json"],
+    "scopeViolations": []
+  },
+  "humanReview": {
+    "required": false,
+    "approvals": []
+  },
+  "final": {
+    "status": "pass",
+    "unresolvedRisks": []
+  }
+}

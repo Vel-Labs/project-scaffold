@@ -1,0 +1,146 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://project-governance-scaffold.local/schemas/agent-receipt.schema.json",
+  "title": "AgentReceipt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "receiptId",
+    "lifecycle",
+    "request",
+    "assignment",
+    "route",
+    "authoritySources",
+    "personas",
+    "stageVerdicts",
+    "commands",
+    "verificationEvidence",
+    "changes",
+    "humanReview",
+    "final"
+  ],
+  "properties": {
+    "schema": { "const": "agent-receipt" },
+    "receiptId": { "$ref": "#/$defs/kebabId" },
+    "lifecycle": { "$ref": "#/$defs/lifecycle" },
+    "request": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["summary", "risk"],
+      "properties": {
+        "summary": { "type": "string", "minLength": 8 },
+        "risk": { "$ref": "#/$defs/risk" }
+      }
+    },
+    "assignment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "allowedPaths", "autonomyLevel"],
+      "properties": {
+        "id": { "$ref": "#/$defs/kebabId" },
+        "allowedPaths": { "$ref": "#/$defs/stringList" },
+        "autonomyLevel": { "$ref": "#/$defs/autonomy" }
+      }
+    },
+    "route": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["routerId", "routeId", "workflowId"],
+      "properties": {
+        "routerId": { "$ref": "#/$defs/kebabId" },
+        "routeId": { "$ref": "#/$defs/kebabId" },
+        "workflowId": { "$ref": "#/$defs/kebabId" }
+      }
+    },
+    "authoritySources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["path", "authority", "sha256"],
+        "properties": {
+          "path": { "type": "string", "minLength": 1 },
+          "authority": { "enum": ["canonical", "learned", "supporting", "reference", "generated", "transient"] },
+          "sha256": { "type": "string", "minLength": 8 }
+        }
+      }
+    },
+    "personas": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["maker", "verifier"],
+      "properties": {
+        "maker": { "$ref": "#/$defs/kebabId" },
+        "verifier": { "$ref": "#/$defs/kebabId" }
+      }
+    },
+    "stageVerdicts": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["stageId", "verdict", "evidence"],
+        "properties": {
+          "stageId": { "$ref": "#/$defs/kebabId" },
+          "verdict": { "$ref": "#/$defs/verdict" },
+          "evidence": { "$ref": "#/$defs/stringList" }
+        }
+      }
+    },
+    "commands": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["command", "exitCode", "outputDigest"],
+        "properties": {
+          "command": { "type": "string", "minLength": 3 },
+          "exitCode": { "type": "integer", "minimum": 0 },
+          "outputDigest": { "type": "string", "minLength": 6 }
+        }
+      }
+    },
+    "verificationEvidence": { "$ref": "#/$defs/stringList" },
+    "changes": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["files", "scopeViolations"],
+      "properties": {
+        "files": { "type": "array", "items": { "type": "string" } },
+        "scopeViolations": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "humanReview": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["required", "approvals"],
+      "properties": {
+        "required": { "type": "boolean" },
+        "approvals": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "final": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "unresolvedRisks"],
+      "properties": {
+        "status": { "$ref": "#/$defs/verdict" },
+        "unresolvedRisks": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  },
+  "$defs": {
+    "autonomy": { "type": "string", "enum": ["A0", "A1", "A2", "A3", "A4"] },
+    "kebabId": { "type": "string", "pattern": "^[a-z][a-z0-9-]*$" },
+    "lifecycle": { "type": "string", "enum": ["draft", "proposed", "accepted", "active", "deprecated", "retired"] },
+    "risk": { "type": "string", "enum": ["low", "medium", "high", "critical"] },
+    "stringList": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } },
+    "verdict": {
+      "type": "string",
+      "enum": ["pass", "revise", "under_served", "human_review_required", "blocked"]
+    }
+  }
+}
