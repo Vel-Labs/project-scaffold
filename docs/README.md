@@ -40,19 +40,21 @@ REPO_PROFILE.json machine-readable taxonomy and command index
 6. `../contracts/README.md`
 7. `governance/AGENT_OPERATING_MODEL.md`
 8. `agents/ROLE_CATALOG.md`
-9. `governance/ASSIGNMENT_ENGINEERING.md`
-10. `governance/RUNTIME_EVIDENCE.md`
-11. `agents/ROUTING.md`
-12. `../packages/core/README.md`
-13. `../tests/README.md`
-14. `architecture/ARCHITECTURE.md`
-15. `architecture/REPO_BOUNDARIES.md`
-16. `../ROADMAP.md`
-17. `../DECISIONS.md`
-18. `roadmaps/CURRENT_STATE_AND_NEXT.md`
-19. `repo-truth/THC_METHODOLOGY.md`
-20. `governance/code-quality-standards.md`
-21. `roadmaps/README.md`
+9. `agents/CONTEXT_ROUTING.md`
+10. `governance/ASSIGNMENT_ENGINEERING.md`
+11. `governance/RUNTIME_EVIDENCE.md`
+12. `agents/ROUTING.md`
+13. `../packages/core/README.md`
+14. `../tests/README.md`
+15. `architecture/ARCHITECTURE.md`
+16. `architecture/REPO_BOUNDARIES.md`
+17. `architecture/COMPATIBILITY.md`
+18. `../ROADMAP.md`
+19. `../DECISIONS.md`
+20. `roadmaps/CURRENT_STATE_AND_NEXT.md`
+21. `repo-truth/THC_METHODOLOGY.md`
+22. `governance/code-quality-standards.md`
+23. `roadmaps/README.md`
 
 ### Baseline verification
 
@@ -61,6 +63,7 @@ npm run validate:scaffold
 npm run validate:contracts
 npm run validate:agents
 npm run validate:assignment
+npm run scaffold:memory-check
 npm run test:focused
 npm run test:governance
 npm run test:security

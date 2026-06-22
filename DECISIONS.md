@@ -14,6 +14,7 @@ Use decisions for durable architecture, product, governance, source-of-truth, an
 - Agent governance starts from contracts, then adds local-only run initialization, context packs, stale-context checks, receipt drafting, manual loop stop receipts, opt-in disabled hooks, and advisory learnings before any live automation.
 - Role-specific personas and skills may specialize behavior for code, docs, tests, copy, and research, but contracts still govern authority.
 - Desloppify scans are review-only quality tasks that create a cleanup backlog before any fix work is selected.
+- Routed memory, deterministic drift checks, compact work logs, and earned pattern capture keep the scaffold useful without turning every session into a full-context reread.
 - Root `skills/` is the canonical repo-local skills location.
 - Root stays intentionally clean: root files are entrypoints, high-visibility indexes, conventional project files, package/config files, and major directories.
 - Root `ROADMAP.md` and `DECISIONS.md` are indexes; detailed roadmap and decision truth lives under `docs/`.

@@ -12,6 +12,7 @@ AGENTS.md
 CHANGELOG.md
 CONTRIBUTING.md
 DECISIONS.md
+LOG.md
 README.md
 REPO_PROFILE.json
 ROADMAP.md
@@ -97,10 +98,12 @@ contracts/schemas/repo-profile.schema.json
 docs/.DS_Store
 docs/FILE_TREE.md
 docs/README.md
+docs/agents/CONTEXT_ROUTING.md
 docs/agents/ROLE_CATALOG.md
 docs/agents/ROUTING.md
 docs/agents/START_HERE.md
 docs/architecture/ARCHITECTURE.md
+docs/architecture/COMPATIBILITY.md
 docs/architecture/README.md
 docs/architecture/REPO_BOUNDARIES.md
 docs/audits/2026-04-26-contract-core-stability-baseline.md
@@ -114,6 +117,7 @@ docs/decisions/README.md
 docs/governance/AGENT_OPERATING_MODEL.md
 docs/governance/AGENT_SECURITY.md
 docs/governance/AI_USAGE.md
+docs/governance/ARTIFACT_TIMELINE_CONVENTION.md
 docs/governance/ASSIGNMENT_ENGINEERING.md
 docs/governance/AUDIT_PHILOSOPHY.md
 docs/governance/AUTONOMY_LEVELS.md
@@ -121,6 +125,7 @@ docs/governance/LEARNINGS.md
 docs/governance/LOOP_ENGINEERING.md
 docs/governance/README.md
 docs/governance/RUNTIME_EVIDENCE.md
+docs/governance/SCAFFOLD_DRIFT.md
 docs/governance/SOURCE_AUTHORITY.md
 docs/governance/WORKFLOW_ENGINEERING.md
 docs/governance/code-quality-standards.md
@@ -162,6 +167,7 @@ packages/core/src/governance-runtime-validators.ts
 packages/core/src/index.ts
 packages/core/src/llm-provider-readiness.ts
 packages/core/src/manual-loop-runner.ts
+packages/core/src/memory-check.ts
 packages/core/src/read-json-files.ts
 packages/core/src/receipt-draft.ts
 packages/core/src/receipt-schema.ts
@@ -184,6 +190,7 @@ scripts/agent/write-receipt.ts
 scripts/init-template.ts
 scripts/validate-adoption.ts
 scripts/validate-contracts.ts
+scripts/validate-memory.ts
 scripts/validate-scaffold.ts
 skills/README.md
 skills/agent-assignment-writer/SKILL.md
@@ -196,17 +203,20 @@ skills/desloppify-review/SKILL.md
 skills/desloppify-review/templates/DESLOPPIFY.md
 skills/docs-steward/SKILL.md
 skills/human-copy-review/SKILL.md
+skills/pattern-capture/SKILL.md
 skills/phase-closeout-audit/SKILL.md
 skills/phase-closeout-audit/templates/closeout-audit.md
 skills/project-personalize/SKILL.md
 skills/project-personalize/templates/personalization-checklist.md
 skills/qa-reviewer/SKILL.md
 skills/researcher/SKILL.md
+skills/worktree-shipping-checklist/SKILL.md
 template.vars.json
 tests/README.md
 tests/contracts/contract-corpus.test.ts
 tests/core/assignment-generator.test.ts
 tests/core/core-boundary.test.ts
+tests/core/memory-check.test.ts
 tests/core/runtime-evidence.test.ts
 tests/governance/governance-validation.test.ts
 tests/governance/workflow-loop-source-receipt.test.ts

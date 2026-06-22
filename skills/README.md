@@ -34,6 +34,8 @@ The purpose is to reduce token use by giving agents narrow, reusable instruction
 - `researcher`: gather evidence with provenance and uncertainty.
 - `qa-reviewer`: create and inspect deterministic quality checks.
 - `desloppify-review`: produce a prioritized cleanup backlog before fixes start.
+- `pattern-capture`: turn repeated work into reusable guidance after it is earned.
+- `worktree-shipping-checklist`: keep scoped branch/worktree shipping clean.
 - `phase-closeout-audit`: close work with exact evidence.
 - `project-personalize`: convert the scaffold into a real project.
 

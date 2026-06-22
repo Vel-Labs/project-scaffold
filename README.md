@@ -30,6 +30,7 @@ npm run validate:scaffold
 npm run validate:contracts
 npm run validate:agents
 npm run validate:assignment
+npm run scaffold:memory-check
 npm run test:focused
 npm run test:governance
 npm run test:security
@@ -53,6 +54,8 @@ npm run agent:write-receipt -- path/to/receipt.json
 ```
 
 They write ignored artifacts under `.agent-context/` and `.agent-runs/`.
+
+Routed memory keeps token use low: start from `AGENTS.md`, `REPO_PROFILE.json`, and `docs/agents/CONTEXT_ROUTING.md`, then load only the files relevant to the task.
 
 `REPO_PROFILE.json` is the machine-readable repo taxonomy and command index for humans and agents.
 

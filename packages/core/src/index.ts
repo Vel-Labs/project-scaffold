@@ -21,6 +21,12 @@ export {
   runManualLoop
 } from "./manual-loop-runner.js";
 export {
+  runMemoryCheck
+} from "./memory-check.js";
+export type {
+  MemoryCheckResult
+} from "./memory-check.js";
+export {
   generateAgentAssignment
 } from "./assignment-generator.js";
 export type {

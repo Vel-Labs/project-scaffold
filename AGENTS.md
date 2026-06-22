@@ -53,6 +53,8 @@ This repository is the core project scaffold. Treat changes here as changes to t
 - Put reusable enforcement in scripts, schemas, contracts, tests, or repo-local skills rather than prose-only expectations when practical.
 - When changing scaffold behavior, update the matching docs, templates, validation scripts, and tests together.
 - After scaffold changes, run the narrowest relevant validation, usually `npm run validate:scaffold` first, then broader checks if scripts, contracts, or tests changed.
+- Keep structure earned. Do not add new folders, artifact kinds, or skills for one-off work when an existing doc, skill, receipt, or backlog line is enough.
+- Keep context routed. Prefer small anchor files and task-specific routing over giant always-read instruction files.
 - Agent-control-plane changes must keep `contracts/agent-governance/`, schemas, fixtures, `packages/core` validation, tests, docs, decisions, changelog, and file tree synchronized.
 
 ## Generated repo AGENTS.md baseline

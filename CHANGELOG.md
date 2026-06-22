@@ -11,6 +11,7 @@ All notable repo changes should be logged here.
 - Added run initialization, stale-context checks, receipt drafting/promotion guards, task-type assignment routing, adoption checks, opt-in hook scripts, manual loop stop receipts, and advisory learning contracts.
 - Added beginner-friendly role routing with docs, content, research, and QA personas plus matching repo-local skills and role catalog.
 - Added `desloppify-review` and `human-copy-review` skills, plus a quality-review route for creating `DESLOPPIFY.md` cleanup backlogs before fixes start.
+- Added routed-memory and drift-check improvements: `LOG.md`, `CONTEXT_ROUTING.md`, artifact timeline convention, scaffold drift guidance, compatibility boundaries, `scaffold:memory-check`, pattern capture, and worktree shipping checklist skills.
 
 ## 2026-05-12
 

@@ -15,16 +15,17 @@ This repository is a reusable scaffold template. The job is to keep it clean, co
 5. `contracts/agent-governance/README.md`
 6. `docs/governance/AGENT_OPERATING_MODEL.md`
 7. `docs/agents/ROLE_CATALOG.md`
-8. `docs/governance/ASSIGNMENT_ENGINEERING.md`
-9. `docs/governance/RUNTIME_EVIDENCE.md`
-10. `docs/agents/ROUTING.md`
-11. `docs/architecture/ARCHITECTURE.md`
-12. `docs/architecture/REPO_BOUNDARIES.md`
-13. `packages/core/README.md`
-14. `tests/README.md`
-15. `ROADMAP.md`
-16. `DECISIONS.md`
-17. `docs/roadmaps/CURRENT_STATE_AND_NEXT.md`
+8. `docs/agents/CONTEXT_ROUTING.md`
+9. `docs/governance/ASSIGNMENT_ENGINEERING.md`
+10. `docs/governance/RUNTIME_EVIDENCE.md`
+11. `docs/agents/ROUTING.md`
+12. `docs/architecture/ARCHITECTURE.md`
+13. `docs/architecture/REPO_BOUNDARIES.md`
+14. `packages/core/README.md`
+15. `tests/README.md`
+16. `ROADMAP.md`
+17. `DECISIONS.md`
+18. `docs/roadmaps/CURRENT_STATE_AND_NEXT.md`
 
 ## Default Commands
 
@@ -34,6 +35,7 @@ npm run validate:scaffold
 npm run validate:contracts
 npm run validate:agents
 npm run validate:assignment
+npm run scaffold:memory-check
 npm run test:focused
 npm run test:governance
 npm run test:security

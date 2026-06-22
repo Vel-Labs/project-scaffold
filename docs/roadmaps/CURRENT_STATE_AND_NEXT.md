@@ -12,6 +12,8 @@ This scaffold template now has a contract/core stability baseline:
 - `contracts/agent-governance/`, `contracts/schemas/agent-*.schema.json`, `packages/core/src/validate-governance.ts`, `scripts/agent/validate-governance.ts`, and `scripts/agent/validate-assignment.ts` provide agent governance, assignment, context-profile, receipt-policy, hook, loop, and learning validation.
 - `scripts/agent/generate-assignment.ts` creates task-type-aware, route-aligned local assignments from the canonical router and assignment template.
 - `docs/agents/ROLE_CATALOG.md`, role-specific personas, and repo-local skills route code, docs, test, content, research, and quality-review work to the right agent behavior for non-expert users.
+- `docs/agents/CONTEXT_ROUTING.md` keeps memory routed by task so agents do not need to load every scaffold file.
+- `scripts/validate-memory.ts` provides `npm run scaffold:memory-check` for deterministic drift checks across links, commands, routes, and skills.
 - `skills/desloppify-review/` creates `DESLOPPIFY.md` cleanup backlogs without starting fixes until the user selects a task.
 - `scripts/agent/run-init.ts`, `scripts/agent/build-context-pack.ts`, `scripts/agent/check-context.ts`, `scripts/agent/receipt.ts`, and `scripts/agent/write-receipt.ts` provide local-only runtime evidence helpers that write ignored `.agent-context/` and `.agent-runs/` artifacts.
 - `scripts/agent/preflight.ts`, `scripts/agent/stop-verify.ts`, and `scripts/agent/run-loop.ts` provide opt-in local checks and a manual-only bounded loop runner.
