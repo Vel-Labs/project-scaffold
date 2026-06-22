@@ -10,6 +10,7 @@ describe("memory check", () => {
     const result = await runMemoryCheck(process.cwd());
 
     expect(result.ok).toBe(true);
+    expect(result.score).toBe(100);
     expect(result.checked.routes).toBeGreaterThan(0);
     expect(result.checked.skills).toBeGreaterThan(0);
   });
@@ -34,6 +35,7 @@ describe("memory check", () => {
     const result = await runMemoryCheck(repo);
 
     expect(result.ok).toBe(false);
+    expect(result.score).toBeLessThan(100);
     expect(result.errors.join("\n")).toContain("links to missing local path");
     expect(result.errors.join("\n")).toContain("references missing npm script: gone");
     expect(result.errors.join("\n")).toContain("governance references missing skill folder: missing-skill");
@@ -53,6 +55,7 @@ describe("memory check", () => {
     const result = await runMemoryCheck(repo);
 
     expect(result.ok).toBe(true);
+    expect(result.score).toBe(97);
     expect(result.warnings).toContain("CLI_INDEX.md does not document package script: lint");
   });
 });

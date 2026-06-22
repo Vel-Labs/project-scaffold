@@ -13,6 +13,7 @@
     "validate:assignment": "tsx scripts/agent/validate-assignment.ts",
     "scaffold:adoption-check": "tsx scripts/validate-adoption.ts",
     "scaffold:memory-check": "tsx scripts/validate-memory.ts",
+    "scaffold:sync-plan": "tsx scripts/sync-plan.ts",
     "agent:assign": "tsx scripts/agent/generate-assignment.ts",
     "agent:run-init": "tsx scripts/agent/run-init.ts",
     "agent:build-context": "tsx scripts/agent/build-context-pack.ts",

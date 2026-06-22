@@ -56,6 +56,7 @@ npm run agent:write-receipt -- path/to/receipt.json
 They write ignored artifacts under `.agent-context/` and `.agent-runs/`.
 
 Routed memory keeps token use low: start from `AGENTS.md`, `REPO_PROFILE.json`, and `docs/agents/CONTEXT_ROUTING.md`, then load only the files relevant to the task.
+`npm run scaffold:memory-check` reports a drift score, supports `--json`, and `npm run scaffold:sync-plan` prints a targeted prompt without running an agent.
 
 `REPO_PROFILE.json` is the machine-readable repo taxonomy and command index for humans and agents.
 `CLI_INDEX.md` is the human-readable command index.

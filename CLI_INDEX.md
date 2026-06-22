@@ -15,6 +15,7 @@ These commands should exist in every copied repo unless the scaffold contract ch
 | `npm run validate:assignment` | Validate the default or provided assignment. |
 | `npm run scaffold:adoption-check` | Check generated-repo adoption placeholders and governance entrypoints. |
 | `npm run scaffold:memory-check` | Check routed memory drift, links, documented commands, routes, and skills. |
+| `npm run scaffold:sync-plan` | Print a targeted prompt for fixing memory drift; does not run an agent. |
 | `npm run test:focused` | Run focused contract, core, governance, and security tests. |
 | `npm run test:governance` | Run governance invariant tests. |
 | `npm run test:security` | Run security invariant tests. |
@@ -56,6 +57,7 @@ These commands are expected to be customized or used mainly when converting the 
 | `npm run agent:run-init -- ...` | `--id`, `--summary`, `--type`, `--risk`, `--risk-markers`, `--owner`, `--reviewer`, `--allowed-paths`, `--do-not-touch` |
 | `npm run agent:receipt -- ...` | `--draft`, `--manifest`, `--output`, `--input`, `--promote`, `--audit-reason` |
 | `npm run agent:run-loop -- ...` | `--manifest`, `--receipt`, `--verify-command`, `--max-iterations` |
+| `npm run scaffold:memory-check -- ...` | `--json`; use `npm --silent run scaffold:memory-check -- --json` for machine-readable output |
 
 ## Maintenance Rule
 

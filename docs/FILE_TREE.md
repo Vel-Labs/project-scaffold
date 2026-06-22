@@ -189,6 +189,7 @@ scripts/agent/validate-assignment.ts
 scripts/agent/validate-governance.ts
 scripts/agent/write-receipt.ts
 scripts/init-template.ts
+scripts/sync-plan.ts
 scripts/validate-adoption.ts
 scripts/validate-contracts.ts
 scripts/validate-memory.ts

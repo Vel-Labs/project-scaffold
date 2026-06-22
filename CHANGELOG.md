@@ -13,6 +13,7 @@ All notable repo changes should be logged here.
 - Added `desloppify-review` and `human-copy-review` skills, plus a quality-review route for creating `DESLOPPIFY.md` cleanup backlogs before fixes start.
 - Added routed-memory and drift-check improvements: `LOG.md`, `CONTEXT_ROUTING.md`, artifact timeline convention, scaffold drift guidance, compatibility boundaries, `scaffold:memory-check`, pattern capture, and worktree shipping checklist skills.
 - Added `CLI_INDEX.md` as the human-readable command reference with evergreen, agent-runtime, adoption, and flag sections.
+- Expanded memory drift checks with scoring, JSON output, git staleness, dependency claim warnings, and print-only `scaffold:sync-plan`.
 
 ## 2026-05-12
 

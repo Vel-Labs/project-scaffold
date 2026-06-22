@@ -79,6 +79,7 @@
     "validateAssignment": "npm run validate:assignment",
     "adoptionCheck": "npm run scaffold:adoption-check",
     "memoryCheck": "npm run scaffold:memory-check",
+    "syncPlan": "npm run scaffold:sync-plan",
     "generateAssignment": "npm run agent:assign",
     "initializeAgentRun": "npm run agent:run-init",
     "buildContextPack": "npm run agent:build-context",

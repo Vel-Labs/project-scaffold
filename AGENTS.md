@@ -55,6 +55,7 @@ This repository is the core project scaffold. Treat changes here as changes to t
 - After scaffold changes, run the narrowest relevant validation, usually `npm run validate:scaffold` first, then broader checks if scripts, contracts, or tests changed.
 - Keep structure earned. Do not add new folders, artifact kinds, or skills for one-off work when an existing doc, skill, receipt, or backlog line is enough.
 - Keep context routed. Prefer small anchor files and task-specific routing over giant always-read instruction files.
+- Use `npm run scaffold:sync-plan` to print targeted drift-fix prompts only. Do not auto-run a coding agent or apply sync edits without explicit user instruction.
 - Agent-control-plane changes must keep `contracts/agent-governance/`, schemas, fixtures, `packages/core` validation, tests, docs, decisions, changelog, and file tree synchronized.
 
 ## Generated repo AGENTS.md baseline
