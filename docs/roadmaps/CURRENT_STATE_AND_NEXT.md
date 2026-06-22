@@ -11,7 +11,8 @@ This scaffold template now has a contract/core stability baseline:
 - `contracts/schemas/llm-provider.schema.json` and `packages/core/src/llm-provider-readiness.ts` provide the baseline LLM provider contract/readiness layer without adding live adapter code.
 - `contracts/agent-governance/`, `contracts/schemas/agent-*.schema.json`, `packages/core/src/validate-governance.ts`, `scripts/agent/validate-governance.ts`, and `scripts/agent/validate-assignment.ts` provide agent governance, assignment, context-profile, receipt-policy, hook, loop, and learning validation.
 - `scripts/agent/generate-assignment.ts` creates task-type-aware, route-aligned local assignments from the canonical router and assignment template.
-- `docs/agents/ROLE_CATALOG.md`, role-specific personas, and repo-local skills route code, docs, test, content, and research work to the right agent behavior for non-expert users.
+- `docs/agents/ROLE_CATALOG.md`, role-specific personas, and repo-local skills route code, docs, test, content, research, and quality-review work to the right agent behavior for non-expert users.
+- `skills/desloppify-review/` creates `DESLOPPIFY.md` cleanup backlogs without starting fixes until the user selects a task.
 - `scripts/agent/run-init.ts`, `scripts/agent/build-context-pack.ts`, `scripts/agent/check-context.ts`, `scripts/agent/receipt.ts`, and `scripts/agent/write-receipt.ts` provide local-only runtime evidence helpers that write ignored `.agent-context/` and `.agent-runs/` artifacts.
 - `scripts/agent/preflight.ts`, `scripts/agent/stop-verify.ts`, and `scripts/agent/run-loop.ts` provide opt-in local checks and a manual-only bounded loop runner.
 - `docs/governance/LEARNINGS.md` and `contracts/agent-governance/learnings/` provide advisory learning distillation without overriding canonical contracts.

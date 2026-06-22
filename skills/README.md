@@ -30,8 +30,10 @@ The purpose is to reduce token use by giving agents narrow, reusable instruction
 - `contract-steward`: maintain canonical contracts and schemas.
 - `docs-steward`: write operational docs for non-expert users.
 - `copywriter`: draft user-facing copy from approved sources.
+- `human-copy-review`: make copy sound natural without inventing unsupported claims.
 - `researcher`: gather evidence with provenance and uncertainty.
 - `qa-reviewer`: create and inspect deterministic quality checks.
+- `desloppify-review`: produce a prioritized cleanup backlog before fixes start.
 - `phase-closeout-audit`: close work with exact evidence.
 - `project-personalize`: convert the scaffold into a real project.
 

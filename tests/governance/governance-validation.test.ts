@@ -13,8 +13,10 @@ const skillIds = new Set([
   "agent-assignment-writer",
   "copywriter",
   "contract-steward",
+  "desloppify-review",
   "core-enforcement",
   "docs-steward",
+  "human-copy-review",
   "qa-reviewer",
   "researcher",
   "phase-closeout-audit"
@@ -27,8 +29,8 @@ describe("agent governance validation", () => {
     expect(result).toEqual({
       ok: true,
       checked: {
-        artifacts: 21,
-        routes: 5,
+        artifacts: 22,
+        routes: 6,
         assignments: 1,
         contextProfiles: 1,
         workflows: 2,

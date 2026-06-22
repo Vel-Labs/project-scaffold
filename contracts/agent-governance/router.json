@@ -67,7 +67,7 @@
       "workflowId": "scoped-change",
       "makerPersonaId": "copywriter",
       "verifierPersonaId": "docs-steward",
-      "requiredSkills": ["agent-assignment-writer", "copywriter", "docs-steward"],
+      "requiredSkills": ["agent-assignment-writer", "copywriter", "human-copy-review", "docs-steward"],
       "contextProfile": "scoped-change",
       "autonomyCeiling": "A2",
       "humanGates": ["brand-sensitive-copy", "governance-locked-file-change", "external-write-request"],
@@ -88,6 +88,23 @@
       "contextProfile": "scoped-change",
       "autonomyCeiling": "A1",
       "humanGates": ["external-source-review", "governance-locked-file-change", "external-write-request"],
+      "requestedActions": ["local-write", "local-validation"]
+    },
+    {
+      "id": "scoped-quality-review",
+      "priority": 130,
+      "matches": {
+        "taskTypes": ["quality"],
+        "riskMarkers": ["local-write"],
+        "forbiddenRiskMarkers": ["deploy", "release", "merge", "external-write", "secret-access"]
+      },
+      "workflowId": "scoped-change",
+      "makerPersonaId": "quality-reviewer",
+      "verifierPersonaId": "verifier",
+      "requiredSkills": ["agent-assignment-writer", "desloppify-review", "phase-closeout-audit"],
+      "contextProfile": "scoped-change",
+      "autonomyCeiling": "A1",
+      "humanGates": ["cleanup-task-selection", "governance-locked-file-change", "external-write-request"],
       "requestedActions": ["local-write", "local-validation"]
     }
   ],

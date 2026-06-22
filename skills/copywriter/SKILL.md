@@ -1,6 +1,6 @@
 ---
 name: copywriter
-description: Draft concise project copy, release notes, product language, and user-facing explanations from approved source material without inventing unsupported claims.
+description: Use when drafting project copy, release notes, product language, or user-facing explanations from approved source material
 license: Complete terms in LICENSE.txt
 ---
 

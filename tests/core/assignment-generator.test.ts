@@ -78,6 +78,20 @@ describe("assignment generator", () => {
       verifierPersonaId: "docs-steward",
       autonomyLevel: "A2"
     });
+
+    const quality = await generateAgentAssignment(repo, {
+      id: "quality-assignment",
+      taskType: "quality",
+      summary: "Perform a desloppify scan before cleanup work."
+    });
+    expect(quality.ok).toBe(true);
+    if (!quality.ok) return;
+    expect(quality.assignment).toMatchObject({
+      routeId: "scoped-quality-review",
+      makerPersonaId: "quality-reviewer",
+      verifierPersonaId: "verifier",
+      autonomyLevel: "A1"
+    });
   });
 });
 
@@ -97,8 +111,11 @@ async function makeGovernedRepo(): Promise<string> {
     "contract-steward",
     "copywriter",
     "core-enforcement",
+    "desloppify-review",
     "docs-steward",
+    "human-copy-review",
     "phase-closeout-audit",
+    "quality-reviewer",
     "qa-reviewer",
     "researcher"
   ]) {

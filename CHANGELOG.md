@@ -10,6 +10,7 @@ All notable repo changes should be logged here.
 - Added a local-only assignment generator that creates route-aligned assignments under ignored `.agent-runs/`.
 - Added run initialization, stale-context checks, receipt drafting/promotion guards, task-type assignment routing, adoption checks, opt-in hook scripts, manual loop stop receipts, and advisory learning contracts.
 - Added beginner-friendly role routing with docs, content, research, and QA personas plus matching repo-local skills and role catalog.
+- Added `desloppify-review` and `human-copy-review` skills, plus a quality-review route for creating `DESLOPPIFY.md` cleanup backlogs before fixes start.
 
 ## 2026-05-12
 

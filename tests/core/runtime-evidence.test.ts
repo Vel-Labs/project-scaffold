@@ -185,8 +185,11 @@ async function makeGovernedRepo(): Promise<string> {
     "contract-steward",
     "copywriter",
     "core-enforcement",
+    "desloppify-review",
     "docs-steward",
+    "human-copy-review",
     "phase-closeout-audit",
+    "quality-reviewer",
     "qa-reviewer",
     "researcher"
   ]) {

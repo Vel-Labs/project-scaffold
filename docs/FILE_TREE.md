@@ -28,6 +28,7 @@ contracts/agent-governance/personas/docs-steward.json
 contracts/agent-governance/personas/implementer.json
 contracts/agent-governance/personas/orchestrator.json
 contracts/agent-governance/personas/qa-reviewer.json
+contracts/agent-governance/personas/quality-reviewer.json
 contracts/agent-governance/personas/release-steward.json
 contracts/agent-governance/personas/researcher.json
 contracts/agent-governance/personas/security-reviewer.json
@@ -191,7 +192,10 @@ skills/agent-assignment-writer/templates/fresh-agent-handoff.md
 skills/contract-steward/SKILL.md
 skills/copywriter/SKILL.md
 skills/core-enforcement/SKILL.md
+skills/desloppify-review/SKILL.md
+skills/desloppify-review/templates/DESLOPPIFY.md
 skills/docs-steward/SKILL.md
+skills/human-copy-review/SKILL.md
 skills/phase-closeout-audit/SKILL.md
 skills/phase-closeout-audit/templates/closeout-audit.md
 skills/project-personalize/SKILL.md

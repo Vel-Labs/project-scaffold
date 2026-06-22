@@ -13,6 +13,7 @@ The default router handles local, assignment-scoped work when the task does not 
 | `scoped-test-change` | `test` | `qa-reviewer` | `verifier` | `A2` |
 | `scoped-content-change` | `content` | `copywriter` | `docs-steward` | `A2` |
 | `scoped-research-change` | `research` | `researcher` | `verifier` | `A1` |
+| `scoped-quality-review` | `quality` | `quality-reviewer` | `verifier` | `A1` |
 
 All default routes use workflow `scoped-change`, context profile `scoped-change`, and local validation only.
 

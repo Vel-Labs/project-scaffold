@@ -12,6 +12,7 @@ Use this catalog when you know what kind of help you need but do not know which 
 | Add or repair tests | `test` | `qa-reviewer` | `npm run agent:run-init -- --type test --summary "..."`
 | Write copy, release text, or user-facing language | `content` | `copywriter` | `npm run agent:run-init -- --type content --summary "..."`
 | Gather and organize evidence | `research` | `researcher` | `npm run agent:run-init -- --type research --summary "..."`
+| Find cleanup and maintainability issues before fixing | `quality` | `quality-reviewer` | `npm run agent:run-init -- --type quality --summary "Perform a desloppify scan"`
 
 If you are unsure, start with `docs` for explanation work, `implementation` for code work, or `research` for unanswered questions.
 
@@ -23,6 +24,7 @@ If you are unsure, start with `docs` for explanation work, `implementation` for 
 - `copywriter`: writes user-facing copy from approved source material.
 - `researcher`: gathers evidence and preserves provenance.
 - `qa-reviewer`: creates or inspects deterministic tests and acceptance checks.
+- `quality-reviewer`: creates `DESLOPPIFY.md` cleanup backlogs before fixes start.
 - `verifier`: checks evidence without editing the implementation under review.
 - `security-reviewer`: checks secrets, external actions, hooks, and high-risk boundaries.
 - `release-steward`: checks release evidence while leaving merge and release actions to humans.

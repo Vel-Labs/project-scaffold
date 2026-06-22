@@ -18,7 +18,7 @@
     "selfApproval": "deny-medium-high",
     "approvalRiskCeiling": "low"
   },
-  "requiredSkills": ["copywriter"],
+  "requiredSkills": ["copywriter", "human-copy-review"],
   "handoffTargets": ["docs-steward", "verifier", "orchestrator"],
   "escalationConditions": [
     "copy depends on unapproved brand or legal claims",
