@@ -7,6 +7,7 @@ All notable repo changes should be logged here.
 - Added the Phase 1 agent governance foundation with canonical contracts, strict schemas, valid/invalid fixtures, reusable core validation, `validate:agents`, governance/security tests, docs, profile routing, and audit evidence.
 - Added assignment, context-profile, and receipt-policy contracts with validation, fixtures, tests, `validate:assignment`, docs, and quality-gate integration.
 - Added local-only context-pack and receipt-writer helpers that consume governance contracts and write ignored runtime evidence artifacts.
+- Added a local-only assignment generator that creates route-aligned assignments under ignored `.agent-runs/`.
 
 ## 2026-05-12
 

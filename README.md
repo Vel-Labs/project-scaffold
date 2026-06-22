@@ -45,6 +45,7 @@ Agent governance starts as contract-to-validation layers. The scaffold defines p
 Runtime evidence helpers are local-only and contract-driven:
 
 ```bash
+npm run agent:assign -- --id my-task --summary "One scoped local change"
 npm run agent:build-context
 npm run agent:write-receipt -- path/to/receipt.json
 ```

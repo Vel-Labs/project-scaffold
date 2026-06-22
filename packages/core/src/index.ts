@@ -8,6 +8,13 @@ export {
   buildContextPack
 } from "./context-pack.js";
 export {
+  generateAgentAssignment
+} from "./assignment-generator.js";
+export type {
+  GenerateAssignmentOptions,
+  GenerateAssignmentResult
+} from "./assignment-generator.js";
+export {
   writeAgentReceipt
 } from "./receipt-writer.js";
 export {

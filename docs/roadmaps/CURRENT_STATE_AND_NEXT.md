@@ -11,6 +11,7 @@ This scaffold template now has a contract/core stability baseline:
 - `contracts/schemas/llm-provider.schema.json` and `packages/core/src/llm-provider-readiness.ts` provide the baseline LLM provider contract/readiness layer without adding live adapter code.
 - `contracts/agent-governance/`, `contracts/schemas/agent-*.schema.json`, `packages/core/src/validate-governance.ts`, `scripts/agent/validate-governance.ts`, and `scripts/agent/validate-assignment.ts` provide agent governance, assignment, context-profile, and receipt-policy validation without adding runtime automation.
 - `scripts/agent/build-context-pack.ts` and `scripts/agent/write-receipt.ts` provide local-only runtime evidence helpers that write ignored `.agent-context/` and `.agent-runs/` artifacts.
+- `scripts/agent/generate-assignment.ts` creates route-aligned local assignments from the canonical router and assignment template.
 - `docs/agents/START_HERE.md` and root `skills/` reduce fresh-agent orientation cost.
 - `.github/` provides minimal issue, PR, and CI quality-gate hygiene.
 - `docs/audits/2026-04-26-contract-core-stability-baseline.md` records closeout evidence.

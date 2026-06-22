@@ -32,6 +32,14 @@ Validate a project-specific assignment with:
 npm run validate:assignment -- path/to/assignment.json
 ```
 
+Generate a scoped assignment from the default router and assignment template with:
+
+```bash
+npm run agent:assign -- --id my-task --summary "One scoped local change"
+```
+
+By default, generated assignments are written under `.agent-runs/<id>/assignment.json`, which is ignored local runtime state.
+
 ## Copy-Forward Rule
 
 Copied projects should customize assignments before enabling any automation. A valid assignment is the project-local proof that the work is scoped, bounded, and has explicit verification expectations.

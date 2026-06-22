@@ -140,6 +140,7 @@ docs/templates/REPO_PERSONALIZATION_CHECKLIST.md
 package-lock.json
 package.json
 packages/core/README.md
+packages/core/src/assignment-generator.ts
 packages/core/src/context-pack.ts
 packages/core/src/file-utils.ts
 packages/core/src/governance-helpers.ts
@@ -152,6 +153,7 @@ packages/core/src/types.ts
 packages/core/src/validate-contracts.ts
 packages/core/src/validate-governance.ts
 scripts/agent/build-context-pack.ts
+scripts/agent/generate-assignment.ts
 scripts/agent/validate-assignment.ts
 scripts/agent/validate-governance.ts
 scripts/agent/write-receipt.ts
@@ -171,6 +173,7 @@ skills/project-personalize/templates/personalization-checklist.md
 template.vars.json
 tests/README.md
 tests/contracts/contract-corpus.test.ts
+tests/core/assignment-generator.test.ts
 tests/core/core-boundary.test.ts
 tests/core/runtime-evidence.test.ts
 tests/governance/governance-validation.test.ts

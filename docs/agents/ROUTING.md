@@ -27,6 +27,12 @@ npm run validate:assignment
 
 Assignments must match the selected route's workflow, personas, requested actions, and autonomy ceiling. They also carry allowed/forbidden paths and expected checks for the current task.
 
+Generate a route-aligned assignment with:
+
+```bash
+npm run agent:assign -- --id my-task --summary "One scoped local change"
+```
+
 ## Fail-Closed Cases
 
 Routing fails closed for unknown task types, conflicting routes, unresolved high-risk markers, unknown workflow/persona/skill references, and requested authority denied by policy.

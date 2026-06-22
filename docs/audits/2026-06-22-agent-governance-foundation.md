@@ -141,6 +141,8 @@ At this contract step, runtime generation and writing were still deferred. `.age
 
 Added local-only helpers:
 
+- `scripts/agent/generate-assignment.ts`
+- `packages/core/src/assignment-generator.ts`
 - `scripts/agent/build-context-pack.ts`
 - `scripts/agent/write-receipt.ts`
 - `packages/core/src/context-pack.ts`
