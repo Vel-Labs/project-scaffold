@@ -39,6 +39,10 @@ npm run typecheck
 npm run check
 ```
 
+This is a command index, not a required sequence. Start with focused checks.
+Use consumer checks for affected dependents. Use `npm run check` for material
+integration, package, migration, or release-candidate validation.
+
 `contracts/` is the canonical source of truth. `packages/core/` is the reusable implementation boundary. `tests/` is the shared local gate and must consume `contracts/` directly instead of redefining contract truth.
 
 Agent governance starts as contract-to-validation layers with local-only runtime evidence helpers. The scaffold defines policy, source authority, router, assignment, context profile, capability, personas, role catalog, workflow, loop, hook policy, receipt schema, receipt policy, fixtures, core validation, tests, and docs. It does not enable scheduled execution, live hooks, merge/release/deploy automation, or external writes.
