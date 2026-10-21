@@ -97,7 +97,6 @@ contracts/schemas/agent-workflow.schema.json
 contracts/schemas/llm-provider.schema.json
 contracts/schemas/project-capability.schema.json
 contracts/schemas/repo-profile.schema.json
-docs/.DS_Store
 docs/FILE_TREE.md
 docs/README.md
 docs/agents/CONTEXT_ROUTING.md
