@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'unsafe-inline'; connect-src 'none'; img-src 'none'; font-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Star Collector — local workshop</title>
+  <style>
+    *{box-sizing:border-box}body{margin:0;min-height:100dvh;background:#111827;color:#fff;font:clamp(12px,2vw,18px) system-ui;display:grid;place-items:center}
+    main{width:min(100vw,calc(100dvh * 4 / 3));aspect-ratio:4/3;display:flex;flex-direction:column;padding:2%;gap:2%;overflow:hidden}
+    h1,p{margin:0}h1{font-size:1.2em}canvas{display:block;width:100%;min-height:0;flex:1;background:#172554;border:2px solid #93c5fd;touch-action:none}
+    .controls{display:flex;gap:.4em;flex-wrap:wrap;justify-content:center}button{font:inherit;min-width:44px;min-height:44px;color:#fff;background:#334155;border:1px solid #cbd5e1;border-radius:.4em;touch-action:none}button:focus-visible,canvas:focus-visible{outline:3px solid #facc15;outline-offset:2px}
+  </style>
+</head>
+<body>
+<main aria-label="Star Collector game">
+  <h1>Star Collector</h1>
+  <p id="status" role="status" aria-live="polite">Ready — press Start</p>
+  <canvas id="game" width="640" height="360" tabindex="0" aria-label="Move to the gold star using arrows, WASD, or the touch controls"></canvas>
+  <div class="controls"><button id="start">Start</button><button id="pause" disabled>Pause</button><button id="restart">Restart</button></div>
+  <div class="controls" aria-label="Touch movement"><button data-direction="left" aria-label="Move left">←</button><button data-direction="up" aria-label="Move up">↑</button><button data-direction="down" aria-label="Move down">↓</button><button data-direction="right" aria-label="Move right">→</button></div>
+  <p>Arrows/WASD · P pause · R restart · Collect the gold star</p>
+</main>
+<script src="game.js"></script>
+</body>
+</html>

@@ -27,7 +27,8 @@
       "template.vars.json",
       "tests/",
       "tsconfig.json",
-      "vitest.config.ts"
+      "vitest.config.ts",
+      "templates/"
     ],
     "rootDocsAllowed": [
       "CHANGELOG.md",
@@ -70,7 +71,10 @@
     "newProjectChecklist": "docs/project/NEW_PROJECT_CHECKLIST.md",
     "skills": "skills/",
     "audits": "docs/audits/",
-    "templates": "docs/templates/"
+    "templates": "docs/templates/",
+    "projectProfiles": "docs/project/PROJECT_PROFILES.md",
+    "relayBoardSkill": "skills/relay-board/SKILL.md",
+    "relayBoardConfig": "skills/relay-board/templates/project.json"
   },
   "commands": {
     "install": "npm run install:local",
@@ -97,7 +101,8 @@
     "securityTests": "npm run test:security",
     "allTests": "npm test",
     "typecheck": "npm run typecheck",
-    "fullCheck": "npm run check"
+    "fullCheck": "npm run check",
+    "createProject": "python3 scripts/create-project.py --help"
   },
   "readFirst": [
     "AGENTS.md",

@@ -7,3 +7,6 @@ coverage/
 gpt-pro-audit/
 .agent-context/
 .agent-runs/
+
+# Local Python lifecycle validators
+__pycache__/

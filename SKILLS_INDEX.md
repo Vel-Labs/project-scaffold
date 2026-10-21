@@ -33,3 +33,8 @@ This file is the human-readable index of repo-local skills. Each skill's `SKILL.
 ## Maintenance Rule
 
 When adding, removing, or renaming a skill, update this file and run `npm run scaffold:memory-check`.
+
+## Optional shared visibility
+
+- `relay-board`: read `skills/relay-board/SKILL.md` to connect a separately
+  installed Relay board. Configuration remains inert until explicitly used.

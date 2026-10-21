@@ -32,7 +32,11 @@
     "rootPolicy": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["keepAtRoot", "rootDocsAllowed", "note"],
+      "required": [
+        "keepAtRoot",
+        "rootDocsAllowed",
+        "note"
+      ],
       "properties": {
         "keepAtRoot": {
           "type": "array",
@@ -100,6 +104,162 @@
       "items": {
         "type": "string"
       }
+    },
+    "project": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "name",
+        "kind"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+        },
+        "name": {
+          "type": "string",
+          "pattern": "^(?!\\.{1,2}$)[A-Za-z0-9._-]+$"
+        },
+        "kind": {
+          "enum": [
+            "standard",
+            "tool",
+            "experimental",
+            "arcade",
+            "disposable"
+          ]
+        }
+      }
+    },
+    "publication": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "state",
+        "repository",
+        "surfaces",
+        "title",
+        "summary",
+        "consent"
+      ],
+      "properties": {
+        "state": {
+          "enum": [
+            "local",
+            "public-unenrolled",
+            "enrolled"
+          ]
+        },
+        "repository": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9-]{0,38}/(?!\\.{1,2}$)[A-Za-z0-9_.-]{1,100}$"
+            }
+          ]
+        },
+        "surfaces": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "projects",
+              "case-study",
+              "tools",
+              "labs",
+              "arcade-workshop",
+              "arcade-playable"
+            ]
+          }
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100,
+          "pattern": "^[^\\x00-\\x1f\\x7f<>\\[\\]`]+$"
+        },
+        "summary": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200,
+          "pattern": "^[^\\x00-\\x1f\\x7f<>\\[\\]`]+$"
+        },
+        "consent": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "metadataSync"
+          ],
+          "properties": {
+            "metadataSync": {
+              "type": "boolean"
+            }
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "state": {
+                "const": "enrolled"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "repository": {
+                "type": "string"
+              },
+              "surfaces": {
+                "minItems": 1
+              },
+              "consent": {
+                "properties": {
+                  "metadataSync": {
+                    "const": true
+                  }
+                }
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "surfaces": {
+                "maxItems": 0
+              },
+              "consent": {
+                "properties": {
+                  "metadataSync": {
+                    "const": false
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "state": {
+                "const": "public-unenrolled"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "repository": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      ]
     }
   }
 }

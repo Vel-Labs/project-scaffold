@@ -62,3 +62,10 @@ These commands are expected to be customized or used mainly when converting the 
 ## Maintenance Rule
 
 When `package.json` scripts change, update this file and run `npm run scaffold:memory-check`.
+
+## Small-project factory
+
+`npm run create:project` runs the dependency-free Python generator. Pass
+`-- DEST --name NAME --profile tool --dry-run` to preview. Select
+`--with-project-context`, `--with-relay` or `--with-ci` explicitly.
+Creation installs nothing and makes no external writes.

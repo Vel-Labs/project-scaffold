@@ -2,6 +2,17 @@
 
 All notable repo changes should be logged here.
 
+## 2026-10-20
+
+- Repair the derived public file tree and qualify canonical memory checks with
+  fixed fixture history; retain live freshness rules and boundary regressions.
+- Publish the small-project factory, optional Project Context, static Arcade
+  starter, opt-in CI, and inert Relay setup with preservation/source-pin checks.
+- Accept generic GitHub identities in portable metadata. Each website bridge
+  still owns its account allowlist, enrollment and external-write authority.
+- Preserve copied lock metadata and Relay identity/operator edits. Keep tests of
+  the external workspace wrapper optional in independent checkouts.
+
 ## 2026-06-22
 
 - Added the Phase 1 agent governance foundation with canonical contracts, strict schemas, valid/invalid fixtures, reusable core validation, `validate:agents`, governance/security tests, docs, profile routing, and audit evidence.

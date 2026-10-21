@@ -35,6 +35,11 @@ Build `<PROJECT_NAME>` in a way that is clear, auditable, readable, and safe to 
 
 ## Working rules
 
+- Relay is optional. Use `skills/relay-board/SKILL.md` only for authorized shared
+  visibility. Preserve its board ID across worktrees; setup does not start a
+  server, launch agents or grant acceptance.
+
+
 - Keep changes scoped.
 - Do not hard-code values that should come from config, contracts, schemas, or source-of-truth records.
 - Do not claim a feature works without evidence.

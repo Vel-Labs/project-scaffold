@@ -75,3 +75,22 @@ It intentionally does not include:
 ## First Project-Specific Step
 
 After copying the scaffold into a real project, the first implementation step is to replace the generic contract example with the project's first canonical contract and then extend `packages/core/` to enforce that contract.
+
+## Small-project creation
+
+Use [project profiles](PROJECT_PROFILES.md) for the smaller Python generator.
+Tool and Standard create structure and metadata, not runnable product logic.
+Optional Context, CI and Relay setup are selected explicitly.
+
+## Optional shared dashboard
+
+Full-copy initialization gives the inert Relay configuration a unique stable
+identity and preserves operator edits on later runs. Read
+[the setup skill](../../skills/relay-board/SKILL.md) before separate board
+registration. No server, database, agent or provider is started by initialization.
+
+## Reviewed manual maintenance
+
+Keep the generated baseline and its exact source revision. Compare later template
+changes against that baseline and your authored files, apply a small reviewed
+patch, then run your own checks. Reinitialization is not an upstream merge.
