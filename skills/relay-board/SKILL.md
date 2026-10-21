@@ -16,8 +16,9 @@ the source project's board. Do not copy runtime history or sessions.
 
 ## Connect to shared Relay
 
-Relay is a separate optional application. Clone its public repository when
-available, or use an explicitly assigned existing Relay installation. Set
+Relay is a separate optional application. Clone
+`https://github.com/Vel-Labs/relay.git`, or use an explicitly assigned existing
+Relay installation. Set
 `RELAY_ROOT` to the directory containing its `app.py` and `RELAY_DB` to your
 chosen database. Do not assume a particular workspace layout, use another
 project's database, or start a service as part of scaffold creation.

@@ -16,9 +16,10 @@ type RepoProfile = {
 
 const repoRoot = process.cwd();
 const errors: string[] = [];
-const ignoredRootEntries = new Set([
+const ignoredEntries = new Set([
   ".git",
   "node_modules",
+  "__pycache__",
   "gpt-pro-audit",
   ".agent-context",
   ".agent-runs",
@@ -38,6 +39,13 @@ await assertForbiddenRootDirsAbsent(profile.forbiddenRootDirectoriesBeforeProjec
 await assertSkillFolders();
 await assertFileTreeCurrent();
 await assertOnlyAllowedPlaceholders(profile.allowedTemplatePlaceholders);
+await assertPathsExist(["skills/relay-board/SKILL.md", "skills/relay-board/templates/project.json"]);
+const relay = await readJson<{ instance: string; title: string; sessions: unknown[] }>(
+  "skills/relay-board/templates/project.json"
+);
+if (typeof relay.instance !== "string" || typeof relay.title !== "string" || !Array.isArray(relay.sessions)) {
+  errors.push("Relay configuration must contain instance, title, and sessions fields");
+}
 
 if (errors.length > 0) {
   console.error("Scaffold validation failed:");
@@ -64,7 +72,7 @@ async function assertRootIsClean(allowedRootEntries: string[]): Promise<void> {
   const entries = await readdir(repoRoot, { withFileTypes: true });
 
   for (const entry of entries) {
-    if (ignoredRootEntries.has(entry.name)) {
+    if (ignoredEntries.has(entry.name)) {
       continue;
     }
     if (!allowed.has(entry.name)) {
@@ -156,7 +164,7 @@ async function listRepoFiles(dir = repoRoot, prefix = ""): Promise<string[]> {
   const files: string[] = [];
 
   for (const entry of entries) {
-    if (prefix === "" && ignoredRootEntries.has(entry.name)) {
+    if (ignoredEntries.has(entry.name)) {
       continue;
     }
     const relative = path.join(prefix, entry.name);

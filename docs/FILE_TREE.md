@@ -228,6 +228,7 @@ tests/README.md
 tests/contracts/contract-corpus.test.ts
 tests/core/assignment-generator.test.ts
 tests/core/core-boundary.test.ts
+tests/core/file-tree.test.ts
 tests/core/memory-check.test.ts
 tests/core/project-context.test.ts
 tests/core/project-profiles.test.ts

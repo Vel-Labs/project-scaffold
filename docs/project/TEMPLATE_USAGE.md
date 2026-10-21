@@ -94,3 +94,8 @@ registration. No server, database, agent or provider is started by initializatio
 Keep the generated baseline and its exact source revision. Compare later template
 changes against that baseline and your authored files, apply a small reviewed
 patch, then run your own checks. Reinitialization is not an upstream merge.
+
+Full-copy initialization needs Node.js/npm and the declared dev dependencies.
+Install with `npm ci` in your own copy. Initialization aligns the package and
+npm v3 lock root names, preserves dependency metadata and validates malformed
+Relay/lock input before writes. It does not install or execute integrations.

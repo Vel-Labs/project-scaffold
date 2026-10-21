@@ -1,25 +1,126 @@
-# Project Governance Scaffold Template
+# Project Scaffold
 
-This is a reusable documentation and governance scaffold for fast-moving open-source projects, hackathons, and AI-assisted builds.
+A good project should explain itself before you have to reconstruct it from chats.
+Project Scaffold gives a new repository a clear starting point: what it is for,
+where its source of truth lives, how to work on it, and how to check a change.
+Humans and coding agents use the same files and commands.
 
-It is based on the Truth, Hardening, Clarity methodology and is designed to make a repo clear, orderly, auditable, and safe for parallel human plus coding-agent work.
+Use it for a small tool, a plugin, a website, or an experiment that may grow into
+something larger. Start with a small baseline. Add contracts, integrations and
+shared project visibility when the project needs them. The scaffold supplies
+structure and validation; your project supplies the product and its behavior.
 
-This folder is meant to be copied into future projects. It is not a product implementation repo.
+The approach follows **Truth, Hardening, Clarity**: put important facts in owned
+files, check meaningful boundaries, and make the result understandable to the next
+person or agent. A passing repository check is useful evidence, not proof that a
+product is shipped or useful.
 
-## How to use
+## What you get
 
-1. Copy this folder into a new repo.
-2. Replace placeholder project names.
-3. Fill in `docs/project/PROJECT_BRIEF.md`.
-4. Read `docs/project/TEMPLATE_USAGE.md`.
-5. Define canonical project truth in `contracts/` before implementation.
-6. For agent-governed work, start from `contracts/agent-governance/`, `docs/governance/AGENT_OPERATING_MODEL.md`, and `docs/agents/ROUTING.md`.
-7. For LLM-backed projects, start from `docs/integrations/LLM_PROVIDER_INTEGRATION.md`.
-8. Put reusable enforcement in `packages/core/`.
-9. Keep the shared local quality gate in `tests/`.
-10. Fill in `docs/hackathon/` if the project is a hackathon build.
-11. Assign work through `AGENTS.md` and `docs/governance/worktree-governance.md`.
-12. Keep `DECISIONS.md`, `CHANGELOG.md`, and audit docs current.
+| Need | Where it lives |
+| --- | --- |
+| Explain the project to a person | `README.md`; optional `PROJECT_CONTEXT.md` for reviewed goals, research, topics and related projects. |
+| Give an agent the right starting context | Short `AGENTS.md`, `REPO_PROFILE.json` and task-specific reading. |
+| Keep identity and commands consistent | The project-owned profile and validator; preserve its ID across renames and worktrees. |
+| Define behavior as complexity grows | `contracts/`, reusable enforcement in `packages/core/`, and checks that consume those contracts. |
+| Remember why something changed | Project decision notes; full-copy projects also have roadmap and change-log entrypoints. |
+| See reports and send messages across sessions | Optional shared Relay board, connected separately to the project's stable board ID. |
+| Make a public project discoverable | Explicit publication metadata and a separately reviewed website-index update. |
+
+## Choose a starting point
+
+### Small project: generate only the baseline you need
+
+The small factory needs Python 3.10+. Clone this repository and run:
+
+```bash
+git clone https://github.com/Vel-Labs/project-scaffold.git
+cd project-scaffold
+python3 scripts/create-project.py /absolute/new/orbit --name orbit --profile tool --dry-run
+python3 scripts/create-project.py /absolute/new/orbit --name orbit --profile tool
+python3 /absolute/new/orbit/scripts/validate_project.py /absolute/new/orbit
+```
+
+Choose `standard`, `tool`, `experimental`, `arcade` or `disposable`. The first
+three establish a project structure, not a working app or CLI. The Arcade profile
+also includes a static workshop game; browser testing and deployment remain
+separate. Disposable projects stay local.
+
+Select capabilities explicitly:
+
+- `--with-project-context` adds the readable, evidence-backed Context format and
+  its formatter. It starts empty and unreviewed.
+- `--with-relay` adds a project identity and instructions for the shared board.
+  It does not copy a server or register a board.
+- `--with-ci` adds read-only metadata validation in GitHub Actions.
+- `--adopt` fills missing files in an existing project while preserving authored
+  content. It refuses an existing profile; review that profile through its owner.
+
+Creation does not initialize Git, install packages, launch agents, start services
+or publish anything. See [profiles and options](docs/project/PROJECT_PROFILES.md)
+for the exact generated files and constraints.
+
+### Full copy: use the contract and agent-governance baseline
+
+For a project that needs the fuller contract/core boundary and local agent
+helpers, copy the scaffold into a new repository. Keep the source checkout intact;
+run personalization in the copy:
+
+```bash
+npm run install:local
+npm run init:template:dry-run
+npm run init:template
+npm run validate:scaffold
+```
+
+Then describe the project in `docs/project/PROJECT_BRIEF.md`, define its first
+real contract, and implement its behavior behind that boundary. Customize the
+project mission and startup commands. Load additional governance or skills only
+when the task calls for them. See [template usage](docs/project/TEMPLATE_USAGE.md)
+and the [new-project checklist](docs/project/NEW_PROJECT_CHECKLIST.md).
+
+## How it connects to the rest of a workspace
+
+Each repository keeps its own identity, source, decisions and checks. Shared
+systems consume selected records rather than becoming another copy of project
+truth. This also applies when several tools or packages live beneath a parent
+website or application: document each owned boundary and let the parent own its
+integration and checks.
+
+| Layer | Its job | What setup does not establish |
+| --- | --- | --- |
+| Your tool, plugin or website | Implement the actual product, its entrypoint, packaging and user experience. | The scaffold does not choose an application framework, plugin host or deployment. |
+| Project Context | Explain purpose, findings and evidence-backed relationships in one readable page. | A related-project link recommends review; it does not update the other project. |
+| Shared Relay dashboard | Show attributed project reports, questions, messages and receipts across attached sessions. | An attached session is not a launched or connected agent; reported completion is not acceptance. |
+| Portfolio website, including Website2025 | Read approved public project metadata through its maintained README indexes. | A public Git repository or local profile alone does not enroll a project or publish private Context/history. |
+
+Publication intent lives in `REPO_PROFILE.json`. Local is the default. For an
+existing public project, review an explicit `enrolled` publication object, publish
+only the intended metadata, then review the website owner's index change. Your website owns its reader, cache, cards and rendering checks. Metadata accepts
+your own GitHub owner/repository. The reference Website2025 bridge has its own
+account allowlist and review process; it is not bundled into this scaffold and
+does not enroll others into velcrafting.com. Build or configure your own adapter
+for your website. No portfolio account or connection to our workspace is needed
+to create and validate a project.
+
+
+## Project dashboard: shared Relay, enabled separately
+
+[Relay](https://github.com/Vel-Labs/relay) is an **optional shared application**, not a website bundled into
+every generated repository. It provides a project-labelled board with session
+reports, messages, evidence references and delivery receipts. The generated
+`skills/relay-board/templates/project.json` supplies a unique stable board ID;
+keep it across sessions and worktrees.
+
+Read [the Relay setup skill](skills/relay-board/SKILL.md). Relay is a separate
+local application; point the skill at your own Relay checkout and database to
+register the generated configuration and open that instance in its UI. A full-copy project's initializer also prepares an inert board
+identity. Initialization never starts the dashboard or launches agents.
+
+Try the generated project validator first, then use a separate Relay test database
+to check board creation, a browser message, the exact CLI inbox and explicit
+receipts. These checks test communication; they do not prove live agent execution
+or acceptance of product work.
 
 ## Local quality gate
 
@@ -120,3 +221,8 @@ Do not rely on hidden trust. Make system truth explicit, harden it, and turn it 
 Adapters, demos, and provider integrations are downstream of this baseline and should not start until contract validation and core enforcement remain stable.
 
 LLM provider work starts with contracts, environment-key declarations, readiness checks, fake fallback, and manual gates. Live provider adapters belong to copied projects after those checks are in place.
+
+## License
+
+License selection is pending. Public source visibility is not an open-source
+license; an explicit license will be added before claiming an open-source release.

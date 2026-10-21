@@ -4,6 +4,11 @@ All notable repo changes should be logged here.
 
 ## 2026-10-20
 
+- Explain portable project setup and the optional standalone Relay/website
+  boundaries in the public README after source and consumer verification.
+- Ignore nested runtime cache/OS metadata in the derived source tree, while a
+  behavioral regression still rejects an unlisted owned source file.
+
 - Repair the derived public file tree and qualify canonical memory checks with
   fixed fixture history; retain live freshness rules and boundary regressions.
 - Publish the small-project factory, optional Project Context, static Arcade
