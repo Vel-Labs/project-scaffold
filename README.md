@@ -224,5 +224,5 @@ LLM provider work starts with contracts, environment-key declarations, readiness
 
 ## License
 
-License selection is pending. Public source visibility is not an open-source
-license; an explicit license will be added before claiming an open-source release.
+[MIT](LICENSE). Keep existing third-party notices when reusing dependencies.
+Choose and document the license for your own project.

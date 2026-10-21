@@ -4,6 +4,8 @@ All notable repo changes should be logged here.
 
 ## 2026-10-20
 
+- License original Scaffold code under MIT with the owner's approval.
+
 - Explain portable project setup and the optional standalone Relay/website
   boundaries in the public README after source and consumer verification.
 - Ignore nested runtime cache/OS metadata in the derived source tree, while a
