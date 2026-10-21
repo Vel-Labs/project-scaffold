@@ -4,6 +4,8 @@ All notable repo changes should be logged here.
 
 ## 2026-10-20
 
+- Explicitly enroll the public Scaffold metadata for the reviewed portfolio index.
+
 - License original Scaffold code under MIT with the owner's approval.
 
 - Explain portable project setup and the optional standalone Relay/website

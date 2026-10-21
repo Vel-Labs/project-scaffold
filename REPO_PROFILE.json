@@ -241,5 +241,17 @@
     "npm run test:security",
     "npm test",
     "npm run typecheck"
-  ]
+  ],
+  "publication": {
+    "state": "enrolled",
+    "repository": "Vel-Labs/project-scaffold",
+    "surfaces": [
+      "projects"
+    ],
+    "title": "Project Scaffold",
+    "summary": "Portable project setup for humans and coding agents, with explicit context, validation and optional Relay boards.",
+    "consent": {
+      "metadataSync": true
+    }
+  }
 }
