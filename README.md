@@ -15,6 +15,22 @@ files, check meaningful boundaries, and make the result understandable to the ne
 person or agent. A passing repository check is useful evidence, not proof that a
 product is shipped or useful.
 
+## Find your starting point
+
+**For developers and small teams building tools, plugins, websites or experiments with coding agents.**
+
+| Question | Start here |
+| --- | --- |
+| What does it do? | Gives a repository owned context, project identity and repeatable checks. It does not build the product for you. |
+| What setup is supported? | Python 3.10+ for the small factory; see [starting points](#choose-a-starting-point) for the fuller Node-based template. |
+| What can I try? | Preview a new tool with the `--dry-run` example below, create it, then run its generated validator. |
+| How does it fit my workspace? | Your repo remains independent. [Relay and website integration](#how-it-connects-to-the-rest-of-a-workspace) are optional. |
+| What are the limits? | Read [current limitations](#current-limitations). |
+
+## Codex workflow demo
+
+**Still to do:** record and link a short real Codex workflow that creates a small project and runs its generated validator. No public recording was found in the repository or release assets checked on October 22, 2026. The commands below are an example to try; local checks and maintainer-authored PRs are not evidence of independent adoption.
+
 ## What you get
 
 | Need | Where it lives |
@@ -221,6 +237,12 @@ Do not rely on hidden trust. Make system truth explicit, harden it, and turn it 
 Adapters, demos, and provider integrations are downstream of this baseline and should not start until contract validation and core enforcement remain stable.
 
 LLM provider work starts with contracts, environment-key declarations, readiness checks, fake fallback, and manual gates. Live provider adapters belong to copied projects after those checks are in place.
+
+## Current limitations
+
+- A generated tool, plugin or website starts with structure and contracts; it still needs its implementation and user testing.
+- Relay is a separate optional application. The website bridge is a reference integration, not a hosted service included with this repo.
+- Local checks demonstrate specific repository behavior. They do not establish deployment, production readiness or independent adoption.
 
 ## License
 
